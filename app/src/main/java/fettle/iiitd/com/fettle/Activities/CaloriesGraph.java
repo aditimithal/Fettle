@@ -1,4 +1,4 @@
-package fettle.iiitd.com.fettle;
+package fettle.iiitd.com.fettle.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.graphics.Color;
@@ -28,6 +28,8 @@ import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import java.util.ArrayList;
 
+import fettle.iiitd.com.fettle.R;
+
 /**
  * Created by danishgoel on 11/03/16.
  */
@@ -45,15 +47,12 @@ public class CaloriesGraph extends AppCompatActivity implements OnSeekBarChangeL
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.calories_graph);
 
-        tvX = (TextView) findViewById(R.id.tvXMax);
-        tvY = (TextView) findViewById(R.id.tvYMax);
+        initialiseChart();
 
-        mSeekBarX = (SeekBar) findViewById(R.id.seekBar1);
-        mSeekBarX.setOnSeekBarChangeListener(this);
+    }
 
-        mSeekBarY = (SeekBar) findViewById(R.id.seekBar2);
-        mSeekBarY.setOnSeekBarChangeListener(this);
-
+    private  void initialiseChart()
+    {
         mChart = (BarChart) findViewById(R.id.chart1);
         mChart.setOnChartValueSelectedListener(this);
         mChart.setDescription("");
@@ -78,10 +77,6 @@ public class CaloriesGraph extends AppCompatActivity implements OnSeekBarChangeL
         // set the marker to the chart
 
 
-        mSeekBarX.setProgress(10);
-        mSeekBarY.setProgress(100);
-
-
         Legend l = mChart.getLegend();
         l.setPosition(LegendPosition.RIGHT_OF_CHART_INSIDE);
         l.setYOffset(0f);
@@ -97,54 +92,31 @@ public class CaloriesGraph extends AppCompatActivity implements OnSeekBarChangeL
         leftAxis.setAxisMinValue(0f); // this replaces setStartAtZero(true)
 
         mChart.getAxisRight().setEnabled(false);
-    }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 
-        tvX.setText("" + (mSeekBarX.getProgress() * 3));
-        tvY.setText("" + (mSeekBarY.getProgress()));
 
         ArrayList<String> xVals = new ArrayList<String>();
-        for (int i = 0; i < mSeekBarX.getProgress(); i++) {
+        for (int i = 0; i < 4; i++) {
             xVals.add((i+1990) + "");
         }
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
-        ArrayList<BarEntry> yVals2 = new ArrayList<BarEntry>();
-        ArrayList<BarEntry> yVals3 = new ArrayList<BarEntry>();
 
-        float mult = mSeekBarY.getProgress() * 1000f;
 
-        for (int i = 0; i < mSeekBarX.getProgress(); i++) {
-            float val = (float) (Math.random() * mult) + 3;
+        for (int i = 0; i < 4; i++) {
+            float val = (float) (Math.random() * 5) + 3;
             yVals1.add(new BarEntry(val, i));
         }
 
-        for (int i = 0; i < mSeekBarX.getProgress(); i++) {
-            float val = (float) (Math.random() * mult) + 3;
-            yVals2.add(new BarEntry(val, i));
-        }
-
-        for (int i = 0; i < mSeekBarX.getProgress(); i++) {
-            float val = (float) (Math.random() * mult) + 3;
-            yVals3.add(new BarEntry(val, i));
-        }
 
         // create 3 datasets with different types
         BarDataSet set1 = new BarDataSet(yVals1, "Company A");
         // set1.setColors(ColorTemplate.createColors(getApplicationContext(),
         // ColorTemplate.FRESH_COLORS));
         set1.setColor(Color.rgb(104, 241, 175));
-        BarDataSet set2 = new BarDataSet(yVals2, "Company B");
-        set2.setColor(Color.rgb(164, 228, 251));
-        BarDataSet set3 = new BarDataSet(yVals3, "Company C");
-        set3.setColor(Color.rgb(242, 247, 158));
 
         ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
         dataSets.add(set1);
-        dataSets.add(set2);
-        dataSets.add(set3);
 
         BarData data = new BarData(xVals, dataSets);
 //        data.setValueFormatter(new LargeValueFormatter());
@@ -157,16 +129,21 @@ public class CaloriesGraph extends AppCompatActivity implements OnSeekBarChangeL
     }
 
     @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+
+    }
+
+    @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        // TODO Auto-generated method stub
 
     }
+
 
     @Override
     public void onValueSelected(Entry e, int dataSetIndex, Highlight h) {

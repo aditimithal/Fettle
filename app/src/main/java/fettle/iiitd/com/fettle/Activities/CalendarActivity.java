@@ -1,9 +1,11 @@
-package fettle.iiitd.com.fettle;
+package fettle.iiitd.com.fettle.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CalendarView;
 import android.widget.Toast;
+
+import fettle.iiitd.com.fettle.R;
 
 /**
  * Created by danishgoel on 11/03/16.
