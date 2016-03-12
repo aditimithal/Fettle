@@ -24,6 +24,9 @@
             android:name=".Activities.CaloriesGraph" />
         <activity
             android:name=".Activities.DayOverview" />
+        <activity
+            android:theme="@style/AppTheme.NoActionBar"
+            android:name=".Activities.Profile" />
 
 
     </application>

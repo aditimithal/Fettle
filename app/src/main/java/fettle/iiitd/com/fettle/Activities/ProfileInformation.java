@@ -1,5 +1,6 @@
 package fettle.iiitd.com.fettle.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,10 +20,11 @@ public class ProfileInformation extends AppCompatActivity {
         toolbar.setTitle("Profile Information");
         setSupportActionBar(toolbar);
 
-        //                Intent myIntent = new Intent(ProfileInformation.this, CalendarActivity.class);
+        Intent myIntent = new Intent(ProfileInformation.this, CalendarActivity.class);
 //                Intent myIntent = new Intent(ProfileInformation.this, CaloriesGraph.class);
 //        Intent myIntent = new Intent(ProfileInformation.this, DayOverview.class);
-//        startActivity(myIntent);
+//        Intent myIntent = new Intent(ProfileInformation.this,CaloriesGraph.class);
+        startActivity(myIntent);
     }
 
     @Override

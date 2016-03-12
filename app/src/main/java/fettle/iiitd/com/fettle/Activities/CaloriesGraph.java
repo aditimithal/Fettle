@@ -96,21 +96,21 @@ public class CaloriesGraph extends AppCompatActivity implements OnSeekBarChangeL
 
 
         ArrayList<String> xVals = new ArrayList<String>();
-        for (int i = 0; i < 4; i++) {
-            xVals.add((i+1990) + "");
+        for (int i = 1; i < 4; i++) {
+            xVals.add((i+20) + "Feb");
         }
 
         ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
 
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 1; i < 4; i++) {
             float val = (float) (Math.random() * 5) + 3;
             yVals1.add(new BarEntry(val, i));
         }
 
 
         // create 3 datasets with different types
-        BarDataSet set1 = new BarDataSet(yVals1, "Company A");
+        BarDataSet set1 = new BarDataSet(yVals1, "Calories");
         // set1.setColors(ColorTemplate.createColors(getApplicationContext(),
         // ColorTemplate.FRESH_COLORS));
         set1.setColor(Color.rgb(104, 241, 175));
