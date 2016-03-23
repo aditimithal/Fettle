@@ -15,7 +15,7 @@
             android:id="@+id/time1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="50 Mins" />
+            android:text="Breakfast" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,18 +25,18 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/firstElement"
         android:id="@+id/secondElement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/firstElement"
+        android:layout_marginTop="24dp"
         android:gravity="center">
 
         <TextView
             android:id="@+id/time2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="30 Mins" />
+            android:text="Lunch" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,9 +47,31 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_below="@+id/secondElement"
+        android:id="@+id/thirdElement"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondElement"
+        android:layout_marginTop="24dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/time3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dinner" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time3"
+            android:text="Y cals" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/thirdElement">
 
         <View
             android:id="@+id/topBorder"
@@ -59,19 +81,19 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
-            android:layout_below="@id/topBorder"
             android:id="@+id/calorie_info"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/topBorder"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="You were short by Z calories"/>
 
         <View
-            android:layout_marginTop="8dp"
-            android:layout_below="@+id/calorie_info"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_below="@+id/calorie_info"
+            android:layout_marginTop="8dp"
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
 

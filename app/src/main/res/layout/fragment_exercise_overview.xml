@@ -8,70 +8,79 @@
         android:id="@+id/firstElement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center">
+        android:layout_marginTop="24dp">
 
+        <ImageView
+            android:id="@+id/standing"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/standing" />
         <TextView
             android:id="@+id/time1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Breakfast" />
+            android:layout_centerHorizontal="true"
+            android:text="50 Mins"
+            android:textSize="22sp"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/time1"
-            android:text="X cals" />
+            android:layout_centerHorizontal="true"
+            android:text="X cals"
+            android:textSize="22sp" />
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/firstElement"
         android:id="@+id/secondElement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:layout_below="@+id/firstElement"
+        android:layout_marginTop="32dp">
+
+        <ImageView
+            android:id="@+id/workout_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/workout" />
 
         <TextView
             android:id="@+id/time2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lunch" />
+            android:layout_centerHorizontal="true"
+            android:text="30 Mins"
+            android:textSize="22sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/time2"
-            android:text="Y cals" />
+            android:layout_centerHorizontal="true"
+            android:text="Y cals"
+            android:textSize="22sp" />
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_marginTop="24dp"
+    <TextView
+        android:id="@+id/totalCalories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/secondElement"
-        android:id="@+id/thirdElement"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="Total Calories:500"
+        android:textSize="22sp"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/time3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Dinner" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/time3"
-            android:text="Y cals" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_below="@+id/thirdElement"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_below="@+id/totalCalories"
+        android:layout_marginTop="32dp">
 
         <View
             android:id="@+id/topBorder"
@@ -81,19 +90,20 @@
             android:background="@android:color/darker_gray" />
 
         <TextView
-            android:layout_below="@id/topBorder"
             android:id="@+id/calorie_info"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="You were short by Z calories"/>
+            android:layout_below="@id/topBorder"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="You were short by Z calories"
+            android:textSize="22sp"/>
 
         <View
-            android:layout_marginTop="8dp"
-            android:layout_below="@+id/calorie_info"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_below="@+id/calorie_info"
+            android:layout_marginTop="16dp"
             android:background="@android:color/darker_gray" />
     </RelativeLayout>
 

@@ -25,8 +25,12 @@
         <activity
             android:name=".Activities.DayOverview" />
         <activity
-            android:theme="@style/AppTheme.NoActionBar"
-            android:name=".Activities.Profile" />
+            android:name=".Activities.Profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".Activities.RestrauntList"
+            android:theme="@style/AppTheme.NoActionBar" />
 
 
     </application>
