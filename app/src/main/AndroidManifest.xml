@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fettle.iiitd.com.fettle" >
+    package="fettle.iiitd.com.fettle">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.ProfileInformation"
+            android:name=".Activities.HomeScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,19 +18,17 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".Activities.CalendarActivity" />
-        <activity
-            android:name=".Activities.CaloriesGraph" />
-        <activity
-            android:name=".Activities.DayOverview" />
-        <activity
-            android:name=".Activities.Profile"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.ProfileInformation" />
 
-        <activity
-            android:name=".Activities.RestrauntList"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activities.CalendarActivity" />
+        <activity android:name=".Activities.CaloriesGraph" />
+        <activity android:name=".Activities.DayOverview" />
+        <activity android:name=".Activities.Profile" />
+
+        <activity android:name=".Activities.RestrauntMenuList" />
+
+        <activity android:name=".Activities.RestrauntList" />
+        <activity android:name=".Activities.SignUp" />
 
 
     </application>

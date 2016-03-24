@@ -15,16 +15,6 @@ public class ProfileInformation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_information);
-
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("Profile Information");
-        setSupportActionBar(toolbar);
-
-        Intent myIntent = new Intent(ProfileInformation.this, CalendarActivity.class);
-//                Intent myIntent = new Intent(ProfileInformation.this, CaloriesGraph.class);
-//        Intent myIntent = new Intent(ProfileInformation.this, DayOverview.class);
-//        Intent myIntent = new Intent(ProfileInformation.this,CaloriesGraph.class);
-        startActivity(myIntent);
     }
 
     @Override

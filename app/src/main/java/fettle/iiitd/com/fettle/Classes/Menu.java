@@ -1,29 +1,38 @@
 package fettle.iiitd.com.fettle.Classes;
 
 /**
- * Created by danishgoel on 24/03/16.
+ * Created by danishgoel on 22/03/16.
  */
-public class Restraunt {
+public class Menu {
 
-    String name;
-    int stars;
+    String Name;
+    int rating;
+    String location;
     int minOrder;
     int deliveryTime;
 
     public String getName() {
-        return name;
+        return Name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        Name = name;
     }
 
-    public int getStars() {
-        return stars;
+    public int getRating() {
+        return rating;
     }
 
-    public void setStars(int stars) {
-        this.stars = stars;
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public int getMinOrder() {
@@ -41,6 +50,4 @@ public class Restraunt {
     public void setDeliveryTime(int deliveryTime) {
         this.deliveryTime = deliveryTime;
     }
-
-
 }

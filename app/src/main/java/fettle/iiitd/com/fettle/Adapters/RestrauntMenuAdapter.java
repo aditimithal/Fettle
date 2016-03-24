@@ -11,25 +11,33 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import fettle.iiitd.com.fettle.Classes.Menu;
-import fettle.iiitd.com.fettle.Classes.Restraunt;
 import fettle.iiitd.com.fettle.R;
 
 /**
- * Created by danishgoel on 24/03/16.
+ * Created by danishgoel on 29/02/16.
  */
-public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private ArrayList<Restraunt> messages;
+    private final int VIEW_HEADER = 0;
+    private final int VIEW_CARD = 1;
+    private ArrayList<Menu> messages;
     private LayoutInflater inflater = null;
 
-    public RestrauntListAdapter(Context context, ArrayList<Restraunt> messages) {
+    public RestrauntMenuAdapter(Context context, ArrayList<Menu> messages) {
         this.messages = messages;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new UserListViewHolder(inflater.inflate(R.layout.restraunt_list_card, parent, false));
+
+        if (viewType == VIEW_HEADER) {
+            return new UserListViewHolder(inflater.inflate(R.layout.restraunt_menu_header, parent, false));
+        }
+        else
+        {
+            return new UserListViewHolder(inflater.inflate(R.layout.restraunt_menu_card, parent, false));
+        }
 
     }
 
@@ -49,9 +57,21 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     @Override
+    public int getItemViewType(int position) {
+
+        if (position==0) {
+            return VIEW_HEADER;
+        } else  {
+            return VIEW_CARD;
+        }
+
+    }
+
+    @Override
     public int getItemCount() {
         return messages.size();
     }
+
 
     private static class UserListViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
@@ -70,4 +90,3 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 }
-
