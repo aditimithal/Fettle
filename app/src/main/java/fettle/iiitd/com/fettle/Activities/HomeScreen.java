@@ -64,5 +64,10 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
             Intent myIntent = new Intent(HomeScreen.this, SignUp.class);
             startActivity(myIntent);
         }
+        else if (v.getId() == R.id.landing) {
+            Intent myIntent = new Intent(HomeScreen.this, LandingActivity.class);
+            startActivity(myIntent);
+        }
     }
+
 }

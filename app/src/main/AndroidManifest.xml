@@ -17,20 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Activities.ProfileInformation" />
-
         <activity android:name=".Activities.CalendarActivity" />
         <activity android:name=".Activities.CaloriesGraph" />
         <activity android:name=".Activities.DayOverview" />
         <activity android:name=".Activities.Profile" />
-
         <activity android:name=".Activities.RestrauntMenuList" />
-
         <activity android:name=".Activities.RestrauntList" />
         <activity android:name=".Activities.SignUp" />
-
-
+        <activity android:name=".Activities.OnBoardingActivity" />
+        <activity android:name=".Activities.LandingActivity"></activity>
     </application>
 
 </manifest>

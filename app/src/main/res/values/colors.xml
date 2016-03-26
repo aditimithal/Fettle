@@ -11,4 +11,8 @@
 
     <item name="darkgreen" type="color">#FF669900</item>
 
+    <item name="orange" type="color">#FF9003</item>
+    <item name="mauve" type="color">#C51E5D</item>
+
+
 </resources>
