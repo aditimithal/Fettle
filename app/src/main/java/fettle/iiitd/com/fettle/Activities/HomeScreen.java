@@ -32,6 +32,28 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.homescreen);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setNavigationDrawer(toolbar);
+
+        Button overview, profile, restraunt, graph, calendar, menu, signup;
+        overview = (Button) findViewById(R.id.overviewbutton);
+        profile = (Button) findViewById(R.id.profilebutton);
+        restraunt = (Button) findViewById(R.id.restrauntbutton);
+        graph = (Button) findViewById(R.id.graphbutton);
+        calendar = (Button) findViewById(R.id.calendarbutton);
+        menu = (Button) findViewById(R.id.menubutton);
+        signup = (Button) findViewById(R.id.signup);
+
+        overview.setOnClickListener(this);
+        profile.setOnClickListener(this);
+        restraunt.setOnClickListener(this);
+        graph.setOnClickListener(this);
+        calendar.setOnClickListener(this);
+        menu.setOnClickListener(this);
+        signup.setOnClickListener(this);
+    }
+
+    public void setNavigationDrawer(Toolbar toolbar) {
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.drawer_bg)
@@ -66,23 +88,6 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
                 .build();
 
         result.addStickyFooterItem(new PrimaryDrawerItem().withIcon(GoogleMaterial.Icon.gmd_settings).withName("Settings"));
-
-        Button overview, profile, restraunt, graph, calendar, menu, signup;
-        overview = (Button) findViewById(R.id.overviewbutton);
-        profile = (Button) findViewById(R.id.profilebutton);
-        restraunt = (Button) findViewById(R.id.restrauntbutton);
-        graph = (Button) findViewById(R.id.graphbutton);
-        calendar = (Button) findViewById(R.id.calendarbutton);
-        menu = (Button) findViewById(R.id.menubutton);
-        signup = (Button) findViewById(R.id.signup);
-
-        overview.setOnClickListener(this);
-        profile.setOnClickListener(this);
-        restraunt.setOnClickListener(this);
-        graph.setOnClickListener(this);
-        calendar.setOnClickListener(this);
-        menu.setOnClickListener(this);
-        signup.setOnClickListener(this);
     }
 
     @Override
