@@ -2,26 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="16dp">
 
     <RelativeLayout
         android:id="@+id/firstElement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center">
+        android:layout_marginTop="24dp">
 
         <TextView
             android:id="@+id/time1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Breakfast" />
+            android:text="Breakfast"
+            android:textSize="22sp" />
 
-        <TextView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/breakfast_recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/time1"
-            android:text="X cals" />
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -29,20 +29,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/firstElement"
-        android:layout_marginTop="24dp"
-        android:gravity="center">
+        android:layout_marginTop="24dp">
 
         <TextView
             android:id="@+id/time2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Lunch" />
+            android:text="Lunch"
+            android:textSize="22sp" />
 
-        <TextView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/lunch_recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/time2"
-            android:text="Y cals" />
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
@@ -51,50 +50,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/secondElement"
-        android:layout_marginTop="24dp"
-        android:gravity="center">
+        android:layout_marginTop="24dp">
 
         <TextView
             android:id="@+id/time3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Dinner" />
+            android:text="Dinner"
+            android:textSize="22sp" />
 
-        <TextView
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/dinner_recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/time3"
-            android:text="Y cals" />
+            android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/thirdElement">
+        android:layout_below="@+id/thirdElement"
+        android:layout_marginTop="16dp">
 
-        <View
-            android:id="@+id/topBorder"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/darker_gray" />
 
         <TextView
             android:id="@+id/calorie_info"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/topBorder"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
-            android:text="You were short by Z calories"/>
+            android:text="Total Calories" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_below="@+id/calorie_info"
-            android:layout_marginTop="8dp"
-            android:background="@android:color/darker_gray" />
+        <TextView
+            android:id="@+id/total_calories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:text="3500 calories"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 
