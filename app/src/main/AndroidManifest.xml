@@ -17,11 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.ProfileInformation" />
+        <activity android:name=".Activities.ProfileInput" />
         <activity android:name=".Activities.CalendarActivity" />
         <activity android:name=".Activities.CaloriesGraph" />
         <activity android:name=".Activities.DayOverview" />
-        <activity android:name=".Activities.Profile" />
+        <activity
+            android:name=".Activities.ProfileInfo"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.RestrauntMenuList" />
         <activity android:name=".Activities.RestrauntList" />
         <activity android:name=".Activities.SignUp" />

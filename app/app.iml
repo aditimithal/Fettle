@@ -99,6 +99,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="octicons-typeface-3.0.0.1" level="project" />
     <orderEntry type="library" exported="" name="google-material-typeface-2.2.0.1" level="project" />
+    <orderEntry type="library" exported="" name="MPAndroidChart-v2.2.3" level="project" />
     <orderEntry type="library" exported="" name="cardview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="materialdrawer-5.1.6" level="project" />
     <orderEntry type="library" exported="" name="iconics-core-2.5.10" level="project" />

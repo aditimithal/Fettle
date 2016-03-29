@@ -35,7 +35,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
         setNavigationDrawer(toolbar);
 
-        Button overview, profile, restraunt, graph, calendar, menu, signup;
+        Button overview, profile, restraunt, graph, calendar, menu, signup, profileinfo;
         overview = (Button) findViewById(R.id.overviewbutton);
         profile = (Button) findViewById(R.id.profilebutton);
         restraunt = (Button) findViewById(R.id.restrauntbutton);
@@ -43,6 +43,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         calendar = (Button) findViewById(R.id.calendarbutton);
         menu = (Button) findViewById(R.id.menubutton);
         signup = (Button) findViewById(R.id.signup);
+        profileinfo = (Button) findViewById(R.id.profileInfo);
 
         overview.setOnClickListener(this);
         profile.setOnClickListener(this);
@@ -51,6 +52,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         calendar.setOnClickListener(this);
         menu.setOnClickListener(this);
         signup.setOnClickListener(this);
+        profileinfo.setOnClickListener(this);
     }
 
     public void setNavigationDrawer(Toolbar toolbar) {
@@ -96,7 +98,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
             Intent myIntent = new Intent(HomeScreen.this, DayOverview.class);
             startActivity(myIntent);
         } else if (v.getId() == R.id.profilebutton) {
-            Intent myIntent = new Intent(HomeScreen.this, ProfileInformation.class);
+            Intent myIntent = new Intent(HomeScreen.this, ProfileInput.class);
             startActivity(myIntent);
 
         } else if (v.getId() == R.id.restrauntbutton) {
@@ -117,6 +119,9 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
             startActivity(myIntent);
         } else if (v.getId() == R.id.landing) {
             Intent myIntent = new Intent(HomeScreen.this, LandingActivity.class);
+            startActivity(myIntent);
+        } else if (v.getId() == R.id.profileInfo) {
+            Intent myIntent = new Intent(HomeScreen.this, ProfileInfo.class);
             startActivity(myIntent);
         }
     }

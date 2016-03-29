@@ -20,7 +20,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ProfileInfo" />
+        android:text="ProfileInput" />
 
     <Button
         android:id="@+id/restrauntbutton"
@@ -62,5 +62,11 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="Landing" />
+
+    <Button
+        android:id="@+id/profileInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ProfileInfo" />
 
 </LinearLayout>
