@@ -1,0 +1,153 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fettle.iiitd.com.fettle.Fragments.CardIntakeFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="10dp"
+            android:layout_marginTop="5dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:singleLine="false"
+                    android:text="You are running low on proteins" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/bone" />
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dp"
+            android:layout_alignParentRight="true">
+
+            <TableRow>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/dawn" />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:text="550" />
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/columnLeftMargin"
+                    android:textSize="17sp"
+                    android:text="cal" />
+            </TableRow>
+
+            <TableRow>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/sun" />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:text="1220" />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/columnLeftMargin"
+                    android:textSize="17sp"
+                    android:text="cal" />
+            </TableRow>
+
+            <TableRow>
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/moon" />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:textSize="17sp"
+                    android:text="..." />
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/columnLeftMargin"
+                    android:textSize="17sp"
+                    android:text="cal" />
+            </TableRow>
+
+            <TableRow android:layout_marginTop="5dp">
+
+                <TextView android:text="Total:"
+                    android:textSize="17sp"/>
+
+                <TextView android:text="1567"
+                    android:textSize="17sp"/>
+
+                <TextView
+                    android:layout_marginLeft="@dimen/columnLeftMargin"
+                    android:textSize="17sp"
+                    android:text="cal" />
+            </TableRow>
+        </TableLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today's Intake"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ProgressBar
+                    android:layout_width="130dp"
+                    android:layout_height="20dp"
+                    android:indeterminate="false"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:progress="65"
+                    android:max="100"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/tvPercentage"
+                    android:text="65%"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

@@ -101,7 +101,7 @@
                     android:layout_height="30dp"
                     android:background="@drawable/circular_background_orange"
                     android:padding="5dp"
-                    android:src="@drawable/walking"/>
+                    android:src="@drawable/walking_white"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                     android:layout_height="30dp"
                     android:background="@drawable/circular_background_mauve"
                     android:padding="5dp"
-                    android:src="@drawable/workout"/>
+                    android:src="@drawable/walking_white"/>
 
                 <TextView
                     android:layout_width="wrap_content"

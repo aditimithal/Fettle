@@ -76,10 +76,16 @@ public class CardTrackerFragment extends Fragment {
 //        Resources res = getResources();
 //        Drawable drawable = res.getDrawable(R.drawable.background);
         ProgressBar mProgress = (ProgressBar) view.findViewById(R.id.circularProgressbar);
-        mProgress.setProgress(44);   // Main Progress
-        mProgress.setSecondaryProgress(39); // Secondary Progress
         mProgress.setMax(100); // Maximum Progress
+        setProgress(view, 44, 39);
 //        mProgress.setProgressDrawable(drawable);
+    }
+
+    public void setProgress(View view, int first, int second)
+    {
+        ProgressBar mProgress = (ProgressBar) view.findViewById(R.id.circularProgressbar);
+        mProgress.setProgress(first);   // Main Progress
+        mProgress.setSecondaryProgress(second); // Secondary Progress
     }
 
     // TODO: Rename method, update argument and hook method into UI event
