@@ -14,12 +14,12 @@ import fettle.iiitd.com.fettle.R;
  */
 public class ExerciesOverview extends Fragment {
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            ViewGroup rootView = (ViewGroup) inflater.inflate(
-                    R.layout.fragment_food_overview, container, false);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        ViewGroup rootView = (ViewGroup) inflater.inflate(
+                R.layout.fragment_exercise_overview, container, false);
 
-            return rootView;
-        }
+        return rootView;
+    }
 }

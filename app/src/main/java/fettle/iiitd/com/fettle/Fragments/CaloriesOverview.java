@@ -18,9 +18,14 @@ public class CaloriesOverview extends Fragment {
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             ViewGroup rootView = (ViewGroup) inflater.inflate(
-                    R.layout.fragment_exercise_overview, container, false);
+                    R.layout.fragment_food_overview, container, false);
 
             return rootView;
         }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
 }
