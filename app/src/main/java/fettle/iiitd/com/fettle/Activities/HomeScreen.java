@@ -123,6 +123,9 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         } else if (v.getId() == R.id.profileInfo) {
             Intent myIntent = new Intent(HomeScreen.this, ProfileInfo.class);
             startActivity(myIntent);
+        } else if (v.getId() == R.id.customCalendar) {
+            Intent myIntent = new Intent(HomeScreen.this, CustomCalendar.class);
+            startActivity(myIntent);
         }
     }
 

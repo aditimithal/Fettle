@@ -28,7 +28,8 @@
         <activity android:name=".Activities.RestrauntList" />
         <activity android:name=".Activities.SignUp" />
         <activity android:name=".Activities.OnBoardingActivity" />
-        <activity android:name=".Activities.LandingActivity"></activity>
+        <activity android:name=".Activities.LandingActivity" />
+        <activity android:name=".Activities.CustomCalendar"></activity>
     </application>
 
 </manifest>

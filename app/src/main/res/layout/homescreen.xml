@@ -69,4 +69,11 @@
         android:layout_height="wrap_content"
         android:text="ProfileInfo" />
 
+    <Button
+        android:id="@+id/customCalendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="Custom Calendar" />
+
 </LinearLayout>
