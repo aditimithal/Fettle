@@ -2,7 +2,6 @@ package fettle.iiitd.com.fettle.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -48,10 +47,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        //TODO Manan:ADD the event triggers for the folowing activities
-
-        FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab);
-        order.setOnClickListener(this);
+//        FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab);
+//        order.setOnClickListener(this);
 
         mPager1 = (ViewPager) findViewById(R.id.pager1);
         mPagerAdapter1 = new ScreenSlidePagerAdapter1(getSupportFragmentManager());
@@ -70,8 +67,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         setNavigationDrawer(toolbar);
 
         //for testing new screens
-        Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
-        startActivity(myIntent);
+        /*Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
+        startActivity(myIntent);*/
     }
 
     @Override
@@ -79,6 +76,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         if (v.getId() == R.id.fab) {
             Intent myIntent = new Intent(LandingActivity.this, FoodTypeSelection.class);
+            startActivity(myIntent);
+        }
+        if (v.getId() == R.id.fab1) {
+            Intent myIntent = new Intent(LandingActivity.this, FoodTypeSelection.class);
+            startActivity(myIntent);
+        }
+        if (v.getId() == R.id.fab2) {
+            Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
             startActivity(myIntent);
         }
 

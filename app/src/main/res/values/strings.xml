@@ -1,5 +1,18 @@
 <resources>
     <string name="app_name">Fettle</string>
+
+    <string-array name="itemsActive">
+        <item>Sedentary</item>
+        <item>Lightly Active</item>
+        <item>Very Active</item>
+        <item>Moderately Active</item>
+    </string-array>
+
+    <string-array name="itemsExercise">
+        <item>Walk</item>
+        <item>Jog</item>
+    </string-array>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 

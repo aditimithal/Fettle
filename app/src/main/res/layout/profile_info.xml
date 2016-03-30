@@ -99,6 +99,7 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/exercise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -114,6 +115,7 @@
                 android:padding="4dp">
 
                 <TextView
+                    android:id="@+id/height"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -122,6 +124,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"

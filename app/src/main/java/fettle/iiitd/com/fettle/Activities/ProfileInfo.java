@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -21,6 +22,7 @@ import com.github.mikephil.charting.formatter.YAxisValueFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
@@ -31,13 +33,22 @@ import fettle.iiitd.com.fettle.Utilities.MyYAxisValueFormatter;
  * Created by danishgoel on 11/03/16.
  */
 public class ProfileInfo extends AppCompatActivity implements
-        OnChartValueSelectedListener, View.OnClickListener
-{
+        OnChartValueSelectedListener, View.OnClickListener {
     protected BarChart mChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_info);
+
+        try {
+            ParseUser user = ParseUser.getCurrentUser();
+            ((TextView) findViewById(R.id.weight)).setText(user.getInt("weight") + "kg");
+            ((TextView) findViewById(R.id.height)).setText(user.getInt("height") + "cm");
+            ((TextView) findViewById(R.id.exercise)).setText(user.getString("exercise"));
+        } catch (Exception e) {
+
+        }
 
         ImageView edit = (ImageView) findViewById(R.id.edit);
         edit.setOnClickListener(this);
@@ -151,5 +162,18 @@ public class ProfileInfo extends AppCompatActivity implements
             Intent myIntent = new Intent(ProfileInfo.this, ProfileInput.class);
             startActivity(myIntent);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        try {
+            ParseUser user = ParseUser.getCurrentUser();
+            ((TextView) findViewById(R.id.weight)).setText(user.getInt("weight") + "kg");
+            ((TextView) findViewById(R.id.height)).setText(user.getInt("height") + "cm");
+            ((TextView) findViewById(R.id.exercise)).setText(user.getString("exercise"));
+        } catch (Exception e) {
+
+        }
+        super.onResume();
     }
 }

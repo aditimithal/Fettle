@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="fettle.iiitd.com.fettle.Activities.LandingActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,7 +19,84 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="170dp">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/walking" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="Height"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="bottom"
+                    android:text="5'11'"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/workout" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="bottom"
+                    android:text="Weight"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:gravity="bottom"
+                    android:text="67Kg"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/bone" />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +119,9 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="180dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,12 +142,69 @@
         </LinearLayout>
     </android.support.v7.widget.CardView>
 
-    <android.support.design.widget.FloatingActionButton
+    </LinearLayout>
+
+    <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        fab:menu_animationDelayPerItem="50"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="#DA4336"
+        fab:menu_colorPressed="#E75043"
+        fab:menu_colorRipple="#99FFFFFF"
+        fab:menu_fab_label="your_label_here"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_labels_colorNormal="#333333"
+        fab:menu_labels_colorPressed="#444444"
+        fab:menu_labels_colorRipple="#66FFFFFF"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_paddingBottom="4dp"
+        fab:menu_labels_paddingLeft="8dp"
+        fab:menu_labels_paddingRight="8dp"
+        fab:menu_labels_paddingTop="4dp"
+        fab:menu_labels_position="left"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_textColor="#FFFFFF"
+        fab:menu_labels_textSize="14sp"
+        fab:menu_openDirection="up"
+        fab:menu_shadowColor="#66000000"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="3dp"
+        fab:menu_showShadow="true">
 
-</LinearLayout>
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:src="@drawable/sun"
+            fab:fab_label="Menu item 1"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:src="@drawable/moon"
+            fab:fab_label="Menu item 2"
+            fab:fab_size="mini" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+
+</FrameLayout>
