@@ -1,79 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/overviewbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Overview" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary" />
 
-    <Button
-        android:id="@+id/profilebutton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ProfileInput" />
+        <Button
+            android:id="@+id/overviewbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overview" />
 
-    <Button
-        android:id="@+id/restrauntbutton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="RestrauntList" />
 
-    <Button
-        android:id="@+id/graphbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Graph" />
+        <Button
+            android:id="@+id/graphbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graph" />
 
-    <Button
-        android:id="@+id/calendarbutton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calendar" />
+        <Button
+            android:id="@+id/calendarbutton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calendar" />
 
-    <Button
-        android:id="@+id/menubutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Menu" />
 
-    <Button
-        android:id="@+id/signup"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SignUp" />
+        <Button
+            android:id="@+id/signup"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SignUp" />
 
-    <Button
-        android:id="@+id/landing"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Landing" />
-
-    <Button
-        android:id="@+id/profileInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ProfileInfo" />
-
-    <Button
-        android:id="@+id/customCalendar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="Custom Calendar" />
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

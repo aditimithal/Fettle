@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -17,6 +18,7 @@ import com.mikepenz.materialdrawer.model.ExpandableDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import fettle.iiitd.com.fettle.R;
@@ -37,22 +39,20 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
         Button overview, profile, restraunt, graph, calendar, menu, signup, profileinfo;
         overview = (Button) findViewById(R.id.overviewbutton);
-        profile = (Button) findViewById(R.id.profilebutton);
-        restraunt = (Button) findViewById(R.id.restrauntbutton);
+
         graph = (Button) findViewById(R.id.graphbutton);
         calendar = (Button) findViewById(R.id.calendarbutton);
-        menu = (Button) findViewById(R.id.menubutton);
+
         signup = (Button) findViewById(R.id.signup);
-        profileinfo = (Button) findViewById(R.id.profileInfo);
+
 
         overview.setOnClickListener(this);
-        profile.setOnClickListener(this);
-        restraunt.setOnClickListener(this);
+
         graph.setOnClickListener(this);
         calendar.setOnClickListener(this);
-        menu.setOnClickListener(this);
+
         signup.setOnClickListener(this);
-        profileinfo.setOnClickListener(this);
+
     }
 
     public void setNavigationDrawer(Toolbar toolbar) {
@@ -87,6 +87,21 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
                         new PrimaryDrawerItem().withName("Rate Us").withIcon(GoogleMaterial.Icon.gmd_star).withIdentifier(1).withSelectable(false),
                         new PrimaryDrawerItem().withName("Report").withIcon(GoogleMaterial.Icon.gmd_block).withIdentifier(1).withSelectable(false)
                 )
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        // do something with the clicked item :D
+                        if (position == 4) {
+                            Intent myIntent = new Intent(HomeScreen.this, CustomCalendar.class);
+                            startActivity(myIntent);
+                        } else if (position == 5) {
+                            Intent myIntent = new Intent(HomeScreen.this, ProfileInfo.class);
+                            startActivity(myIntent);
+                        }
+                        Toast.makeText(HomeScreen.this, "" + position, Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                })
                 .build();
 
         result.addStickyFooterItem(new PrimaryDrawerItem().withIcon(GoogleMaterial.Icon.gmd_settings).withName("Settings"));
@@ -97,34 +112,14 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         if (v.getId() == R.id.overviewbutton) {
             Intent myIntent = new Intent(HomeScreen.this, DayOverview.class);
             startActivity(myIntent);
-        } else if (v.getId() == R.id.profilebutton) {
-            Intent myIntent = new Intent(HomeScreen.this, ProfileInput.class);
-            startActivity(myIntent);
-
-        } else if (v.getId() == R.id.restrauntbutton) {
-            Intent myIntent = new Intent(HomeScreen.this, RestrauntList.class);
-            startActivity(myIntent);
-
         } else if (v.getId() == R.id.graphbutton) {
             Intent myIntent = new Intent(HomeScreen.this, CaloriesGraph.class);
             startActivity(myIntent);
         } else if (v.getId() == R.id.calendarbutton) {
             Intent myIntent = new Intent(HomeScreen.this, CalendarActivity.class);
             startActivity(myIntent);
-        } else if (v.getId() == R.id.menubutton) {
-            Intent myIntent = new Intent(HomeScreen.this, RestrauntMenuList.class);
-            startActivity(myIntent);
         } else if (v.getId() == R.id.signup) {
             Intent myIntent = new Intent(HomeScreen.this, SignUp.class);
-            startActivity(myIntent);
-        } else if (v.getId() == R.id.landing) {
-            Intent myIntent = new Intent(HomeScreen.this, LandingActivity.class);
-            startActivity(myIntent);
-        } else if (v.getId() == R.id.profileInfo) {
-            Intent myIntent = new Intent(HomeScreen.this, ProfileInfo.class);
-            startActivity(myIntent);
-        } else if (v.getId() == R.id.customCalendar) {
-            Intent myIntent = new Intent(HomeScreen.this, CustomCalendar.class);
             startActivity(myIntent);
         }
     }

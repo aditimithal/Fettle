@@ -35,15 +35,15 @@ public class FoodListAdaper extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-//        ((UserListViewHolder) holder).tvName.setText(messages.get(position).getString("name"));
-//        ((UserListViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
-//        ((UserListViewHolder) holder).tvLocation.setVisibility(View.INVISIBLE);
+//        ((RestrauntViewHolder) holder).tvName.setText(messages.get(position).getString("name"));
+//        ((RestrauntViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
+//        ((RestrauntViewHolder) holder).tvLocation.setVisibility(View.INVISIBLE);
 //        if (messages.get(position).getString("position") != null)
-//            ((UserListViewHolder) holder).tvRole.setText(messages.get(position).getString("position"));
+//            ((RestrauntViewHolder) holder).tvRole.setText(messages.get(position).getString("position"));
 //        if (messages.get(position).getParseObject("constituency") != null)
-//            ((UserListViewHolder) holder).tvLocation.setText(messages.get(position).getParseObject("constituency").getString("name"));
+//            ((RestrauntViewHolder) holder).tvLocation.setText(messages.get(position).getParseObject("constituency").getString("name"));
 //        if (!usersInstalled.contains(messages.get(position).getObjectId())) {
-//            ((UserListViewHolder) holder).tvName.setAlpha((float) .4);
+//            ((RestrauntViewHolder) holder).tvName.setAlpha((float) .4);
 //        }
     }
 

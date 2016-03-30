@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.HomeScreen"
+            android:name=".Activities.LandingActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -17,6 +17,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".Activities.HomeScreen"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activities.ProfileInput" />
         <activity android:name=".Activities.CalendarActivity" />
         <activity android:name=".Activities.CaloriesGraph" />
@@ -28,8 +32,9 @@
         <activity android:name=".Activities.RestrauntList" />
         <activity android:name=".Activities.SignUp" />
         <activity android:name=".Activities.OnBoardingActivity" />
-        <activity android:name=".Activities.LandingActivity" />
-        <activity android:name=".Activities.CustomCalendar"></activity>
+        <activity android:name=".Activities.CustomCalendar" />
+        <activity android:name=".Activities.AddFoodActivity"></activity>
+        <activity android:name=".Activities.FoodTypeSelection"></activity>
     </application>
 
 </manifest>

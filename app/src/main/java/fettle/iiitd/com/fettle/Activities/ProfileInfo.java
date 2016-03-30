@@ -1,10 +1,13 @@
 package fettle.iiitd.com.fettle.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.Legend;
@@ -28,13 +31,16 @@ import fettle.iiitd.com.fettle.Utilities.MyYAxisValueFormatter;
  * Created by danishgoel on 11/03/16.
  */
 public class ProfileInfo extends AppCompatActivity implements
-        OnChartValueSelectedListener
+        OnChartValueSelectedListener, View.OnClickListener
 {
     protected BarChart mChart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_info);
+
+        ImageView edit = (ImageView) findViewById(R.id.edit);
+        edit.setOnClickListener(this);
 
         mChart = (BarChart) findViewById(R.id.chart1);
         mChart.setOnChartValueSelectedListener(this);
@@ -137,5 +143,13 @@ public class ProfileInfo extends AppCompatActivity implements
     @Override
     public void onNothingSelected() {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.edit) {
+            Intent myIntent = new Intent(ProfileInfo.this, ProfileInput.class);
+            startActivity(myIntent);
+        }
     }
 }
