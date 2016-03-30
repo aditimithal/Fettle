@@ -1,11 +1,13 @@
 package fettle.iiitd.com.fettle.Activities;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 import android.widget.Toast;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -37,13 +39,15 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
 
         setNavigationDrawer(toolbar);
 
-        Button overview, profile, restraunt, graph, calendar, menu, signup, profileinfo;
+        Button overview, profile, restraunt, graph, calendar, menu, signup, profileinfo, dialog, newdata;
         overview = (Button) findViewById(R.id.overviewbutton);
 
         graph = (Button) findViewById(R.id.graphbutton);
         calendar = (Button) findViewById(R.id.calendarbutton);
 
         signup = (Button) findViewById(R.id.signup);
+        dialog = (Button) findViewById(R.id.dialog);
+        newdata = (Button) findViewById(R.id.newdata);
 
 
         overview.setOnClickListener(this);
@@ -52,6 +56,9 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         calendar.setOnClickListener(this);
 
         signup.setOnClickListener(this);
+        dialog.setOnClickListener(this);
+        newdata.setOnClickListener(this);
+
 
     }
 
@@ -121,6 +128,35 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         } else if (v.getId() == R.id.signup) {
             Intent myIntent = new Intent(HomeScreen.this, SignUp.class);
             startActivity(myIntent);
+        } else if (v.getId() == R.id.newdata) {
+            Intent myIntent = new Intent(HomeScreen.this, NewItem.class);
+            startActivity(myIntent);
+        } else if (v.getId() == R.id.dialog) {
+            // custom dialog
+            final Dialog dialog = new Dialog(HomeScreen.this);
+            dialog.setContentView(R.layout.quant_dialog);
+            dialog.setTitle("Add new Item");
+
+            NumberPicker numberPicker = (NumberPicker) dialog.findViewById(R.id.numberPicker);
+            numberPicker.setMaxValue(100);
+            numberPicker.setMinValue(1);
+            dialog.show();
+
+            NumberPicker numberPicker1 = (NumberPicker) dialog.findViewById(R.id.numberPicker1);
+            numberPicker1.setMinValue(0);
+            numberPicker1.setMaxValue(1);
+            numberPicker1.setDisplayedValues(new String[]{"Grams", "Cups"});
+
+            Button discard, add;
+
+            discard = (Button) dialog.findViewById(R.id.discard);
+            discard.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+            add = (Button) dialog.findViewById(R.id.add);
         }
     }
 

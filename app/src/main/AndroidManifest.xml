@@ -35,6 +35,7 @@
         <activity android:name=".Activities.CustomCalendar" />
         <activity android:name=".Activities.AddFoodActivity"></activity>
         <activity android:name=".Activities.FoodTypeSelection"></activity>
+        <activity android:name=".Activities.NewItem"></activity>
     </application>
 
 </manifest>

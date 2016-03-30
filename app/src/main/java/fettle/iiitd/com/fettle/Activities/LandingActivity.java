@@ -11,7 +11,6 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -49,6 +48,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        //TODO Manan:ADD the event triggers for the folowing activities
 
         FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab);
         order.setOnClickListener(this);
@@ -68,6 +68,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         indicator2.setViewPager(mPager2);
 
         setNavigationDrawer(toolbar);
+
+        //for testing new screens
+        Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
+        startActivity(myIntent);
     }
 
     @Override
@@ -122,7 +126,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                             Intent myIntent = new Intent(LandingActivity.this, ProfileInfo.class);
                             startActivity(myIntent);
                         }
-                        Toast.makeText(LandingActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(LandingActivity.this, "" + position, Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 })

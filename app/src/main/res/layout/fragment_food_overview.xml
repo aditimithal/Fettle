@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingLeft="16dp">
+    android:padding="16dp">
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
         android:id="@+id/firstElement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +25,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/breakfast_recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time1" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -41,7 +46,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/lunch_recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time2" />
 
     </RelativeLayout>
 
@@ -62,7 +68,8 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/dinner_recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time3" />
 
     </RelativeLayout>
 
@@ -91,5 +98,7 @@
             android:textStyle="bold" />
     </RelativeLayout>
 
+    </RelativeLayout>
 
-</RelativeLayout>
+
+</ScrollView>
