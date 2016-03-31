@@ -44,16 +44,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+
             android:paddingRight="10dp">
 
-            <TableRow>
+            <TableRow android:layout_marginTop="5dp">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:src="@drawable/dawn" />
+                    android:layout_width="@dimen/breakfast_lunch_dinner"
+                    android:layout_height="@dimen/breakfast_lunch_dinner"
+                    android:src="@drawable/breakfast" />
 
                 <TextView
+                    android:id="@+id/tvBreakfast"
                     android:layout_gravity="center_vertical"
                     android:text="550"
                     android:textSize="17sp" />
@@ -64,14 +66,15 @@
                     android:textSize="17sp" />
             </TableRow>
 
-            <TableRow>
+            <TableRow android:layout_marginTop="5dp">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/sun" />
+                    android:layout_width="@dimen/breakfast_lunch_dinner"
+                    android:layout_height="@dimen/breakfast_lunch_dinner"
+                    android:src="@drawable/lunch" />
 
                 <TextView
+                    android:id="@+id/tvLunch"
                     android:layout_gravity="center_vertical"
                     android:text="1220"
                     android:textSize="17sp" />
@@ -83,14 +86,15 @@
                     android:textSize="17sp" />
             </TableRow>
 
-            <TableRow>
+            <TableRow android:layout_marginTop="5dp">
 
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:src="@drawable/moon" />
+                    android:layout_width="@dimen/breakfast_lunch_dinner"
+                    android:layout_height="@dimen/breakfast_lunch_dinner"
+                    android:src="@drawable/dinner" />
 
                 <TextView
+                    android:id="@+id/tvDinner"
                     android:layout_gravity="center_vertical"
                     android:text="..."
                     android:textSize="17sp" />
@@ -102,12 +106,14 @@
                     android:textSize="17sp" />
             </TableRow>
 
-            <TableRow android:layout_marginTop="5dp">
+            <TableRow android:layout_marginTop="10dp">
 
                 <TextView android:text="Total:"
                     android:textSize="17sp"/>
 
-                <TextView android:text="1567"
+                <TextView
+                    android:id="@+id/tvTotal"
+                    android:text="1567"
                     android:textSize="17sp"/>
 
                 <TextView
@@ -133,6 +139,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <ProgressBar
+                    android:id="@+id/progressIntake"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:layout_width="130dp"
                     android:layout_height="20dp"

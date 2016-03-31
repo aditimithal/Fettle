@@ -35,10 +35,24 @@
                 android:layout_marginTop="16dp">
 
                 <EditText
-                    android:id="@+id/input_age"
+                    android:id="@+id/input_calories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Age" />
+                    android:hint="Calories" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_unit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <EditText
+                    android:id="@+id/input_unit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Unit" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -52,7 +66,21 @@
                     android:id="@+id/input_quantity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Usual Quantity" />
+                    android:hint="Quantity" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_grams"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <EditText
+                    android:id="@+id/input_grams"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Grams" />
 
             </android.support.design.widget.TextInputLayout>
 
@@ -123,7 +151,7 @@
             android:layout_marginBottom="16dp"
             android:layout_marginTop="16dp"
             android:clickable="true"
-            android:src="@android:drawable/ic_menu_add" />
+            android:src="@drawable/fab_add" />
     </LinearLayout>
 
 

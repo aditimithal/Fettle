@@ -19,12 +19,11 @@ import fettle.iiitd.com.fettle.R;
 public class CardIntakeNutrientFragment extends Fragment {
 
 
+    String[] nutrients = {"Fiber", "Fats", "Carbs", "Protein"};
+    int[] nutrientDrawables = {R.drawable.fiber_g, R.drawable.fats_g, R.drawable.carbs_g, R.drawable.protein_g};
     public CardIntakeNutrientFragment() {
         // Required empty public constructor
     }
-
-    String[] nutrients = {"Fiber", "Fats", "Carbs", "Protein"};
-    int[] nutrientDrawables = {R.drawable.fiber, R.drawable.fats, R.drawable.carbs, R.drawable.protein};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

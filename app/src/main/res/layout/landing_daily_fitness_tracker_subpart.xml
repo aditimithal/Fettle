@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/tvDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="M"
-        android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"/>
+        android:gravity="center"
+        android:text="M"
+        android:textSize="20sp" />
 
     <FrameLayout
         android:layout_width="wrap_content"
@@ -33,12 +34,11 @@
             android:secondaryProgress="44" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/circular_background_orange_small"
-            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:src="@drawable/walking_white"/>
+            android:padding="5dp"
+            android:src="@drawable/walking_o" />
 
     </FrameLayout>
 
@@ -61,12 +61,11 @@
             android:secondaryProgress="44" />
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:background="@drawable/circular_background_mauve_small"
-            android:padding="5dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="center"
-            android:src="@drawable/workout_white"/>
+            android:padding="5dp"
+            android:src="@drawable/running" />
     </FrameLayout>
 
 </LinearLayout>

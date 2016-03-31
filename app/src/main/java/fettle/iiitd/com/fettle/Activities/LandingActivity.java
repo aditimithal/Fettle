@@ -40,6 +40,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     private ViewPager mPager2;
     private PagerAdapter mPagerAdapter2;
 
+    private Fragment fragment1, fragment2, fragment4;
+    private CardIntakeFragment fragment3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,6 +143,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         result.addStickyFooterItem(new PrimaryDrawerItem().withIcon(GoogleMaterial.Icon.gmd_settings).withName("Settings"));
     }
 
+    public void updateMeals() {
+        fragment3.updateCalories();
+    }
+
     private class ScreenSlidePagerAdapter1 extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter1(FragmentManager fm) {
             super(fm);
@@ -147,10 +154,13 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0)
-                return new CardTrackerFragment();
-            else
-                return new CardTrackerWeekFragment();
+            if (position == 0) {
+                fragment1 = new CardTrackerFragment();
+                return fragment1;
+            } else {
+                fragment2 = new CardTrackerWeekFragment();
+                return fragment2;
+            }
         }
 
         @Override
@@ -166,10 +176,13 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         @Override
         public Fragment getItem(int position) {
-            if (position == 0)
-                return new CardIntakeFragment();
-            else
-                return new CardIntakeNutrientFragment();
+            if (position == 0) {
+                fragment3 = new CardIntakeFragment();
+                return fragment3;
+            } else {
+                fragment4 = new CardIntakeNutrientFragment();
+                return fragment4;
+            }
         }
 
         @Override
@@ -177,5 +190,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             return NUM_PAGES2;
         }
     }
+
 
 }
