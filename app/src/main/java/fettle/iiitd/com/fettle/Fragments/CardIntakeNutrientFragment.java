@@ -1,26 +1,30 @@
 package fettle.iiitd.com.fettle.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import fettle.iiitd.com.fettle.Activities.DayOverview;
 import fettle.iiitd.com.fettle.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CardIntakeNutrientFragment extends Fragment {
+public class CardIntakeNutrientFragment extends Fragment implements View.OnClickListener {
 
 
     String[] nutrients = {"Fiber", "Fats", "Carbs", "Protein"};
     int[] nutrientDrawables = {R.drawable.fiber_g, R.drawable.fats_g, R.drawable.carbs_g, R.drawable.protein_g};
+
     public CardIntakeNutrientFragment() {
         // Required empty public constructor
     }
@@ -52,4 +56,19 @@ public class CardIntakeNutrientFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Button more = (Button) getActivity().findViewById(R.id.nutrient_more_btn);
+        more.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.nutrient_more_btn) {
+            Intent myIntent = new Intent(getActivity(), DayOverview.class);
+            startActivity(myIntent);
+        }
+    }
 }
