@@ -4,42 +4,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:id="@+id/firstElement"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp">
+        android:layout_margin="8dp">
 
-        <ImageView
-            android:id="@+id/standing"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="40dp"
-            android:src="@drawable/standing" />
-        <TextView
-            android:id="@+id/time1"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="50 Mins"
-            android:textSize="22sp"
-            />
+            android:layout_marginTop="24dp"
+            android:paddingBottom="16dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/time1"
-            android:layout_centerHorizontal="true"
-            android:text="X cals"
-            android:textSize="22sp" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/standing"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="40dp"
+                android:src="@drawable/standing" />
 
-    <RelativeLayout
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:text="50 Mins"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/time1"
+                android:layout_marginRight="16dp"
+                android:text="250 cals"
+                android:textSize="22sp" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
         android:id="@+id/secondElement"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/firstElement"
-        android:layout_marginTop="32dp">
+        android:layout_margin="8dp">
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:padding="16dp">
 
         <ImageView
             android:id="@+id/workout_image"
@@ -52,60 +66,76 @@
             android:id="@+id/time2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
             android:text="30 Mins"
             android:textSize="22sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/time2"
-            android:layout_centerHorizontal="true"
-            android:text="Y cals"
+            android:layout_marginRight="16dp"
+            android:text="200 cals"
             android:textSize="22sp" />
 
     </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-    <TextView
-        android:id="@+id/totalCalories"
+    <android.support.v7.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/secondElement"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:text="Total Calories:500"
-        android:textSize="22sp"/>
+        android:layout_margin="8dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/totalCalories"
-        android:layout_marginTop="32dp">
+        android:padding="16dp">
 
-        <View
-            android:id="@+id/topBorder"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
+
+        <TextView
+            android:id="@+id/totalCalTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
             android:layout_marginTop="8dp"
-            android:background="@android:color/darker_gray" />
+            android:text="Total Calories"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/totalCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/totalCalTv"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="450"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ProgressBar
+            android:id="@+id/pg"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/totalCal"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:progress="70" />
 
         <TextView
             android:id="@+id/calorie_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/topBorder"
-            android:layout_marginTop="16dp"
+            android:layout_below="@id/pg"
             android:gravity="center"
-            android:text="You were short by Z calories"
-            android:textSize="22sp"/>
+            android:text="You were short by 500 calories"
+            android:textSize="22sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_below="@+id/calorie_info"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/darker_gray" />
     </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 
 </RelativeLayout>

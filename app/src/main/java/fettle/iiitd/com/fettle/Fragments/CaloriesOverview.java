@@ -37,7 +37,6 @@ public class CaloriesOverview extends Fragment {
         ArrayList<FoodItem> menu = new ArrayList<>();
         FoodItem r1 = new FoodItem();
         menu.add(r1);
-        menu.add(r1);
 
         RecyclerView breakfastRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;

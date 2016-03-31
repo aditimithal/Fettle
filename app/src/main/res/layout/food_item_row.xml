@@ -12,29 +12,20 @@
         android:text="Parantha" />
 
     <TextView
-        android:id="@+id/multiply"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="X" />
-
-    <TextView
         android:id="@+id/quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginRight="16dp"
-        android:text="2 Pcs" />
+        android:text="1 Pcs" />
 
     <TextView
         android:id="@+id/calories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/quantity"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
-        android:text="2000 calories"
+        android:layout_marginRight="8dp"
+        android:text="800 calories"
         android:textSize="16sp"
         android:textStyle="bold" />
 
