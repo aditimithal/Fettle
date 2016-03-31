@@ -1,6 +1,7 @@
 package fettle.iiitd.com.fettle.Activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -10,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -23,8 +25,18 @@ import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
 import com.viewpagerindicator.CirclePageIndicator;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import fettle.iiitd.com.fettle.Classes.Dish;
 import fettle.iiitd.com.fettle.Fragments.CardIntakeFragment;
 import fettle.iiitd.com.fettle.Fragments.CardIntakeNutrientFragment;
 import fettle.iiitd.com.fettle.Fragments.CardTrackerFragment;
@@ -35,13 +47,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     private static final int NUM_PAGES1 = 2;
     private static final int NUM_PAGES2 = 2;
+    public static boolean updateData = false;
     private ViewPager mPager1;
     private PagerAdapter mPagerAdapter1;
     private ViewPager mPager2;
     private PagerAdapter mPagerAdapter2;
-
-    private Fragment fragment1, fragment2, fragment4;
+    private Fragment fragment1, fragment2;
     private CardIntakeFragment fragment3;
+    private CardIntakeNutrientFragment fragment4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +82,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         setNavigationDrawer(toolbar);
 
+        ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
+        ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");
+
         //for testing new screens
         /*Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
         startActivity(myIntent);*/
+
+        new BGload().execute();
     }
 
     @Override
@@ -145,8 +163,108 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         result.addStickyFooterItem(new PrimaryDrawerItem().withIcon(GoogleMaterial.Icon.gmd_settings).withName("Settings"));
     }
 
-    public void updateMeals() {
-        fragment3.updateCalories();
+    public void updateMeals(List<Dish> lDish) {
+
+        int breakfast = 0;
+        int lunch = 0;
+        int dinner = 0;
+        int fiber = 0;
+        int fats = 0;
+        int carbs = 0;
+        int proteins = 0;
+
+        for (Dish each : lDish) {
+            float multiplier = 1f;
+            if (each.getDescription().toLowerCase().startsWith("gram")) {
+                try {
+                    multiplier = each.getQuantity() / Float.parseFloat(each.getGram());
+                } catch (Exception e) {
+                }
+            } else {
+                try {
+                    multiplier = each.getQuantity() / Float.parseFloat(each.getMeasure());
+                } catch (Exception e) {
+                }
+            }
+
+            try {
+            } catch (Exception e) {
+            }
+
+            if (each.getMeal().equals("Breakfast")) {
+                try {
+                    breakfast += Float.parseFloat(each.getCalories()) * multiplier;
+                } catch (Exception e) {
+                }
+            } else if (each.getMeal().equals("Lunch")) {
+                try {
+                    lunch += Float.parseFloat(each.getCalories()) * multiplier;
+                } catch (Exception e) {
+                }
+            } else if (each.getMeal().equals("Dinner")) {
+                try {
+                    dinner += Float.parseFloat(each.getCalories()) * multiplier;
+                } catch (Exception e) {
+                }
+            }
+
+            try {
+                fiber += Float.parseFloat(each.getFiber()) * multiplier;
+            } catch (Exception e) {
+            }
+            try {
+                fats += Float.parseFloat(each.getFat()) * multiplier;
+            } catch (Exception e) {
+            }
+            try {
+                carbs += Float.parseFloat(each.getCarbs()) * multiplier;
+            } catch (Exception e) {
+            }
+            try {
+                proteins += Float.parseFloat(each.getProtein()) * multiplier;
+            } catch (Exception e) {
+            }
+
+        }
+
+        fragment3.updateCalories(breakfast, lunch, dinner, 2000);
+        fragment4.updateNutrients(fiber, fats, carbs, proteins);
+    }
+
+    public void downloadData(boolean update) {
+        downloadData(update, new ArrayList<Dish>());
+    }
+
+    public void downloadData(boolean update, List<Dish> dishes) {
+        List<ParseObject> lPo = new ArrayList<>();
+        List<Dish> lDish = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        Date startDate = calendar.getTime();
+        ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("FoodIntake");
+        parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
+        parseQuery.whereGreaterThan("createdAt", startDate);
+        try {
+            lPo = parseQuery.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for (ParseObject each : lPo) {
+            lDish.add(new Dish(each));
+        }
+        if (update)
+            updateMeals(lDish);
+
+        dishes = lDish;
+    }
+
+    @Override
+    protected void onResume() {
+        if (updateData) {
+            updateData = false;
+            downloadData(true);
+        }
+        super.onResume();
     }
 
     private class ScreenSlidePagerAdapter1 extends FragmentStatePagerAdapter {
@@ -193,5 +311,21 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
+    public class BGload extends AsyncTask<Void, Void, Void> {
+
+        private List<Dish> dishes;
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            downloadData(false, dishes);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            updateMeals(dishes);
+            super.onPostExecute(aVoid);
+        }
+    }
 
 }

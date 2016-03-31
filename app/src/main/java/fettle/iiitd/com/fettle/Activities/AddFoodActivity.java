@@ -95,17 +95,18 @@ public class AddFoodActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LandingActivity.updateData = true;
                 ParseObject parseObject = new ParseObject("FoodIntake");
                 parseObject.put("user", ParseUser.getCurrentUser());
                 parseObject.put("quantity", numberPicker.getValue());
                 parseObject.put("cal", dish.getCalories());
                 parseObject.put("carb", dish.getCarbs());
-                parseObject.put("description", dish.getDescription());
+                parseObject.put("measure", dish.getMeasure());
                 parseObject.put("fat", dish.getFat());
                 parseObject.put("fiber", dish.getFiber());
                 parseObject.put("gram", dish.getGram());
                 parseObject.put("image", dish.getImage());
-                parseObject.put("measure", numberPicker1.getValue() == 0 ? "grams" : dish.getDescription());
+                parseObject.put("description", numberPicker1.getValue() == 0 ? "grams" : dish.getDescription());
                 parseObject.put("name", dish.getName());
                 parseObject.put("protein", dish.getProtein());
                 parseObject.put("meal", ((TextView) findViewById(R.id.tvMeal)).getText().toString());

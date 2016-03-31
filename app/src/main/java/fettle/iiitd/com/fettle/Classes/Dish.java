@@ -132,4 +132,15 @@ public class Dish {
         }
     }
 
+    public int getQuantity() {
+        try {
+
+            if (po == null)
+                return 0;
+            return po.getInt("quantity");
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
 }

@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import fettle.iiitd.com.fettle.Adapters.FoodListAdaper;
+import java.util.ArrayList;
+
+import fettle.iiitd.com.fettle.Adapters.FoodCategoryAdapter;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -20,7 +22,7 @@ public class FoodOrderCategory extends AppCompatActivity {
         RecyclerView breakfastRecyclerView;
         RecyclerView.LayoutManager mLayoutManager;
         //TODO Manan:Change this adapter
-        FoodListAdaper cList;
+        FoodCategoryAdapter cList;
         breakfastRecyclerView = (RecyclerView) findViewById(R.id.breakfast_recyclerview);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this) {
@@ -31,7 +33,7 @@ public class FoodOrderCategory extends AppCompatActivity {
         };
         mLayoutManager = new LinearLayoutManager(this);
         breakfastRecyclerView.setLayoutManager(mLayoutManager);
-        cList = new FoodListAdaper(this, menu);
+        cList = new FoodCategoryAdapter(this, new ArrayList<>());
         breakfastRecyclerView.setAdapter(cList);
 
 

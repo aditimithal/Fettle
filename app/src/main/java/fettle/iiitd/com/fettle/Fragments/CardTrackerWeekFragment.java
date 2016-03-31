@@ -38,7 +38,7 @@ public class CardTrackerWeekFragment extends Fragment {
             v.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
             TextView tv = (TextView) v.findViewById(R.id.tvDay);
             tv.setText(days[i]);
-            if (i == 6)
+            if (i == 3)
                 tv.setBackgroundResource(R.drawable.circular_background_yellow);
 
             ProgressBar mProgress1 = (ProgressBar) v.findViewById(R.id.circularProgressbar1);

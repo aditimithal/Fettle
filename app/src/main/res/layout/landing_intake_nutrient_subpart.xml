@@ -28,8 +28,8 @@
             android:indeterminate="false"
             android:max="100"
             android:progress="39"
-            android:progressDrawable="@drawable/circular"
-            android:secondaryProgress="44" />
+            android:progressDrawable="@drawable/circular_blue"
+            android:secondaryProgress="0" />
 
         <ImageView
             android:id="@+id/imNutrient"

@@ -49,6 +49,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall" />-->
 
                 <TextView
+                    android:id="@+id/tvHeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
@@ -74,6 +75,7 @@
                                     android:textAppearance="?android:attr/textAppearanceSmall" />-->
 
                 <TextView
+                    android:id="@+id/tvWeight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="2dp"
@@ -84,7 +86,7 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_width="100dp"
+                android:layout_width="200dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:src="@drawable/ruler" />
@@ -155,8 +157,8 @@
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="@android:color/holo_green_light"
-        fab:menu_colorPressed="@android:color/holo_green_dark"
+        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorPressed="@color/colorPrimaryDark"
         fab:menu_colorRipple="#99FFFFFF"
         fab:menu_fab_label="your_label_here"
         fab:menu_fab_size="normal"
