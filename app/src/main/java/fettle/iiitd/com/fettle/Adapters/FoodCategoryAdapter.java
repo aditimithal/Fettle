@@ -1,12 +1,11 @@
 package fettle.iiitd.com.fettle.Adapters;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import fettle.iiitd.com.fettle.R;
 
 
-public class FoodCategoryAdapter extends BaseAdapter {
+public class FoodCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private static LayoutInflater inflater = null;
     int i = 0;
@@ -28,29 +27,17 @@ public class FoodCategoryAdapter extends BaseAdapter {
 
     }
 
-    public int getCount() {
-        return 2;
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        return null;
     }
 
-//    public ArrayList<?> getData(){
-//        return d;
-//    }
-
-    public Object getItem(int position) {
-        return position;
-    }
-
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @SuppressLint("InflateParams")
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        View vi = convertView;
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+        View vi = viewHolder.itemView;
         ViewHolder holder;
 
-        if (convertView == null) {
+        if (viewHolder.itemView == null) {
             vi = inflater.inflate(R.layout.list_item_course_stats_overview, null);
             holder = new ViewHolder();
             holder.course = (TextView) vi.findViewById(R.id.firstLine);
@@ -74,15 +61,30 @@ public class FoodCategoryAdapter extends BaseAdapter {
             holder.average.setText("Beverages");
             holder.back.setBackgroundResource(R.drawable.beverages);
         }
-        return vi;
+
     }
 
-    public static class ViewHolder {
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView course;
         public TextView code;
         public TextView attendence;
         public TextView average;
         public TextView highest;
         public LinearLayout back;
+        public View view;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            view = itemView;
+        }
     }
 }
