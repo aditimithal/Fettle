@@ -20,10 +20,10 @@
             <corners android:radius="5dip" />
             <gradient
                 android:angle="270"
-                android:centerColor="@android:color/holo_green_light"
+                android:centerColor="#FFFFFF"
                 android:centerY="0.75"
-                android:endColor="@android:color/holo_green_light"
-                android:startColor="@android:color/holo_green_light" />
+                android:endColor="#FFFFFF"
+                android:startColor="#FFFFFF" />
         </shape>
     </item>
 
@@ -47,10 +47,10 @@
                 <corners android:radius="5dip" />
                 <gradient
                     android:angle="270"
-                    android:centerColor="@color/colorPrimary"
+                    android:centerColor="@color/blue"
                     android:centerY="0.75"
-                    android:endColor="@color/colorPrimary"
-                    android:startColor="@color/colorPrimary" />
+                    android:endColor="@color/blue"
+                    android:startColor="@color/blue" />
             </shape>
         </clip>
     </item>

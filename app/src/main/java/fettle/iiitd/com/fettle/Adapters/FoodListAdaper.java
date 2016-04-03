@@ -5,11 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import fettle.iiitd.com.fettle.Classes.Dish;
 import fettle.iiitd.com.fettle.Classes.FoodItem;
 import fettle.iiitd.com.fettle.R;
 
@@ -35,16 +36,9 @@ public class FoodListAdaper extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-//        ((RestrauntViewHolder) holder).tvName.setText(messages.get(position).getString("name"));
-//        ((RestrauntViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
-//        ((RestrauntViewHolder) holder).tvLocation.setVisibility(View.INVISIBLE);
-//        if (messages.get(position).getString("position") != null)
-//            ((RestrauntViewHolder) holder).tvRole.setText(messages.get(position).getString("position"));
-//        if (messages.get(position).getParseObject("constituency") != null)
-//            ((RestrauntViewHolder) holder).tvLocation.setText(messages.get(position).getParseObject("constituency").getString("name"));
-//        if (!usersInstalled.contains(messages.get(position).getObjectId())) {
-//            ((RestrauntViewHolder) holder).tvName.setAlpha((float) .4);
-//        }
+        ((UserListViewHolder) holder).tvName.setText(messages.get(position).getFoodName());
+        ((UserListViewHolder) holder).tvQuantity.setText(messages.get(position).getQuantity() + " units");
+        ((UserListViewHolder) holder).tvCalories.setText(messages.get(position).getCalories() + " calories");
     }
 
     @Override
@@ -52,22 +46,48 @@ public class FoodListAdaper extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return messages.size();
     }
 
+    public void updateMeals(List<Dish> lDish) {
+
+        int breakfast = 0;
+        int lunch = 0;
+        int dinner = 0;
+
+        for (Dish each : lDish) {
+            float multiplier = 1f;
+            if (each.getDescription().toLowerCase().startsWith("gram")) {
+                try {
+                    multiplier = each.getQuantity() / Float.parseFloat(each.getGram());
+                } catch (Exception e) {
+                }
+            } else {
+                try {
+                    multiplier = each.getQuantity() / Float.parseFloat(each.getMeasure());
+                } catch (Exception e) {
+                }
+            }
+
+            try {
+            } catch (Exception e) {
+            }
+
+        }
+    }
+
     private static class UserListViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
-        public TextView tvRole;
-        public TextView tvLocation;
-        public ImageView ivAskerPicture;
+        public TextView tvQuantity;
+        public TextView tvCalories;
         public View view;
 
         public UserListViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-//            tvName = (TextView) itemView.findViewById(R.id.tvName);
-//            tvRole = (TextView) itemView.findViewById(R.id.tvRole);
-//            tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
-//            ivAskerPicture = (ImageView) itemView.findViewById(R.id.askerPicture);
+            tvName = (TextView) itemView.findViewById(R.id.item_name);
+            tvQuantity = (TextView) itemView.findViewById(R.id.quantity);
+            tvCalories = (TextView) itemView.findViewById(R.id.calories);
         }
     }
+
 }
 
 

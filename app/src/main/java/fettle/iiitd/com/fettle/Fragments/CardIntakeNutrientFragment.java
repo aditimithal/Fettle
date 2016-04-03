@@ -1,6 +1,7 @@
 package fettle.iiitd.com.fettle.Fragments;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import fettle.iiitd.com.fettle.Activities.DayOverview;
+import fettle.iiitd.com.fettle.Activities.LandingActivity;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -29,10 +31,16 @@ public class CardIntakeNutrientFragment extends Fragment implements View.OnClick
     String[] nutrients = {"Fiber", "Fats", "Carbs", "Protein"};
     int[] nutrientDrawables = {R.drawable.fiber_g, R.drawable.fats_g, R.drawable.carbs_g, R.drawable.protein_g};
     private LinearLayout lFiber, lFats, lCarbs, lProteins;
+    private LandingActivity.AddedListener mAddedListener;
 
+    @SuppressLint("ValidFragment")
+    public CardIntakeNutrientFragment(LandingActivity.AddedListener mAddedListener) {
+        this.mAddedListener = mAddedListener;
+    }
 
     public CardIntakeNutrientFragment() {
         // Required empty public constructor
+
     }
 
     @Override
@@ -101,7 +109,8 @@ public class CardIntakeNutrientFragment extends Fragment implements View.OnClick
         super.onActivityCreated(savedInstanceState);
         Button more = (Button) getActivity().findViewById(R.id.nutrient_more_btn);
         more.setOnClickListener(this);
-
+        LandingActivity.added3 = true;
+        mAddedListener.isAdded(true);
     }
 
     @Override
@@ -110,5 +119,12 @@ public class CardIntakeNutrientFragment extends Fragment implements View.OnClick
             Intent myIntent = new Intent(getActivity(), DayOverview.class);
             startActivity(myIntent);
         }
+    }
+
+    @Override
+    public void onStop() {
+        LandingActivity.added3 = false;
+        mAddedListener.isAdded(false);
+        super.onStop();
     }
 }

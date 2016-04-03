@@ -7,13 +7,17 @@
 
     <item name="grey" type="color">#555555</item>
 
-    <item name="green" type="color">#4499CC00</item>
+    <!--<item name="green" type="color">#4499CC00</item>-->
 
     <item name="darkgreen" type="color">#FF669900</item>
 
     <item name="orange" type="color">#FF9003</item>
     <item name="mauve" type="color">#C51E5D</item>
     <item name="yellow" type="color">#F6F471</item>
+
+
+    <item name="green" type="color">#99C51E</item>
+    <item name="blue" type="color">#1E94C5</item>
 
 
 </resources>

@@ -1,6 +1,7 @@
 package fettle.iiitd.com.fettle.Fragments;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import fettle.iiitd.com.fettle.Activities.LandingActivity;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -16,9 +18,14 @@ import fettle.iiitd.com.fettle.R;
  */
 public class CardIntakeFragment extends Fragment {
 
-
+    private LandingActivity.AddedListener mAddedListener;
     public CardIntakeFragment() {
         // Required empty public constructor
+    }
+
+    @SuppressLint("ValidFragment")
+    public CardIntakeFragment(LandingActivity.AddedListener mAddedListener) {
+        this.mAddedListener = mAddedListener;
     }
 
 
@@ -48,4 +55,17 @@ public class CardIntakeFragment extends Fragment {
         progressBar.setProgress(percentageInt);
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LandingActivity.added4 = true;
+        mAddedListener.isAdded(true);
+    }
+
+    @Override
+    public void onStop() {
+        LandingActivity.added4 = false;
+        mAddedListener.isAdded(false);
+        super.onStop();
+    }
 }

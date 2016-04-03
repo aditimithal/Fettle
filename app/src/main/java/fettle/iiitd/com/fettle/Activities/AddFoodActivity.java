@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -115,6 +116,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
                 } finally {
+                    Toast.makeText(AddFoodActivity.this, "Food item added", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 }
 

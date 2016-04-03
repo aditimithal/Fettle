@@ -32,4 +32,12 @@
         android:textColor="@android:color/white"
         android:textSize="22sp" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/logo_small" />
+
 </RelativeLayout>

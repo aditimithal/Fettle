@@ -39,7 +39,7 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         if (viewHolder.itemView == null) {
             vi = inflater.inflate(R.layout.list_item_course_stats_overview, null);
-            holder = new ViewHolder();
+            holder = new ViewHolder(vi);
             holder.course = (TextView) vi.findViewById(R.id.firstLine);
             holder.code = (TextView) vi.findViewById(R.id.secondLine);
             holder.attendence = (TextView) vi.findViewById(R.id.attendence);

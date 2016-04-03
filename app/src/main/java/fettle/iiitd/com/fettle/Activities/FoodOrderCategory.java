@@ -34,8 +34,7 @@ public class FoodOrderCategory extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         breakfastRecyclerView.setLayoutManager(mLayoutManager);
         cList = new FoodCategoryAdapter(this, new ArrayList<>());
-        breakfastRecyclerView.setAdapter(cList);
-
+//        breakfastRecyclerView.setAdapter(cList);
 
     }
 }

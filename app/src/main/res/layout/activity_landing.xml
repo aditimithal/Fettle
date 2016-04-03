@@ -157,7 +157,7 @@
         fab:menu_animationDelayPerItem="50"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="@color/colorPrimary"
+        fab:menu_colorNormal="@color/blue"
         fab:menu_colorPressed="@color/colorPrimaryDark"
         fab:menu_colorRipple="#99FFFFFF"
         fab:menu_fab_label="your_label_here"
