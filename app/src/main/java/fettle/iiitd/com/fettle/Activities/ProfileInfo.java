@@ -111,7 +111,6 @@ public class ProfileInfo extends AppCompatActivity implements
         // l.setCustom(ColorTemplate.VORDIPLOM_COLORS, new String[] { "abc",
         // "def", "ghj", "ikl", "mno" });
 
-        setData(12, 50);
         setData(User.getPastBmisCached());
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -147,34 +146,6 @@ public class ProfileInfo extends AppCompatActivity implements
         mChart.setData(data);
         mChart.invalidate();
         Log.d(TAG, "calendar data set");
-    }
-
-    private void setData(int count, float range) {
-
-        ArrayList<String> xVals = new ArrayList<String>();
-        for (int i = 0; i < count; i++) {
-            xVals.add("a" + i);
-        }
-
-        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
-
-        for (int i = 0; i < count; i++) {
-            float mult = (range + 1);
-            float val = (float) (Math.random() * mult);
-            yVals1.add(new BarEntry(val, i));
-        }
-
-        BarDataSet set1 = new BarDataSet(yVals1, "DataSet");
-        set1.setBarSpacePercent(35f);
-
-        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
-        dataSets.add(set1);
-
-        BarData data = new BarData(xVals, dataSets);
-        data.setValueTextSize(10f);
-        ;
-
-        mChart.setData(data);
     }
 
     @SuppressLint("NewApi")

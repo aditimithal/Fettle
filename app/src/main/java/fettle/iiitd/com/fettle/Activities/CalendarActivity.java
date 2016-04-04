@@ -24,13 +24,9 @@ public class CalendarActivity extends AppCompatActivity{
 
         calendar = (CalendarView) findViewById(R.id.calendarview);
 
-
-
         // sets whether to show the week number.
 
         calendar.setShowWeekNumber(false);
-
-
 
         // sets the first day of week according to Calendar.
         // here we set Monday as the first day of the Calendar

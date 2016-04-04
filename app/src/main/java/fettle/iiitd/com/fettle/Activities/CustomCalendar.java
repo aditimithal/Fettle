@@ -111,6 +111,7 @@ public class CustomCalendar extends AppCompatActivity {
 
         private static final int THRESHOLD_PERFECT = 70;
         private static final int THRESHOLD_OVER = 100;
+        private static final String TAG = "CustomCalendarAdapter";
         Map<DateTime, Integer> map;
 
         /**
@@ -134,12 +135,18 @@ public class CustomCalendar extends AppCompatActivity {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View cellView = convertView;
 
+            final DateTime dateTime = this.datetimeList.get(position);
+
             // For reuse
             if (convertView == null) {
                 cellView = inflater.inflate(R.layout.custom_cell, null);
+                cellView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.d(TAG, "clicked:" + dateTime.toString());
+                    }
+                });
             }
-
-            DateTime dateTime = this.datetimeList.get(position);
 
             ProgressBar cirular = (ProgressBar) cellView.findViewById(R.id.circularProgressbar);
             if (map.containsKey(dateTime)) {
