@@ -26,6 +26,7 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 
+import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.R;
 import fettle.iiitd.com.fettle.Utilities.MyYAxisValueFormatter;
 
@@ -43,9 +44,10 @@ public class ProfileInfo extends AppCompatActivity implements
 
         try {
             ParseUser user = ParseUser.getCurrentUser();
-            ((TextView) findViewById(R.id.weight)).setText(user.getInt("weight") + "kg");
-            ((TextView) findViewById(R.id.height)).setText(user.getInt("height") + "cm");
+            ((TextView) findViewById(R.id.weight)).setText(User.getWeight() + "kg");
+            ((TextView) findViewById(R.id.height)).setText(User.getHeight() + "cm");
             ((TextView) findViewById(R.id.exercise)).setText(user.getString("exercise"));
+            ((TextView) findViewById(R.id.name)).setText(User.getName());
         } catch (Exception e) {
 
         }

@@ -29,6 +29,14 @@ public class User {
         return ParseUser.getCurrentUser().getInt("weight");
     }
 
+    public static String getName() {
+        return ParseUser.getCurrentUser().getString("name");
+    }
+
+    public static String getEmail() {
+        return ParseUser.getCurrentUser().getUsername();
+    }
+
     public static List<Utils.BmiDate> getPastBmis() {
         List<Utils.BmiDate> bmis = new ArrayList<>();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Track");

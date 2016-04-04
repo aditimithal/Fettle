@@ -104,7 +104,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 //            }
 //        }, 5000);
 
-        Log.d(TAG, User.getPastBmis().toString());
+//        Log.d(TAG, User.getPastBmis().toString());
 
     }
 
@@ -133,7 +133,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.drawer_bg)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Fettle Panda").withEmail("fettlepanda@gmail.com").withIcon(getResources().getDrawable(R.drawable.female_avatar))
+                        new ProfileDrawerItem().withName(User.getName()).withEmail(User.getEmail()).withIcon(getResources().getDrawable(R.drawable.female_avatar))
                 )
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
