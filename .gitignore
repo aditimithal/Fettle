@@ -17,6 +17,8 @@ gen/
 
 *.iml
 
+D:/Workspaces/AndroidStudio/Fettle/.idea/libraries/
+
 # Gradle files
 .gradle/
 build/
