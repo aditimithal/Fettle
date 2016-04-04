@@ -17,8 +17,8 @@ public class Utils {
     }
 
     public static class BmiDate {
-        Date date;
-        float bmi;
+        public Date date;
+        public float bmi;
 
         public BmiDate(Date date, float bmi) {
             this.date = date;

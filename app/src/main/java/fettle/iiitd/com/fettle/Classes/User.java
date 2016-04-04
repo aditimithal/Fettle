@@ -45,6 +45,34 @@ public class User {
         List<ParseObject> lPo = new ArrayList<>();
         try {
             lPo = query.find();
+            try {
+                ParseObject.unpinAll("bmis");
+            } catch (Exception e) {
+            }
+            ParseObject.pinAllInBackground("bmis", lPo);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for (ParseObject po : lPo) {
+            try {
+                bmis.add(new Utils.BmiDate(po.getCreatedAt(), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage(), e);
+            }
+        }
+        return bmis;
+    }
+
+    public static List<Utils.BmiDate> getPastBmisCached() {
+        List<Utils.BmiDate> bmis = new ArrayList<>();
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Track");
+        query.fromLocalDatastore();
+        query.fromPin("bmis");
+        query.whereEqualTo("user", ParseUser.getCurrentUser());
+        query.orderByAscending("createdAt");
+        List<ParseObject> lPo = new ArrayList<>();
+        try {
+            lPo = query.find();
         } catch (ParseException e) {
             e.printStackTrace();
         }

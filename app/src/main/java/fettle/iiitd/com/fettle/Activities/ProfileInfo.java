@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.graphics.PointF;
 import android.graphics.RectF;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,9 +26,12 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.parse.ParseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.User;
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 import fettle.iiitd.com.fettle.Utilities.MyYAxisValueFormatter;
 
@@ -35,6 +40,7 @@ import fettle.iiitd.com.fettle.Utilities.MyYAxisValueFormatter;
  */
 public class ProfileInfo extends AppCompatActivity implements
         OnChartValueSelectedListener, View.OnClickListener {
+    private static final String TAG = "ProfileInfoActivity";
     protected BarChart mChart;
 
     @Override
@@ -61,7 +67,7 @@ public class ProfileInfo extends AppCompatActivity implements
         mChart.setDrawBarShadow(false);
         mChart.setDrawValueAboveBar(true);
 
-        mChart.setDescription("");
+        mChart.setDescription("Date-BMI graph");
 
         // if more than 60 entries are displayed in the chart, no values will be
         // drawn
@@ -72,7 +78,6 @@ public class ProfileInfo extends AppCompatActivity implements
 
         mChart.setDrawGridBackground(false);
         // mChart.setDrawYLabels(false);
-
 
         XAxis xAxis = mChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
@@ -107,12 +112,42 @@ public class ProfileInfo extends AppCompatActivity implements
         // "def", "ghj", "ikl", "mno" });
 
         setData(12, 50);
+        setData(User.getPastBmisCached());
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                setData(User.getPastBmis());
+            }
+        }, 1000);
 
 
         // mChart.setDrawLegend(false);
 
     }
 
+    private void setData(List<Utils.BmiDate> bmis) {
+        ArrayList<String> xVals = new ArrayList<String>();
+        ArrayList<BarEntry> yVals1 = new ArrayList<BarEntry>();
+        for (int i = 0; i < bmis.size(); i++) {
+            Utils.BmiDate each = bmis.get(i);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("MMM d");
+            xVals.add(dateFormat.format(each.date));
+            yVals1.add(new BarEntry(each.bmi, i));
+        }
+
+        BarDataSet set1 = new BarDataSet(yVals1, "BMI");
+        set1.setBarSpacePercent(35f);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+        dataSets.add(set1);
+
+        BarData data = new BarData(xVals, dataSets);
+        data.setValueTextSize(10f);
+
+        mChart.setData(data);
+        mChart.invalidate();
+        Log.d(TAG, "calendar data set");
+    }
 
     private void setData(int count, float range) {
 
