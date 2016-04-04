@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,7 @@ import fettle.iiitd.com.fettle.R;
 
 public class AddFoodActivity extends AppCompatActivity {
 
+    private static final String TAG = "AddFoodActivity";
     CardArrayRecyclerViewAdapter rcAdapter;
     ArrayList<String> stringlist;
     List<Dish> dishes;
@@ -112,8 +114,10 @@ public class AddFoodActivity extends AppCompatActivity {
                 parseObject.put("protein", dish.getProtein());
                 parseObject.put("meal", ((TextView) findViewById(R.id.tvMeal)).getText().toString());
                 try {
-                    parseObject.save();
-                } catch (ParseException e) {
+                    parseObject.saveEventually();
+                    parseObject.pin("today");
+                } catch (Exception e) {
+                    Log.e(TAG, e.getMessage(), e);
                     e.printStackTrace();
                 } finally {
                     Toast.makeText(AddFoodActivity.this, "Food item added", Toast.LENGTH_SHORT).show();

@@ -38,6 +38,7 @@ import java.util.Date;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
+import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Fragments.CardIntakeFragment;
 import fettle.iiitd.com.fettle.Fragments.CardIntakeNutrientFragment;
 import fettle.iiitd.com.fettle.Fragments.CardTrackerFragment;
@@ -102,6 +103,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 //                downloadData(true);
 //            }
 //        }, 5000);
+
+        Log.d(TAG, User.getPastBmis().toString());
 
     }
 
