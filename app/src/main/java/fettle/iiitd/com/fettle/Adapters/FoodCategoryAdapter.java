@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 
@@ -19,11 +20,13 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private static LayoutInflater inflater = null;
     int i = 0;
     private Activity activity;
+    private List<Utils.FoodCategory> listCategories;
 
-    public FoodCategoryAdapter(Activity a, ArrayList<?> d) {
+    public FoodCategoryAdapter(Activity a, List<Utils.FoodCategory> list) {
         activity = a;
         inflater = (LayoutInflater) activity.
                 getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.listCategories = list;
 
     }
 

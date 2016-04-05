@@ -37,4 +37,15 @@ public class Utils {
         }
     }
 
+    public static class FoodCategory {
+        public String name;
+
+        public FoodCategory(String name) {
+            this.name = name;
+        }
+
+        public FoodCategory() {
+        }
+    }
+
 }

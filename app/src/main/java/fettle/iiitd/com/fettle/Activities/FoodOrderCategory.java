@@ -6,8 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import fettle.iiitd.com.fettle.Adapters.FoodCategoryAdapter;
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -19,12 +21,14 @@ public class FoodOrderCategory extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_order_category);
 
-        RecyclerView breakfastRecyclerView;
+        RecyclerView recyclerView;
         RecyclerView.LayoutManager mLayoutManager;
-        //TODO Manan:Change this adapter
         FoodCategoryAdapter cList;
-        breakfastRecyclerView = (RecyclerView) findViewById(R.id.breakfast_recyclerview);
-        // use a linear layout manager
+        List<Utils.FoodCategory> listCategories = new ArrayList<>();
+        listCategories.add(new Utils.FoodCategory("abcd"));
+        listCategories.add(new Utils.FoodCategory("abcd"));
+        cList = new FoodCategoryAdapter(this, listCategories);
+        recyclerView = (RecyclerView) findViewById(R.id.category_recyclerview);
         mLayoutManager = new LinearLayoutManager(this) {
             @Override
             public boolean canScrollVertically() {
@@ -32,9 +36,9 @@ public class FoodOrderCategory extends AppCompatActivity {
             }
         };
         mLayoutManager = new LinearLayoutManager(this);
-        breakfastRecyclerView.setLayoutManager(mLayoutManager);
-        cList = new FoodCategoryAdapter(this, new ArrayList<>());
-//        breakfastRecyclerView.setAdapter(cList);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(cList);
 
     }
+
 }

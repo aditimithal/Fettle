@@ -51,6 +51,7 @@
         <activity android:name=".Activities.AddFoodActivity"></activity>
         <activity android:name=".Activities.FoodTypeSelection"></activity>
         <activity android:name=".Activities.NewItem"></activity>
+        <activity android:name=".Activities.FoodOrderCategory"></activity>
     </application>
 
 </manifest>

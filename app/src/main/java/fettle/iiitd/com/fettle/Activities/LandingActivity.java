@@ -116,7 +116,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(myIntent);
         }
         if (v.getId() == R.id.fab1) {
-            Intent myIntent = new Intent(LandingActivity.this, RestrauntList.class);
+            Intent myIntent = new Intent(LandingActivity.this, FoodOrderCategory.class);
             startActivity(myIntent);
 
         }
