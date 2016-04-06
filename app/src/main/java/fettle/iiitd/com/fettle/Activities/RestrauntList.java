@@ -37,7 +37,7 @@ public class RestrauntList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restraunt_list);
 
-        ArrayList<Restraunt> menu = new ArrayList<>();
+        List<Restraunt> menu = new ArrayList<>();
         Restraunt r1 = new Restraunt();
         menu.add(r1);
         menu.add(r1);
@@ -46,19 +46,19 @@ public class RestrauntList extends AppCompatActivity {
 
         String category = getIntent().getStringExtra("category");
         Log.d(TAG, initList(category).toString());
+        menu = initList(category);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.restraunt_recyclerview);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        cList = new RestrauntListAdapter(this, menu);
+        cList = new RestrauntListAdapter(this, category, menu);
         mRecyclerView.setAdapter(cList);
 
     }
 
     private List<Restraunt> initList(String category) {
         List<Restraunt> restaurants = new ArrayList<>();
-        List<String> restaurantStrings = new ArrayList<>();
         List<ParseObject> listPos = new ArrayList<>();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>(category == null ? "Breads" : category);
         query.selectKeys(Arrays.asList(new String[]{"restaurant"}));

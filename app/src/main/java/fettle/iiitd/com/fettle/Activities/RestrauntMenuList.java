@@ -31,27 +31,22 @@ public class RestrauntMenuList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restraunt_menu);
 
-        ArrayList<Menu> menu = new ArrayList<>();
+        List<Menu> menu = new ArrayList<>();
         Menu r1 = new Menu();
         menu.add(r1);
         menu.add(r1);
-        menu.add(r1);
-        menu.add(r1);
-        menu.add(r1);
-        menu.add(r1);
-
 
         String restaurant = getIntent().getStringExtra("restaurant");
         String category = getIntent().getStringExtra("category");
         Log.d(TAG, initList(restaurant, category).toString());
+        menu = initList(restaurant, category);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.menu_recyclerview);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        cList = new RestrauntMenuAdapter(this, menu);
+        cList = new RestrauntMenuAdapter(this, restaurant, menu);
         mRecyclerView.setAdapter(cList);
-
     }
 
     private List<Menu> initList(String restaurant, String category) {

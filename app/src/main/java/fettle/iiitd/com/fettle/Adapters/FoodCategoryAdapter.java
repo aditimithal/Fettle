@@ -28,15 +28,12 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         activity = a;
         inflater = LayoutInflater.from(a.getApplicationContext());
         this.listCategories = list;
-
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ViewHolder(inflater.inflate(R.layout.list_item_course_stats_overview, parent, false));
-
     }
-
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
@@ -46,7 +43,7 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, RestrauntList.class);
-                intent.putExtra("restaurant", listCategories.get(position).name);
+                intent.putExtra("category", listCategories.get(position).name);
                 activity.startActivity(intent);
             }
         });

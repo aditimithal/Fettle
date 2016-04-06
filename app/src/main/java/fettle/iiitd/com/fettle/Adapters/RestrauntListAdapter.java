@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import fettle.iiitd.com.fettle.Activities.RestrauntMenuList;
 import fettle.iiitd.com.fettle.Classes.Restraunt;
@@ -19,29 +19,37 @@ import fettle.iiitd.com.fettle.R;
 /**
  * Created by danishgoel on 24/03/16.
  */
-public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
+public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
-    private ArrayList<Restraunt> messages;
+    private List<Restraunt> messages;
     private LayoutInflater inflater = null;
+    private String category;
 
-    public RestrauntListAdapter(Context context, ArrayList<Restraunt> messages) {
+    public RestrauntListAdapter(Context context, String category, List<Restraunt> messages) {
         this.messages = messages;
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.category = category;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new RestrauntViewHolder(inflater.inflate(R.layout.restraunt_list_card, parent, false));
-
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
-
-        ((RestrauntViewHolder) holder).card.setOnClickListener(this);
+        ((RestrauntViewHolder) holder).card.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(context, RestrauntMenuList.class);
+                myIntent.putExtra("restaurant", messages.get(position).getName());
+                myIntent.putExtra("category", category);
+                context.startActivity(myIntent);
+            }
+        });
         ((TextView) ((RestrauntViewHolder) holder).view.findViewById(R.id.restraunt_name)).setText(messages.get(position).getName());
 //        ((RestrauntViewHolder) holder).tvName.setText(messages.get(position).getString("name"));
 //        ((RestrauntViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
@@ -58,15 +66,6 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public int getItemCount() {
         return messages.size();
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.restrauntCard) {
-            Intent myIntent = new Intent(context, RestrauntMenuList.class);
-            context.startActivity(myIntent);
-        }
-
     }
 
     private static class RestrauntViewHolder extends RecyclerView.ViewHolder {
