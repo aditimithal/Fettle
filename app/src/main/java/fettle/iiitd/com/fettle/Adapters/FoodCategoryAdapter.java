@@ -1,6 +1,7 @@
 package fettle.iiitd.com.fettle.Adapters;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import fettle.iiitd.com.fettle.Activities.RestrauntList;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
@@ -37,18 +39,17 @@ public class FoodCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, final int position) {
 
-        if (position == 0) {
-            ((ViewHolder) viewHolder).course.setText("Bakery");
-//            ((ViewHolder) viewHolder).back.setBackgroundResource(R.drawable.bakery);
-            ((ViewHolder) viewHolder).backgroundImage.setImageResource(R.drawable.bakery);
-
-        } else if (position == 1) {
-            ((ViewHolder) viewHolder).course.setText("Beverages");
-            ((ViewHolder) viewHolder).backgroundImage.setImageResource(R.drawable.beverages);
-        }
-
+        ((ViewHolder) viewHolder).course.setText(listCategories.get(position).name);
+        ((ViewHolder) viewHolder).view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, RestrauntList.class);
+                intent.putExtra("restaurant", listCategories.get(position).name);
+                activity.startActivity(intent);
+            }
+        });
     }
 
     public long getItemId(int position) {

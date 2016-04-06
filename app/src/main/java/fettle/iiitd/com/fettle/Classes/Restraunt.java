@@ -10,6 +10,13 @@ public class Restraunt {
     int minOrder;
     int deliveryTime;
 
+    public Restraunt() {
+    }
+
+    public Restraunt(String name) {
+        this.name = name;
+    }
+
     public String getName() {
         return name;
     }
@@ -42,5 +49,10 @@ public class Restraunt {
         this.deliveryTime = deliveryTime;
     }
 
-
+    @Override
+    public String toString() {
+        return "Restraunt{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

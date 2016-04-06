@@ -5,18 +5,25 @@ package fettle.iiitd.com.fettle.Classes;
  */
 public class Menu {
 
-    String Name;
+    String name;
     int rating;
     String location;
     int minOrder;
     int deliveryTime;
 
+    public Menu() {
+    }
+
+    public Menu(String name) {
+        this.name = name;
+    }
+
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public int getRating() {
@@ -49,5 +56,12 @@ public class Menu {
 
     public void setDeliveryTime(int deliveryTime) {
         this.deliveryTime = deliveryTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

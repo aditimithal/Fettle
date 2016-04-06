@@ -46,6 +46,13 @@ public class Utils {
 
         public FoodCategory() {
         }
+
+        @Override
+        public String toString() {
+            return "FoodCategory{" +
+                    "name='" + name + '\'' +
+                    '}';
+        }
     }
 
 }

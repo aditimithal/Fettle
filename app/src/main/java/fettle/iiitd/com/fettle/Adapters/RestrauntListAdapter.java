@@ -42,7 +42,8 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
 
 
         ((RestrauntViewHolder) holder).card.setOnClickListener(this);
-//        ((RestrauntViewHolder) holder).CtvName.setText(messages.get(position).getString("name"));
+        ((TextView) ((RestrauntViewHolder) holder).view.findViewById(R.id.restraunt_name)).setText(messages.get(position).getName());
+//        ((RestrauntViewHolder) holder).tvName.setText(messages.get(position).getString("name"));
 //        ((RestrauntViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
 //        ((RestrauntViewHolder) holder).tvLocation.setVisibility(View.INVISIBLE);
 //        if (messages.get(position).getString("position") != null)
