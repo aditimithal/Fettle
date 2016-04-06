@@ -37,26 +37,26 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
             finish();
 
         }
-//        String emailId = "danishdgoel@gmail.com";
-//        ParseUser user;
-//        try {
-//            user = ParseUser.logIn(emailId, "password");
-//            startActivity(new Intent(this, LandingActivity.class));
-//            finish();
-//        } catch (ParseException e) {
-//            user = new ParseUser();
-//            user.setUsername(emailId);
-//            user.setPassword("password");
-//            try {
-//                user.signUp();
-//            } catch (ParseException e1) {
-//                e1.printStackTrace();
-//            }
-//        }
-//        if (user != null) {
-//            startActivity(new Intent(this, ProfileInput.class).putExtra("landing", true));
-//            finish();
-//        }
+        String emailId = "danishdgoel@gmail.com";
+        ParseUser user;
+        try {
+            user = ParseUser.logIn(emailId, "password");
+            startActivity(new Intent(this, LandingActivity.class));
+            finish();
+        } catch (ParseException e) {
+            user = new ParseUser();
+            user.setUsername(emailId);
+            user.setPassword("password");
+            try {
+                user.signUp();
+            } catch (ParseException e1) {
+                e1.printStackTrace();
+            }
+        }
+        if (user != null) {
+            startActivity(new Intent(this, ProfileInput.class).putExtra("landing", true));
+            finish();
+        }
 
         // Configure sign-in to request the user's ID, email address, and basic
 // profile. ID and basic profile are included in DEFAULT_SIGN_IN.

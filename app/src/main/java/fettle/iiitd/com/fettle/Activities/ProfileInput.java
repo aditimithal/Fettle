@@ -3,6 +3,7 @@ package fettle.iiitd.com.fettle.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -80,6 +81,9 @@ public class ProfileInput extends AppCompatActivity {
 
         ParseUser user = ParseUser.getCurrentUser();
 
+        if (user == null) {
+            Log.d("abc", "user null");
+        }
         if (user.getInt("height") != height || user.getInt("weight") != weight) {
             ParseObject parseObject = new ParseObject("Track");
             parseObject.put("user", user);
