@@ -15,7 +15,7 @@ import fettle.iiitd.com.fettle.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class CardTrackerWeekFragment extends Fragment {
+public class CardTrackerWeekFragment extends Fragment implements View.OnClickListener {
 
     private int value1 = 5;
     private int value2 = 7;
@@ -56,4 +56,10 @@ public class CardTrackerWeekFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.more_tracker_week) {
+
+        }
+    }
 }

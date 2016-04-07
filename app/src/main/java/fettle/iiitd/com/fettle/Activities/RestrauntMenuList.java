@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -31,6 +32,9 @@ public class RestrauntMenuList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restraunt_menu);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         List<Menu> menu = new ArrayList<>();
         Menu r1 = new Menu();
         menu.add(r1);
@@ -47,6 +51,16 @@ public class RestrauntMenuList extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         cList = new RestrauntMenuAdapter(this, restaurant, menu);
         mRecyclerView.setAdapter(cList);
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     private List<Menu> initList(String restaurant, String category) {

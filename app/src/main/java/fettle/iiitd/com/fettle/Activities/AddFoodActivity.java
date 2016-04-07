@@ -3,6 +3,7 @@ package fettle.iiitd.com.fettle.Activities;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -45,6 +46,8 @@ public class AddFoodActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_food);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         dishes = new ArrayList<>();
 
         GridLayoutManager lLayout = new GridLayoutManager(AddFoodActivity.this, 2);
@@ -57,7 +60,7 @@ public class AddFoodActivity extends AppCompatActivity {
         rView.setAdapter(rcAdapter);
     }
 
-    private void createDialog(int position) {
+    private void createDialog(int position, int runcal, int walkcal, Bitmap standing, Bitmap workout) {
         // custom dialog
         final Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.quant_dialog);
@@ -75,6 +78,22 @@ public class AddFoodActivity extends AppCompatActivity {
         numberPicker1.setDisplayedValues(new String[]{"grams", dish.getDescription()});
 
         dialog.show();
+
+        TextView WalkCal = (TextView) dialog.findViewById(R.id.time1);
+        TextView RunCal = (TextView) dialog.findViewById(R.id.time2);
+        ImageView walkimage = (ImageView) dialog.findViewById(R.id.standing);
+        ImageView workoutimage = (ImageView) dialog.findViewById(R.id.workout_image);
+        WalkCal.setText(walkcal + "Min");
+        RunCal.setText(runcal + "Min");
+        if (standing != null) {
+            walkimage.setImageBitmap(standing);
+
+        }
+        if (workout != null) {
+            workoutimage.setImageBitmap(workout);
+        }
+
+
 
         Button discard, add;
         TextView tvDish;
@@ -201,7 +220,7 @@ public class AddFoodActivity extends AppCompatActivity {
             {
                 @Override
                 public void onClick(View v) {
-                    createDialog(position);
+                    createDialog(position, 30, 50, null, null);
                     //listhotposition = position;
                     //Intent i = new Intent(manangrid.this, venuepaage.class);
                     //startActivity(i);

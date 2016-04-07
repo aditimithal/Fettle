@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.gms.auth.api.Auth;
@@ -31,6 +32,9 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         if (ParseUser.getCurrentUser() != null) {
             startActivity(new Intent(this, LandingActivity.class));
@@ -73,6 +77,16 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
 
         findViewById(R.id.sign_in_button).setOnClickListener(this);
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

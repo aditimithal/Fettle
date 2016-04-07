@@ -33,6 +33,7 @@
                 android:textSize="22sp" />
 
             <TextView
+                android:id="@+id/walkCal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
@@ -72,6 +73,7 @@
             android:textSize="22sp" />
 
         <TextView
+            android:id="@+id/runCal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"

@@ -37,6 +37,7 @@ public class DayOverview extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_overview);
 
+
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());

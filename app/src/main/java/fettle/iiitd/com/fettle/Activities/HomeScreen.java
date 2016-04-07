@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.NumberPicker;
@@ -38,6 +39,8 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         setNavigationDrawer(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Button overview, profile, restraunt, graph, calendar, menu, signup, profileinfo, dialog, newdata;
         overview = (Button) findViewById(R.id.overviewbutton);
@@ -60,6 +63,16 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
         newdata.setOnClickListener(this);
 
 
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void setNavigationDrawer(Toolbar toolbar) {

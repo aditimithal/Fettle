@@ -18,7 +18,7 @@ import fettle.iiitd.com.fettle.R;
  * Use the {@link CardTrackerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CardTrackerFragment extends Fragment {
+public class CardTrackerFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -110,6 +110,13 @@ public class CardTrackerFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.add_activity_btn) {
+
+        }
     }
 
     /**

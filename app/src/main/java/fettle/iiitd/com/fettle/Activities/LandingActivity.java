@@ -71,6 +71,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+
 //        FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab);
 //        order.setOnClickListener(this);
 

@@ -14,17 +14,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="5dp"
                 android:layout_alignParentTop="true"
-                android:text="This Week"
-                android:layout_centerHorizontal="true"/>
+                android:layout_centerHorizontal="true"
+                android:paddingTop="5dp"
+                android:text="This Week" />
             <Button
+                android:id="@+id/more_tracker_week"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="5dp"
-                android:layout_alignParentTop="true"
                 android:background="?android:attr/selectableItemBackground"
                 android:gravity="center"
                 android:text="More"
@@ -32,11 +33,11 @@
                 android:textColor="@color/md_blue_400"/>
         </RelativeLayout>
         <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_gravity="center"
-            android:id="@+id/linearLayout"/>
+            android:orientation="horizontal" />
     </LinearLayout>
 
 </FrameLayout>

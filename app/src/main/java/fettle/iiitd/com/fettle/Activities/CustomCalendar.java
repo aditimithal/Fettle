@@ -40,6 +40,8 @@ public class CustomCalendar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_calendar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         Map<DateTime, Integer> map = new HashMap<>();
         Calendar calendar = Calendar.getInstance();

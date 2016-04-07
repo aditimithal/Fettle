@@ -48,6 +48,7 @@ public class ProfileInfo extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_info);
 
+
         try {
             ParseUser user = ParseUser.getCurrentUser();
             ((TextView) findViewById(R.id.weight)).setText(User.getWeight() + "kg");
