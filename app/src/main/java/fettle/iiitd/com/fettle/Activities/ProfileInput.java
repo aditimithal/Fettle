@@ -1,6 +1,9 @@
 package fettle.iiitd.com.fettle.Activities;
 
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,7 +18,9 @@ import com.parse.ParseUser;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 public class ProfileInput extends AppCompatActivity {
@@ -94,11 +99,73 @@ public class ProfileInput extends AppCompatActivity {
         user.put("exercise", exercise);
         user.saveEventually();
 
-        if (getIntent().getBooleanExtra("landing", false)) {
-            startActivity(new Intent(this, LandingActivity.class));
-            finish();
-        } else
-            onBackPressed();
+        new GetTargetWeightTask(this).execute();
 
     }
+
+    public class GetTargetWeightTask extends AsyncTask<Void, Void, Void> {
+
+        public Activity activity;
+        ProgressDialog pd;
+        Map<String, String> mapCalAct;
+        Map<String, String> mapCalTarget;
+
+        public GetTargetWeightTask(Activity activity) {
+            this.activity = activity;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            pd = new ProgressDialog(activity);
+            pd.setIndeterminate(true);
+            pd.setTitle("wait");
+            pd.setMessage("wait for data to process");
+            pd.show();
+            super.onPreExecute();
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ParseUser user = ParseUser.getCurrentUser();
+            mapCalAct = Utils.CaloriesToActivity(user.getInt("weight"), 10);
+            mapCalTarget = Utils.CalTarget(user.getInt("age"), user.getInt("weight"), user.getInt("height"), user.getBoolean("male") ? "m" : "f");
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            pd.dismiss();
+            ParseUser user = ParseUser.getCurrentUser();
+
+            if (user.getInt("weight") > user.getInt("weight_target"))
+                Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("lose_0.5kg").replace(",", "")));
+            else if (user.getInt("weight") < user.getInt("weight_target"))
+                Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("gain_0.5kg").replace(",", "")));
+            else
+                Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("maintain_weight").replace(",", "")));
+
+            String walk10 = mapCalAct.get("Walk");
+            String[] str = walk10.split(":");
+            int m = Integer.parseInt(str[0]);
+            int s = Integer.parseInt(str[1]);
+
+            Utils.storePref(activity, Utils.WALK_10_CALOIRES_KEY, m * 60 + s);
+
+            String run10 = mapCalAct.get("Run");
+            str = run10.split(":");
+            m = Integer.parseInt(str[0]);
+            s = Integer.parseInt(str[1]);
+
+            Utils.storePref(activity, Utils.RUN_10_CALOIRES_KEY, m * 60 + s);
+
+            super.onPostExecute(aVoid);
+
+            if (getIntent().getBooleanExtra("landing", false)) {
+                startActivity(new Intent(activity, LandingActivity.class));
+                finish();
+            } else
+                onBackPressed();
+        }
+    }
+
 }
