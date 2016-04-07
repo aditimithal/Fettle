@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Calendar;
+
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -38,13 +40,14 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
             v.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
             TextView tv = (TextView) v.findViewById(R.id.tvDay);
             tv.setText(days[i]);
-            if (i == 3)
+            Calendar calendar = Calendar.getInstance();
+            if (i == (calendar.get(Calendar.DAY_OF_WEEK) + 5) % 7)
                 tv.setBackgroundResource(R.drawable.circular_background_yellow);
 
             ProgressBar mProgress1 = (ProgressBar) v.findViewById(R.id.circularProgressbar1);
             mProgress1.setMax(100); // Maximum Progress
             mProgress1.setProgress(10 + 2 * i);   // Main Progress
-            mProgress1.setSecondaryProgress(20 + 3 * i); // Secondary Progress
+            mProgress1.setSecondaryProgress(0); // Secondary Progress
 
             ProgressBar mProgress2 = (ProgressBar) v.findViewById(R.id.circularProgressbar2);
             mProgress2.setMax(100); // Maximum Progress

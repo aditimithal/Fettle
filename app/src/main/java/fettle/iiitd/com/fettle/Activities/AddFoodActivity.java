@@ -30,6 +30,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 public class AddFoodActivity extends AppCompatActivity {
@@ -71,20 +72,39 @@ public class AddFoodActivity extends AppCompatActivity {
         final NumberPicker numberPicker = (NumberPicker) dialog.findViewById(R.id.numberPicker);
         numberPicker.setMaxValue(100);
         numberPicker.setMinValue(0);
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                setCalorieData(dialog, dish);
+            }
+        });
 
         final NumberPicker numberPicker1 = (NumberPicker) dialog.findViewById(R.id.numberPicker1);
         numberPicker1.setMinValue(0);
         numberPicker1.setMaxValue(1);
         numberPicker1.setDisplayedValues(new String[]{"grams", dish.getDescription()});
+        numberPicker1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                setCalorieData(dialog, dish);
+            }
+        });
 
         dialog.show();
 
-        TextView WalkCal = (TextView) dialog.findViewById(R.id.time1);
-        TextView RunCal = (TextView) dialog.findViewById(R.id.time2);
+//        int walk10 = Utils.getPref(this, Utils.WALK_10_CALORIES_KEY);
+//        int run10 = Utils.getPref(this, Utils.RUN_10_CALORIES_KEY);
+//        walkcal = ((Integer.parseInt(dish.getCalories()) * walk10) / 10 / 60);
+//        runcal = ((Integer.parseInt(dish.getCalories()) * run10) / 10 / 60);
+
+        setCalorieData(dialog, dish);
+
+//        TextView WalkCal = (TextView) dialog.findViewById(R.id.time1);
+//        TextView RunCal = (TextView) dialog.findViewById(R.id.time2);
         ImageView walkimage = (ImageView) dialog.findViewById(R.id.standing);
         ImageView workoutimage = (ImageView) dialog.findViewById(R.id.workout_image);
-        WalkCal.setText(walkcal + "Min");
-        RunCal.setText(runcal + "Min");
+//        WalkCal.setText(walkcal + "Min");
+//        RunCal.setText(runcal + "Min");
         if (standing != null) {
             walkimage.setImageBitmap(standing);
         }
@@ -142,6 +162,39 @@ public class AddFoodActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void setCalorieData(Dialog dialog, Dish dish) {
+
+        NumberPicker numberPickerQuantity = (NumberPicker) dialog.findViewById(R.id.numberPicker);
+        NumberPicker numberPickerUnits = (NumberPicker) dialog.findViewById(R.id.numberPicker1);
+        int description = numberPickerUnits.getValue();
+        int quantity = numberPickerQuantity.getValue();
+
+        float multiplier = 1f;
+        if (description == 0) {
+            try {
+                multiplier = quantity / Float.parseFloat(dish.getGram());
+            } catch (Exception e) {
+            }
+        } else {
+            try {
+                multiplier = quantity / Float.parseFloat(dish.getMeasure());
+            } catch (Exception e) {
+            }
+        }
+
+        int calories = (int) (Float.parseFloat(dish.getCalories()) * multiplier);
+
+        int walk10 = Utils.getPref(this, Utils.WALK_10_CALORIES_KEY);
+        int run10 = Utils.getPref(this, Utils.RUN_10_CALORIES_KEY);
+        int walkcal = ((calories * walk10) / 10 / 60);
+        int runcal = ((calories * run10) / 10 / 60);
+
+        TextView WalkCal = (TextView) dialog.findViewById(R.id.time1);
+        TextView RunCal = (TextView) dialog.findViewById(R.id.time2);
+        WalkCal.setText(walkcal + "Min");
+        RunCal.setText(runcal + "Min");
     }
 
     public void onLeftClick(View view) {
@@ -219,8 +272,6 @@ public class AddFoodActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     createDialog(position, 30, 50, null, null);
                     //listhotposition = position;
-                    //Intent i = new Intent(manangrid.this, venuepaage.class);
-                    //startActivity(i);
                 }
             });
 

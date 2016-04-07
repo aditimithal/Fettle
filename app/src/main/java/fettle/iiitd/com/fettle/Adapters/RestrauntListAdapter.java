@@ -51,8 +51,8 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
                 context.startActivity(myIntent);
             }
         });
-        ((TextView) ((RestrauntViewHolder) holder).view.findViewById(R.id.restraunt_name)).setText(messages.get(position).getName());
-        ((RestrauntViewHolder) holder).tvRestrauntName.setText("");
+
+        ((RestrauntViewHolder) holder).tvRestrauntName.setText(messages.get(position).getName());
         ((RestrauntViewHolder) holder).tvFoodType.setText(category);
         ((RestrauntViewHolder) holder).tvMinOrder.setText("");
         ((RestrauntViewHolder) holder).ivRestrauntIcon.setBackgroundResource(R.drawable.subway_icon);

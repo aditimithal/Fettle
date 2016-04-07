@@ -62,13 +62,13 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
         if (getItemViewType(position) == VIEW_CARD) {
             final Menu menu = messages.get(position);
-            int walk10 = Utils.getPref(context, Utils.WALK_10_CALOIRES_KEY);
-            int run10 = Utils.getPref(context, Utils.RUN_10_CALOIRES_KEY);
+            int walk10 = Utils.getPref(context, Utils.WALK_10_CALORIES_KEY);
+            int run10 = Utils.getPref(context, Utils.RUN_10_CALORIES_KEY);
             ((MenuItemViewHolder) holder).tvDishName.setText(menu.getName());
             ((MenuItemViewHolder) holder).tvCalories.setText(menu.getCalories() + " calories");
             ((MenuItemViewHolder) holder).tvPrice.setText("");
-            ((MenuItemViewHolder) holder).tvWalkingTime.setText(((menu.getCalories() * walk10) / 10) + "Min");
-            ((MenuItemViewHolder) holder).tvRunningTime.setText(((menu.getCalories() * run10) / 10) + "Min");
+            ((MenuItemViewHolder) holder).tvWalkingTime.setText(((menu.getCalories() * walk10) / 10 / 60) + "Min");
+            ((MenuItemViewHolder) holder).tvRunningTime.setText(((menu.getCalories() * run10) / 10 / 60) + "Min");
             ((MenuItemViewHolder) holder).view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -78,7 +78,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
                     parseObject.put("quantity", 1);
                     parseObject.put("cal", menu.getCalories() + "");
                     parseObject.put("carb", menu.getCarb() + "");
-                    parseObject.put("measure", 1);
+                    parseObject.put("measure", 1 + "");
                     parseObject.put("fat", menu.getFat() + "");
                     parseObject.put("fiber", menu.getFiber() + "");
                     parseObject.put("gram", 0 + "");

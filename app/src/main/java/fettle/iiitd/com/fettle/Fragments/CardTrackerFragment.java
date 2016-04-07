@@ -1,13 +1,18 @@
 package fettle.iiitd.com.fettle.Fragments;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
+import fettle.iiitd.com.fettle.Activities.Fit;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -59,6 +64,7 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -70,6 +76,15 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         initProgress(view);
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Button add_btn=(Button)getActivity().findViewById(R.id.add_activity_btn);
+        add_btn.setOnClickListener(this);
+
     }
 
     private void initProgress(View view) {
@@ -115,6 +130,10 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.add_activity_btn) {
+
+            Log.d("ac","click add");
+            Intent myIntent = new Intent(getActivity(), Fit.class);
+            startActivity(myIntent);
 
         }
     }

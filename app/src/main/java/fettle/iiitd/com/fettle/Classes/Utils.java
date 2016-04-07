@@ -19,8 +19,8 @@ import java.util.HashMap;
 public class Utils {
 
     public static final String DAILY_CALORIE_KEY = "dailyCalorie";
-    public static final String WALK_10_CALOIRES_KEY = "walkTen";
-    public static final String RUN_10_CALOIRES_KEY = "runTen";
+    public static final String WALK_10_CALORIES_KEY = "walkTen";
+    public static final String RUN_10_CALORIES_KEY = "runTen";
     public static final String PREF_NAME = "Pref";
 
     public static float getBmi(int heightInCm, int weight) {

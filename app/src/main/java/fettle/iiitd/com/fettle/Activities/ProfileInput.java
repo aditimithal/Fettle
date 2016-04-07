@@ -149,14 +149,14 @@ public class ProfileInput extends AppCompatActivity {
             int m = Integer.parseInt(str[0]);
             int s = Integer.parseInt(str[1]);
 
-            Utils.storePref(activity, Utils.WALK_10_CALOIRES_KEY, m * 60 + s);
+            Utils.storePref(activity, Utils.WALK_10_CALORIES_KEY, m * 60 + s);
 
             String run10 = mapCalAct.get("Run");
             str = run10.split(":");
             m = Integer.parseInt(str[0]);
             s = Integer.parseInt(str[1]);
 
-            Utils.storePref(activity, Utils.RUN_10_CALOIRES_KEY, m * 60 + s);
+            Utils.storePref(activity, Utils.RUN_10_CALORIES_KEY, m * 60 + s);
 
             super.onPostExecute(aVoid);
 

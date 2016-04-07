@@ -24,10 +24,10 @@ import fettle.iiitd.com.fettle.R;
 public class CardIntakeNutrientFragment extends Fragment implements View.OnClickListener {
 
 
-    private static final int limitFiber = 30;
-    private static final int limitFats = 70;
-    private static final int limitCarbs = 310;
-    private static final int limitProteins = 50;
+    public static final int limitFiber = 30;
+    public static final int limitFats = 70;
+    public static final int limitCarbs = 310;
+    public static final int limitProteins = 50;
     String[] nutrients = {"Fiber", "Fats", "Carbs", "Protein"};
     int[] nutrientDrawables = {R.drawable.fiber_g, R.drawable.fats_g, R.drawable.carbs_g, R.drawable.protein_g};
     private LinearLayout lFiber, lFats, lCarbs, lProteins;

@@ -118,6 +118,7 @@ public class HomeScreen extends AppCompatActivity implements View.OnClickListene
                             Intent myIntent = new Intent(HomeScreen.this, ProfileInfo.class);
                             startActivity(myIntent);
                         }
+
                         Toast.makeText(HomeScreen.this, "" + position, Toast.LENGTH_SHORT).show();
                         return true;
                     }
