@@ -19,6 +19,7 @@ import fettle.iiitd.com.fettle.R;
 public class CardIntakeFragment extends Fragment {
 
     private LandingActivity.AddedListener mAddedListener;
+
     public CardIntakeFragment() {
         // Required empty public constructor
     }
@@ -28,13 +29,23 @@ public class CardIntakeFragment extends Fragment {
         this.mAddedListener = mAddedListener;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_card_intake, container, false);
     }
+
+    //TODO Manan
+    /*public void setDeficiencyData() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.add(Calendar.DATE, -3);
+        Date startDate = calendar.getTime();
+        ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("FoodIntake");
+        parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
+        parseQuery.whereGreaterThan("createdAt", startDate);
+    }*/
 
     public void updateCalories(int breakfast, int lunch, int dinner, int required) {
         TextView tv;

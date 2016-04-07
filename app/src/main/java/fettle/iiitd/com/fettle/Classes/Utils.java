@@ -115,11 +115,6 @@ public class Utils {
         editor.commit();
     }
 
-    public static String getPref(Activity activity, String key) {
-        SharedPreferences sharedPref = activity.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        return sharedPref.getString(key, "0");
-    }
-
     public static void storePref(Activity activity, String key, int value) {
         SharedPreferences sharedPref = activity.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -127,8 +122,8 @@ public class Utils {
         editor.commit();
     }
 
-    public static int getPref(String key, Activity activity) {
-        SharedPreferences sharedPref = activity.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+    public static int getPref(Context context, String key) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         return sharedPref.getInt(key, 0);
     }
 

@@ -10,12 +10,62 @@ public class Menu {
     String location;
     int minOrder;
     int deliveryTime;
+    int calories;
+    int carb;
+    int fat;
+    int fiber;
+    int protein;
 
     public Menu() {
     }
 
     public Menu(String name) {
         this.name = name;
+    }
+
+    public Menu(String name, int calories) {
+        this.name = name;
+        this.calories = calories;
+    }
+
+    public int getCarb() {
+        return carb;
+    }
+
+    public void setCarb(int carb) {
+        this.carb = carb;
+    }
+
+    public int getFat() {
+        return fat;
+    }
+
+    public void setFat(int fat) {
+        this.fat = fat;
+    }
+
+    public int getFiber() {
+        return fiber;
+    }
+
+    public void setFiber(int fiber) {
+        this.fiber = fiber;
+    }
+
+    public int getProtein() {
+        return protein;
+    }
+
+    public void setProtein(int protein) {
+        this.protein = protein;
+    }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public void setCalories(int calories) {
+        this.calories = calories;
     }
 
     public String getName() {

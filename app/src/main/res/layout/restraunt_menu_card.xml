@@ -68,7 +68,7 @@
                     android:id="@+id/workout_image"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/workout" />
+                    android:src="@drawable/running" />
 
                 <TextView
                     android:id="@+id/running_time"
@@ -89,7 +89,7 @@
                     android:id="@+id/standing"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/standing" />
+                    android:src="@drawable/walking_o" />
 
                 <TextView
                     android:id="@+id/walking_time"

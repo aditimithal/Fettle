@@ -79,7 +79,12 @@ public class RestrauntMenuList extends AppCompatActivity {
             e.printStackTrace();
         }
         for (ParseObject each : lPo) {
-            lMenu.add(new Menu(each.getString("name")));
+            Menu menu = new Menu(each.getString("name"), each.getInt("cal"));
+            menu.setCarb(each.getInt("carb"));
+            menu.setFat(each.getInt("fat"));
+            menu.setFiber(each.getInt("fiber"));
+            menu.setProtein(each.getInt("protein"));
+            lMenu.add(menu);
         }
         return lMenu;
     }

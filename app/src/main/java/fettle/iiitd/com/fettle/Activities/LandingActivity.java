@@ -1,7 +1,6 @@
 package fettle.iiitd.com.fettle.Activities;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -109,12 +108,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
 //        Log.d(TAG, User.getPastBmis().toString());
 
-        testFunctions();
-
-    }
-
-    private void testFunctions() {
-        new TestFunctionsAsync().execute();
     }
 
     @Override
@@ -251,7 +244,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         }
 
-        fragment3.updateCalories(breakfast, lunch, dinner, 2000);
+        fragment3.updateCalories(breakfast, lunch, dinner, Utils.getPref(this, Utils.DAILY_CALORIE_KEY));
         fragment4.updateNutrients(fiber, fats, carbs, proteins);
     }
 
@@ -329,17 +322,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     public interface AddedListener {
         public void isAdded(boolean added);
-    }
-
-    public class TestFunctionsAsync extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... params) {
-            Log.d(TAG, 1 + Utils.CaloriesToActivity(50, 1).toString());
-            Log.d(TAG, 10 + Utils.CaloriesToActivity(50, 10).toString());
-            Log.d(TAG, Utils.CalTarget(25, 50, 170, "m").toString());
-            return null;
-        }
     }
 
     private class ScreenSlidePagerAdapter1 extends FragmentStatePagerAdapter {

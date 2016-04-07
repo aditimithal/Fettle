@@ -87,13 +87,10 @@ public class AddFoodActivity extends AppCompatActivity {
         RunCal.setText(runcal + "Min");
         if (standing != null) {
             walkimage.setImageBitmap(standing);
-
         }
         if (workout != null) {
             workoutimage.setImageBitmap(workout);
         }
-
-
 
         Button discard, add;
         TextView tvDish;
