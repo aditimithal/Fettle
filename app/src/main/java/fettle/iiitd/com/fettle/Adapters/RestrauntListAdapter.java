@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -51,16 +52,14 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
             }
         });
         ((TextView) ((RestrauntViewHolder) holder).view.findViewById(R.id.restraunt_name)).setText(messages.get(position).getName());
-//        ((RestrauntViewHolder) holder).tvName.setText(messages.get(position).getString("name"));
-//        ((RestrauntViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
-//        ((RestrauntViewHolder) holder).tvLocation.setVisibility(View.INVISIBLE);
-//        if (messages.get(position).getString("position") != null)
-//            ((RestrauntViewHolder) holder).tvRole.setText(messages.get(position).getString("position"));
-//        if (messages.get(position).getParseObject("constituency") != null)
-//            ((RestrauntViewHolder) holder).tvLocation.setText(messages.get(position).getParseObject("constituency").getString("name"));
-//        if (!usersInstalled.contains(messages.get(position).getObjectId())) {
-//            ((RestrauntViewHolder) holder).tvName.setAlpha((float) .4);
-//        }
+        ((RestrauntViewHolder) holder).tvRestrauntName.setText("");
+        ((RestrauntViewHolder) holder).tvFoodType.setText("");
+        ((RestrauntViewHolder) holder).tvMinOrder.setText("");
+        ((RestrauntViewHolder) holder).ivRestrauntIcon.setBackgroundResource(R.drawable.subway_icon);
+        ((RestrauntViewHolder) holder).rating.setRating(3);
+
+
+
     }
 
     @Override
@@ -69,10 +68,11 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
     }
 
     private static class RestrauntViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvName;
-        public TextView tvRole;
-        public TextView tvLocation;
-        public ImageView ivAskerPicture;
+        public TextView tvRestrauntName;
+        public TextView tvFoodType;
+        public TextView tvMinOrder;
+        public ImageView ivRestrauntIcon;
+        public RatingBar rating;
         public CardView card;
         public View view;
 
@@ -80,10 +80,11 @@ public class RestrauntListAdapter extends RecyclerView.Adapter<RecyclerView.View
             super(itemView);
             view = itemView;
             card = (CardView) itemView.findViewById(R.id.restrauntCard);
-//            tvName = (TextView) itemView.findViewById(R.id.tvName);
-//            tvRole = (TextView) itemView.findViewById(R.id.tvRole);
-//            tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
-//            ivAskerPicture = (ImageView) itemView.findViewById(R.id.askerPicture);
+            tvRestrauntName = (TextView) itemView.findViewById(R.id.restraunt_name);
+            tvFoodType = (TextView) itemView.findViewById(R.id.food_type);
+            tvMinOrder = (TextView) itemView.findViewById(R.id.minOrder);
+            ivRestrauntIcon = (ImageView) itemView.findViewById(R.id.restraunt_icon);
+            rating = (RatingBar) itemView.findViewById(R.id.ratingBar);
         }
     }
 }

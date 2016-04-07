@@ -23,7 +23,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/icon"
+                android:id="@+id/restraunt_icon"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:src="@drawable/subway_icon" />
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="24dp"
-                android:layout_toRightOf="@+id/icon">
+                android:layout_toRightOf="@+id/restraunt_icon">
 
                 <TextView
                     android:id="@+id/restraunt_name"
@@ -52,6 +52,7 @@
                     android:textSize="16sp" />
 
                 <RatingBar
+                    android:id="@+id/ratingBar"
                     style="?android:attr/ratingBarStyleIndicator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,6 +95,7 @@
                     android:text="Min Order" />
 
                 <TextView
+                    android:id="@+id/minOrder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/workout_image"

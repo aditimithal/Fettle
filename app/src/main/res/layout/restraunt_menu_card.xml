@@ -22,7 +22,7 @@
         <!--android:background="@drawable/food_dish" />-->
 
         <TextView
-            android:id="@+id/dish"
+            android:id="@+id/dish_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="4dp"
@@ -35,7 +35,7 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dish"
+            android:layout_below="@+id/dish_name"
             android:layout_marginTop="8dp"
             android:paddingLeft="4dp"
             android:text="Rs 200"
@@ -71,8 +71,10 @@
                     android:src="@drawable/workout" />
 
                 <TextView
+                    android:id="@+id/running_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
                     android:layout_toRightOf="@id/workout_image"
                     android:text="20Min" />
             </RelativeLayout>
@@ -90,6 +92,7 @@
                     android:src="@drawable/standing" />
 
                 <TextView
+                    android:id="@+id/walking_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/standing"

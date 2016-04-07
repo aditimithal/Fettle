@@ -21,44 +21,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="321877fa-e498-4471-8557-ce2eecd0db21" name="Default" comment="activity for food order category">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/AddFoodActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/AddFoodActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/CardTrackerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/CardTrackerFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/CardTrackerWeekFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/CardTrackerWeekFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/CustomCalendar.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/CustomCalendar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/DayOverview.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/DayOverview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/ExerciesOverview.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/ExerciesOverview.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/FoodOrderCategory.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/FoodOrderCategory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/FoodTypeSelection.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/FoodTypeSelection.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/HomeScreen.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/HomeScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/LandingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/LandingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/NewItem.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/NewItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/ProfileInfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/ProfileInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/ProfileInput.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/ProfileInput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/RestrauntList.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/RestrauntList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/RestrauntMenuList.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/RestrauntMenuList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/SignUp.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/SignUp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/addfood_item_cell.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/addfood_item_cell.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/animated_vector_drawable_23_2_1.xml" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\MPAndroidChart_v2_2_3.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\ViewPagerIndicator_2_4_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\animated_vector_drawable_23_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\appcompat_v7_23_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\design_23_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\fastadapter_1_2_7.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\fontawesome_typeface_4_4_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\google_material_typeface_2_2_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\iconics_core_2_5_10.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\materialdrawer_5_1_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\materialize_0_8_6.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\octicons_typeface_3_0_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\percent_23_1_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\recyclerview_v7_23_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\support_annotations_23_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\support_v4_23_2_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Danish\AndroidStudioProjects\Fettle\.idea\libraries\support_vector_drawable_23_2_1.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntMenuAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntMenuAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/design_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/design_23_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/fastadapter_1_2_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/fastadapter_1_2_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/fontawesome_typeface_4_4_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/fontawesome_typeface_4_4_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/food_item_row.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/food_item_row.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_tracker.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_tracker.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_tracker_week.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_card_tracker_week.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise_overview.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise_overview.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/google_material_typeface_2_2_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/google_material_typeface_2_2_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/iconics_core_2_5_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/iconics_core_2_5_10.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/materialdrawer_5_1_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/materialdrawer_5_1_6.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/octicons_typeface_3_0_0_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/octicons_typeface_3_0_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/percent_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/percent_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/quant_dialog.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/quant_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_vector_drawable_23_2_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/restraunt_list_card.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/restraunt_list_card.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/restraunt_menu_card.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/restraunt_menu_card.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Fettle.iws" />
@@ -86,7 +71,44 @@
     <favorites_list name="Fettle" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="RestrauntMenuAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntMenuAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+              <folding>
+                <element signature="e#2391#2392#0" expanded="true" />
+                <element signature="e#2429#2430#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="restraunt_menu_header.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restraunt_menu_header.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.586207">
+              <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RestrauntListAdapter.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7901049">
+              <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1670,7 +1692,7 @@
     <option name="modificationStamps">
       <map>
         <entry key="$PROJECT_DIR$" value="4377631208000" />
-        <entry key="C:\Users\Danish\AndroidStudioProjects\Fettle" value="4378047024954" />
+        <entry key="C:\Users\Danish\AndroidStudioProjects\Fettle" value="4379323404547" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1900,34 +1922,34 @@
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
                             <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/abego/treelayout/org.abego.treelayout.core/1.0.1/org.abego.treelayout.core-1.0.1.jar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-measurement/8.3.0/play-services-measurement-8.3.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-measurement/8.3.0/play-services-measurement-8.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/materialdrawer/5.1.6/dc8b450b32503cc39cedcb1969d68d9f50b2512a/materialdrawer-5.1.6.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.2.1/appcompat-v7-23.2.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/design/23.2.1/design-23.2.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/cardview-v7/23.2.1/cardview-v7-23.2.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/percent/23.1.1/percent-23.1.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/appcompat-v7/23.2.1/appcompat-v7-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/design/23.2.1/design-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/cardview-v7/23.2.1/cardview-v7-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/percent/23.1.1/percent-23.1.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.JakeWharton/ViewPagerIndicator/2.4.1/1682541ab751c2696d818e03e117680f43c792b5/ViewPagerIndicator-2.4.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.2.1/support-v4-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-v4/23.2.1/support-v4-23.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.2.3/f474798fde03291398b1a016118b9809a79550b7/MPAndroidChart-v2.2.3.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/google-material-typeface/2.2.0.1/b66211a3ef7e6bbc150c3eb294f078f7e2e98ac2/google-material-typeface-2.2.0.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/fontawesome-typeface/4.4.0.1/ff93552efbfd03f55f8db7dd53328e8bd8801dfc/fontawesome-typeface-4.4.0.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/octicons-typeface/3.0.0.1/bc01e0d2ae7a4a4124bb31ecff6d4ee623794f0a/octicons-typeface-3.0.0.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.roomorama/caldroid/3.0.1/e0f2aa108bf1da13ab74ec99a70b479e0ef49b59/caldroid-3.0.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.clans/fab/1.6.2/645e2dd3e2a1886ac6658de45b653f051ae88b10/fab-1.6.2.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-auth/8.3.0/play-services-auth-8.3.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-auth/8.3.0/play-services-auth-8.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse/parse-android/1.11.0/6592129dec2caa8791d322c7e4b6b7a30e8eadae/parse-android-1.11.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.3.0/27cabf3558be23a89f054334dd92512645ad34d9/bolts-android-1.3.0.jar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/multidex/1.0.1/multidex-1.0.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-basement/8.3.0/play-services-basement-8.3.0.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/23.2.1/recyclerview-v7-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/multidex/1.0.1/multidex-1.0.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-basement/8.3.0/play-services-basement-8.3.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/recyclerview-v7/23.2.1/recyclerview-v7-23.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/fastadapter/1.2.7/6d5e4718cdfeb4de39d167620a5477b3f495f416/fastadapter-1.2.7.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/iconics-core/2.5.10/3e1d891d7d3895903a26fa6bdfdc77bf21a2b3fd/iconics-core-2.5.10.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.2.1/support-annotations-23.2.1.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mikepenz/materialize/0.8.6/f352cfd4535194a790ea5df3757025f5396735aa/materialize-0.8.6.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/23.2.1/animated-vector-drawable-23.2.1.aar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/android/m2repository/com/android/support/support-vector-drawable/23.2.1/support-vector-drawable-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/animated-vector-drawable/23.2.1/animated-vector-drawable-23.2.1.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/android/m2repository/com/android/support/support-vector-drawable/23.2.1/support-vector-drawable-23.2.1.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.darwinsys/hirondelle-date4j/1.5.1/7b52de513f87ae4d9ff5d17518def0a1e9bc3df0/hirondelle-date4j-1.5.1.jar" />
-                            <option value="$USER_HOME$/Library/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-base/8.3.0/play-services-base-8.3.0.aar" />
+                            <option value="$USER_HOME$/AppData/Local/Android/sdk/extras/google/m2repository/com/google/android/gms/play-services-base/8.3.0/play-services-base-8.3.0.aar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.3.0/8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c/bolts-tasks-1.3.0.jar" />
                             <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-applinks/1.3.0/bc535105332645408ef5f1380215cc954b842178/bolts-applinks-1.3.0.jar" />
                           </list>
@@ -2090,7 +2112,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/CardIntakeNutrientFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/food_order_category.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/FoodListAdaper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/food_order_category.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_item_course_stats_overview.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/FoodCategoryAdapter.java" />
@@ -2116,6 +2137,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/quant_dialog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Activities/AddFoodActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Fragments/ExerciesOverview.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/restraunt_list_card.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/restraunt_menu_card.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntMenuAdapter.java" />
       </list>
     </option>
   </component>
@@ -2130,8 +2155,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1280" />
-    <option name="height" value="800" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -2156,10 +2181,9 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2196,24 +2220,6 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
@@ -2234,50 +2240,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="fettle" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fragments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -2311,35 +2273,10 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Activities" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Fettle" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
-            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2347,7 +2284,7 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="051637d7002e3cc7" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MeriAwaaz" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BasicHistoryApi" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="true" />
@@ -2587,8 +2524,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32719547" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
@@ -2598,8 +2535,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286119" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30533117" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29648608" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32719547" sideWeight="0.4969743" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2607,7 +2544,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24878837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24011713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3290469" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2656,30 +2593,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/homescreen.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93939394">
-          <caret line="56" column="34" selection-start-line="56" selection-start-column="34" selection-end-line="56" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12072434">
-          <caret line="4" column="72" selection-start-line="4" selection-start-column="72" selection-end-line="4" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09054326">
-          <caret line="3" column="70" selection-start-line="3" selection-start-column="70" selection-end-line="3" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.2.3/8868ca724228f2645663b65a272b1afa136b472a/MPAndroidChart-v2.2.3-sources.jar!/com/github/mikephil/charting/utils/ColorTemplate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73693085">
@@ -2729,23 +2642,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restraunt_list_card.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.60229445">
-          <caret line="35" column="71" selection-start-line="35" selection-start-column="71" selection-end-line="35" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/food_order_category.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2753,23 +2649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.27327934">
           <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/FoodCategoryAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5058997">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_course_stats_overview.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20801233">
-          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -2787,7 +2666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.8597844">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2795,7 +2673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="54" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2803,7 +2680,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.92477876">
           <caret line="49" column="60" selection-start-line="49" selection-start-column="60" selection-end-line="49" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2811,7 +2687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53539824">
           <caret line="118" column="12" selection-start-line="118" selection-start-column="12" selection-end-line="118" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2822,7 +2697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.37596303">
           <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2830,7 +2704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1725664">
           <caret line="62" column="12" selection-start-line="62" selection-start-column="12" selection-end-line="62" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2841,7 +2714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3559322">
           <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2852,7 +2724,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4622496">
           <caret line="20" column="12" selection-start-line="20" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2863,7 +2734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23728813">
           <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2882,7 +2752,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33281973">
           <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2890,26 +2759,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.30973452">
           <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/food_item_row.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48536208">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/FoodListAdaper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42035398">
-          <caret line="31" column="66" selection-start-line="31" selection-start-column="66" selection-end-line="31" selection-end-column="66" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2917,7 +2766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23542601">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2925,7 +2773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43049327">
           <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2933,7 +2780,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2941,7 +2787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2949,7 +2794,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.13452914">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2957,7 +2801,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3026906">
           <caret line="28" column="3" selection-start-line="28" selection-start-column="3" selection-end-line="36" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2965,7 +2808,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.06278027">
           <caret line="71" column="63" selection-start-line="71" selection-start-column="63" selection-end-line="71" selection-end-column="63" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2973,7 +2815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80717486">
           <caret line="75" column="5" selection-start-line="75" selection-start-column="5" selection-end-line="75" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2997,7 +2838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8408072">
           <caret line="89" column="5" selection-start-line="89" selection-start-column="5" selection-end-line="89" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3005,7 +2845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4304934">
           <caret line="48" column="46" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3013,7 +2852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42825112">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3021,7 +2859,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.80717486">
           <caret line="59" column="8" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3040,7 +2877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2613909">
           <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3051,7 +2887,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25179857">
           <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3062,7 +2897,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04556355">
           <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="58" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3070,7 +2904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.69730943">
           <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3089,6 +2922,95 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334">
           <caret line="40" column="12" selection-start-line="40" selection-start-column="12" selection-end-line="40" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_item_course_stats_overview.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.689655">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/food_item_row.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55956113">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/FoodListAdaper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.48425788">
+          <caret line="31" column="76" selection-start-line="31" selection-start-column="76" selection-end-line="31" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/FoodCategoryAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="36" selection-start-line="40" selection-start-column="36" selection-end-line="40" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restraunt_list_card.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.52037615">
+          <caret line="124" column="16" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restraunt_menu_card.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09404389">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntMenuAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+          <folding>
+            <element signature="e#2391#2392#0" expanded="true" />
+            <element signature="e#2429#2430#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/restraunt_menu_header.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.586207">
+          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/fettle/iiitd/com/fettle/Adapters/RestrauntListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7901049">
+          <caret line="52" column="11" selection-start-line="52" selection-start-column="11" selection-end-line="52" selection-end-column="11" />
           <folding />
         </state>
       </provider>

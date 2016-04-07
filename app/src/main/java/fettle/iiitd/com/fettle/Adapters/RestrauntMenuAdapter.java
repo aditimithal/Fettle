@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -35,9 +36,9 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == VIEW_HEADER) {
-            return new UserListViewHolder(inflater.inflate(R.layout.restraunt_menu_header, parent, false));
+            return new MenuHeaderViewHolder(inflater.inflate(R.layout.restraunt_menu_header, parent, false));
         } else {
-            return new UserListViewHolder(inflater.inflate(R.layout.restraunt_menu_card, parent, false));
+            return new MenuItemViewHolder(inflater.inflate(R.layout.restraunt_menu_card, parent, false));
         }
 
     }
@@ -45,21 +46,19 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
-        if (position == VIEW_HEADER) {
-            ((TextView) ((UserListViewHolder) holder).view.findViewById(R.id.restraunt_name)).setText(restaurant);
-        } else {
-            ((TextView) ((UserListViewHolder) holder).view.findViewById(R.id.dish)).setText(messages.get(position).getName());
-        }
+        if (getItemViewType(position) == VIEW_HEADER) {
 
-//        ((RestrauntViewHolder) holder).tvRole.setVisibility(View.INVISIBLE);
-//        ((RestrauntViewHolder) holder).tvLocation.setVisibility(View.INVISIBLE);
-//        if (messages.get(position).getString("position") != null)
-//            ((RestrauntViewHolder) holder).tvRole.setText(messages.get(position).getString("position"));
-//        if (messages.get(position).getParseObject("constituency") != null)
-//            ((RestrauntViewHolder) holder).tvLocation.setText(messages.get(position).getParseObject("constituency").getString("name"));
-//        if (!usersInstalled.contains(messages.get(position).getObjectId())) {
-//            ((RestrauntViewHolder) holder).tvName.setAlpha((float) .4);
-//        }
+            ((MenuHeaderViewHolder) holder).tvRestrauntName.setText("");
+            ((MenuHeaderViewHolder) holder).tvLocation.setText("");
+            ((MenuHeaderViewHolder) holder).ratingBar.setRating(3);
+        }
+        if (getItemViewType(position) == VIEW_CARD) {
+            ((MenuItemViewHolder) holder).tvDishName.setText("");
+            ((MenuItemViewHolder) holder).tvCalories.setText("");
+            ((MenuItemViewHolder) holder).tvPrice.setText("");
+            ((MenuItemViewHolder) holder).tvRunningTime.setText("");
+            ((MenuItemViewHolder) holder).tvWalkingTime.setText("");
+        }
     }
 
     @Override
@@ -78,20 +77,39 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         return messages.size();
     }
 
-
-    private static class UserListViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvName;
-        public TextView tvRole;
+    private static class MenuHeaderViewHolder extends RecyclerView.ViewHolder {
+        public TextView tvRestrauntName;
         public TextView tvLocation;
+        public RatingBar ratingBar;
+        public View view;
+
+        public MenuHeaderViewHolder(View itemView) {
+            super(itemView);
+            view = itemView;
+            tvRestrauntName = (TextView) itemView.findViewById(R.id.restraunt_name);
+            tvLocation = (TextView) itemView.findViewById(R.id.location);
+            ratingBar = (RatingBar) itemView.findViewById(R.id.ratingBar);
+//            ivAskerPicture = (ImageView) itemView.findViewById(R.id.askerPicture);
+        }
+    }
+
+    private static class MenuItemViewHolder extends RecyclerView.ViewHolder {
+        public TextView tvDishName;
+        public TextView tvPrice;
+        public TextView tvCalories;
+        public TextView tvWalkingTime;
+        public TextView tvRunningTime;
         public ImageView ivAskerPicture;
         public View view;
 
-        public UserListViewHolder(View itemView) {
+        public MenuItemViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-//            tvName = (TextView) itemView.findViewById(R.id.tvName);
-//            tvRole = (TextView) itemView.findViewById(R.id.tvRole);
-//            tvLocation = (TextView) itemView.findViewById(R.id.tvLocation);
+            tvDishName = (TextView) itemView.findViewById(R.id.dish_name);
+            tvPrice = (TextView) itemView.findViewById(R.id.price);
+            tvCalories = (TextView) itemView.findViewById(R.id.calories);
+            tvWalkingTime = (TextView) itemView.findViewById(R.id.walking_time);
+            tvRunningTime = (TextView) itemView.findViewById(R.id.running_time);
 //            ivAskerPicture = (ImageView) itemView.findViewById(R.id.askerPicture);
         }
     }
