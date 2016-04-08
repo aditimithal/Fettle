@@ -1,18 +1,15 @@
 package fettle.iiitd.com.fettle.Fragments;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import fettle.iiitd.com.fettle.Activities.Fit;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -131,9 +128,6 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         if (v.getId() == R.id.add_activity_btn) {
 
-            Log.d("ac","click add");
-            Intent myIntent = new Intent(getActivity(), Fit.class);
-            startActivity(myIntent);
 
         }
     }

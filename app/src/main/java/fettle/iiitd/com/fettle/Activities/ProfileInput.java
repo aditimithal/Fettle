@@ -13,6 +13,11 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.Scopes;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.fitness.Fitness;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
@@ -24,13 +29,16 @@ import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 public class ProfileInput extends AppCompatActivity {
+//    public static GoogleApiClient mClient = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_input);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        mClient=buildFitnessClient();
 
 
         ParseUser user = ParseUser.getCurrentUser();
@@ -101,6 +109,45 @@ public class ProfileInput extends AppCompatActivity {
 
         new GetTargetWeightTask(this).execute();
 
+    }
+
+    private GoogleApiClient buildFitnessClient() {
+        final String TAG = "BasicHistoryApi";
+        GoogleApiClient mClient = null;
+        // Create the Google API Client1
+        mClient = new GoogleApiClient.Builder(this)
+                .addApi(Fitness.HISTORY_API)
+                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                .addConnectionCallbacks(
+                        new GoogleApiClient.ConnectionCallbacks() {
+                            @Override
+                            public void onConnected(Bundle bundle) {
+                                Log.d(TAG, "Connected!!!");
+
+                            }
+
+                            @Override
+                            public void onConnectionSuspended(int i) {
+                                // If your connection to the sensor gets lost at some point,
+                                // you'll be able to determine the reason and react to it here.
+                                if (i == GoogleApiClient.ConnectionCallbacks.CAUSE_NETWORK_LOST) {
+                                    Log.d(TAG, "Connection lost.  Cause: Network Lost.");
+                                } else if (i == GoogleApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED) {
+                                    Log.d(TAG, "Connection lost.  Reason: Service Disconnected");
+                                }
+                            }
+                        }
+                )
+                .enableAutoManage(this, 0, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(ConnectionResult result) {
+                        Log.i(TAG, "Google Play services connection failed. Cause: " +
+                                result.toString());
+                    }
+                })
+                .build();
+        Log.d("ac", "dd");
+        return mClient;
     }
 
     public class GetTargetWeightTask extends AsyncTask<Void, Void, Void> {

@@ -220,7 +220,7 @@ public class AddFoodActivity extends AppCompatActivity {
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("IndianDishes");
         String subString = ((EditText) findViewById(R.id.etSearch)).getText().toString();
         query.whereContains("name", subString);
-        query.setLimit(20);
+        query.setLimit(30);
         List<ParseObject> lPo = new ArrayList<>();
         try {
             lPo = query.find();
@@ -300,5 +300,6 @@ public class AddFoodActivity extends AppCompatActivity {
         }
 
     }
+
 
 }

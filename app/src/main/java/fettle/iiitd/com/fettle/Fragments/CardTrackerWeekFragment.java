@@ -2,7 +2,9 @@ package fettle.iiitd.com.fettle.Fragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
+import fettle.iiitd.com.fettle.Activities.GoogleFit;
+import fettle.iiitd.com.fettle.Activities.SignUp;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -58,6 +64,21 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
             ll.addView(v);
         }
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        List<Object> exercisedate = new ArrayList<>();
+
+        GoogleFit googlefit = new GoogleFit(SignUp.mGoogleApiClient);
+        if (googlefit.getFitnessData() != null) {
+            exercisedate.addAll(googlefit.getFitnessData());
+        } else {
+            Log.d("mclient", "null");
+        }
+
+
     }
 
     //TODO Danish use these 2 functions to set progresses or modify accordingly. u can use fragment 4 to call this function from Landing activity
