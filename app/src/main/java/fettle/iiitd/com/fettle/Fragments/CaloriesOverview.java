@@ -8,15 +8,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import fettle.iiitd.com.fettle.Activities.CustomCalendar;
 import fettle.iiitd.com.fettle.Activities.LandingActivity;
 import fettle.iiitd.com.fettle.Adapters.FoodListAdaper;
 import fettle.iiitd.com.fettle.Classes.Dish;
 import fettle.iiitd.com.fettle.Classes.FoodItem;
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -39,7 +42,11 @@ public class CaloriesOverview extends Fragment {
 
         int sum = 0;
 
-        List<Dish> dishes = LandingActivity.moreDishes;
+        List<Dish> dishes;
+        dishes = LandingActivity.moreDishes;
+        if (getActivity().getIntent().getBooleanExtra("calendar", false)) {
+            dishes = CustomCalendar.moreDishes;
+        }
         ArrayList<FoodItem> menuBreakfast = new ArrayList<>();
         ArrayList<FoodItem> menuLunch = new ArrayList<>();
         ArrayList<FoodItem> menuDinner = new ArrayList<>();
@@ -114,6 +121,7 @@ public class CaloriesOverview extends Fragment {
         lunchfastRecyclerView.setAdapter(cList2);
 
         ((TextView) getActivity().findViewById(R.id.total_calories)).setText(sum + "calories");
+        ((ProgressBar) getActivity().findViewById(R.id.pg)).setProgress((sum * 100) / Utils.getPref(getActivity(), Utils.DAILY_CALORIE_KEY));
 
     }
 }

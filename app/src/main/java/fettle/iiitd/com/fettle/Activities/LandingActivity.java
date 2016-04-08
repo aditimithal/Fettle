@@ -93,7 +93,19 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         setNavigationDrawer(toolbar);
 
         ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
+        findViewById(R.id.tvHeight).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LandingActivity.this, ProfileInput.class));
+            }
+        });
         ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");
+        findViewById(R.id.tvWeight).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LandingActivity.this, ProfileInput.class));
+            }
+        });
 
         //for testing new screens
         /*Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
@@ -202,10 +214,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                     multiplier = each.getQuantity() / Float.parseFloat(each.getMeasure());
                 } catch (Exception e) {
                 }
-            }
-
-            try {
-            } catch (Exception e) {
             }
 
             if (each.getMeal().equals("Breakfast")) {
@@ -317,6 +325,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             updateData = false;
             downloadData(true);
         }
+        ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
+        ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");
         super.onResume();
     }
 

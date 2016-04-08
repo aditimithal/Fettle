@@ -1,6 +1,5 @@
 package fettle.iiitd.com.fettle.Classes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -108,15 +107,8 @@ public class Utils {
         return ActivityToTime;
     }
 
-    public static void storePref(Activity activity, String key, String value) {
-        SharedPreferences sharedPref = activity.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString(key, value);
-        editor.commit();
-    }
-
-    public static void storePref(Activity activity, String key, int value) {
-        SharedPreferences sharedPref = activity.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
+    public static void storePref(Context context, String key, int value) {
+        SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putInt(key, value);
         editor.commit();
