@@ -60,19 +60,24 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
         return view;
     }
 
-    //TODO Danish use this function to set progresses or modify accordingly
+    //TODO Danish use these 2 functions to set progresses or modify accordingly. u can use fragment 4 to call this function from Landing activity
+    //TODO Danish, ask Sarthak how to fill progress(percentage) here
 
     /**
-     * Week starts from Monday
+     * Week starts from Monday = 0 is Monday
      *
      * @param progressesExercise1
      * @param progressesExercise2
      */
     public void setProgresses(int[] progressesExercise1, int[] progressesExercise2) {
         for (int i = 0; i < 7; i++) {
-            ((ProgressBar) lls[i].findViewById(R.id.circularProgressbar1)).setProgress(progressesExercise1[i]);
-            ((ProgressBar) lls[i].findViewById(R.id.circularProgressbar2)).setProgress(progressesExercise2[i]);
+            setProgress(i, progressesExercise1[i], progressesExercise2[i]);
         }
+    }
+
+    public void setProgress(int day, int progress1, int progress2) {
+        ((ProgressBar) lls[day].findViewById(R.id.circularProgressbar1)).setProgress(progress1);
+        ((ProgressBar) lls[day].findViewById(R.id.circularProgressbar2)).setProgress(progress2);
     }
 
     @Override
