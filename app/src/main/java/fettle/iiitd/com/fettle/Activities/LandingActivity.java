@@ -1,5 +1,6 @@
 package fettle.iiitd.com.fettle.Activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -57,6 +59,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     public static boolean added2 = false;
     public static boolean added3 = false;
     public static boolean added4 = false;
+    public static String meal = "Breakfast";
     private ViewPager mPager1;
     private PagerAdapter mPagerAdapter1;
     private ViewPager mPager2;
@@ -130,8 +133,21 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(myIntent);
         }
         if (v.getId() == R.id.fab1) {
-            Intent myIntent = new Intent(LandingActivity.this, FoodOrderCategory.class);
-            startActivity(myIntent);
+            final String[] items = {"Breakfast", "Lunch", "Dinner"};
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Select meal");
+            builder.setItems(items, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    meal = items[which];
+                    Intent myIntent = new Intent(LandingActivity.this, FoodOrderCategory.class);
+                    startActivity(myIntent);
+                    dialog.dismiss();
+                    ;
+                }
+            });
+            builder.create().show();
 
         }
         if (v.getId() == R.id.fab2) {

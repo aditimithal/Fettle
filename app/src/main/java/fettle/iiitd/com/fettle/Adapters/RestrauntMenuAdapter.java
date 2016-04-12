@@ -86,7 +86,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
                     parseObject.put("description", "unit");
                     parseObject.put("name", menu.getName() + "");
                     parseObject.put("protein", menu.getProtein() + "");
-                    parseObject.put("meal", "Lunch"); //TODO Danish get user input and pass it here "Breakfast"/"Lunch"/"Dinner" only 3 choices
+                    parseObject.put("meal", LandingActivity.meal);
                     try {
                         parseObject.saveEventually();
                         parseObject.pin("today");
