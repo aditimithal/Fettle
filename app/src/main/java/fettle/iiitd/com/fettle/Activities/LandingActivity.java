@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.github.clans.fab.FloatingActionMenu;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -133,6 +134,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(myIntent);
         }
         if (v.getId() == R.id.fab1) {
+            ((FloatingActionMenu) (findViewById(R.id.fab))).close(true);
             final String[] items = {"Breakfast", "Lunch", "Dinner"};
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -151,6 +153,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         }
         if (v.getId() == R.id.fab2) {
+            ((FloatingActionMenu) (findViewById(R.id.fab))).close(true);
             Intent myIntent = new Intent(LandingActivity.this, AddFoodActivity.class);
             startActivity(myIntent);
 
