@@ -42,6 +42,8 @@ public class DayOverview extends FragmentActivity {
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+        if (getIntent().getBooleanExtra("exercise", false))
+            mPager.setCurrentItem(1);
     }
 
     @Override
@@ -57,7 +59,7 @@ public class DayOverview extends FragmentActivity {
     }
 
     /**
-     * A simple pager adapter that represents 5 ScreenSlidePageFragment objects, in
+     * A simple pager adapter that represents 2 ScreenSlidePageFragment objects, in
      * sequence.
      */
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
@@ -67,11 +69,9 @@ public class DayOverview extends FragmentActivity {
 
         @Override
         public Fragment getItem(int position) {
-            if(position==0) {
+            if (position == 0) {
                 return new CaloriesOverview();
-            }
-            else
-            {
+            } else {
                 return new ExerciesOverview();
             }
         }
