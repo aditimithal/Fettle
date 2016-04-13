@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -39,11 +40,20 @@ public class NewItem extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         EditText editText;
+        int ids[] = {R.id.input_name, R.id.input_calories, R.id.input_unit, R.id.input_quantity, R.id.input_grams, R.id.input_fat, R.id.input_fibre, R.id.input_carb, R.id.input_protein};
+        for (int i = 0; i < ids.length; i++) {
+            editText = (EditText) findViewById(ids[i]);
+            if (editText.getText().toString().trim().equals("")) {
+                Toast.makeText(NewItem.this, "Fill all fields", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
         ParseObject parseObject = new ParseObject("IndianDishes");
         editText = (EditText) findViewById(R.id.input_name);
         parseObject.put("name", editText.getText().toString());
         editText = (EditText) findViewById(R.id.input_calories);
-        parseObject.put("calories", editText.getText().toString());
+        parseObject.put("cal", editText.getText().toString());
         editText = (EditText) findViewById(R.id.input_unit);
         parseObject.put("description", editText.getText().toString());
         editText = (EditText) findViewById(R.id.input_quantity);
