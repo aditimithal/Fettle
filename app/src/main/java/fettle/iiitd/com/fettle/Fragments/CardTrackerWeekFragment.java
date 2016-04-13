@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import fettle.iiitd.com.fettle.Activities.DayOverview;
-import fettle.iiitd.com.fettle.Activities.GoogleFit;
-import fettle.iiitd.com.fettle.Activities.SignUp;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -73,15 +68,6 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
         super.onActivityCreated(savedInstanceState);
 
         getActivity().findViewById(R.id.more_tracker_week).setOnClickListener(this);
-
-        List<Object> exercisedate = new ArrayList<>();
-
-        GoogleFit googlefit = new GoogleFit(SignUp.mGoogleApiClient);
-        if (googlefit.getFitnessData() != null) {
-            exercisedate.addAll(googlefit.getFitnessData());
-        } else {
-            Log.d("mclient", "null");
-        }
 
 
     }

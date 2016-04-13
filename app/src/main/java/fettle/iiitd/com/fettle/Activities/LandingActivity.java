@@ -16,6 +16,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.github.clans.fab.FloatingActionMenu;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.Scopes;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Scope;
+import com.google.android.gms.fitness.Fitness;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -61,6 +66,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     public static boolean added3 = false;
     public static boolean added4 = false;
     public static String meal = "Breakfast";
+    public static GoogleApiClient mGoogleApiClient;
     private ViewPager mPager1;
     private PagerAdapter mPagerAdapter1;
     private ViewPager mPager2;
@@ -111,6 +117,29 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
+        buildFitnessClient();
+
+
+        List<Object> fitlog = new ArrayList<>();
+        GoogleFit googlefit = new GoogleFit(mGoogleApiClient);
+        if (googlefit.getFitnessData() != null) {
+            fitlog.addAll(googlefit.getFitnessData());
+            Log.d("mclient", fitlog.toString());
+        } else {
+            Log.d("mclient", "null");
+        }
+
+        /*TODO you get stepdata class object and exercisedata class object in fitlog arraylist.
+        Check if it shows correctly,I would have checked but there is no data on mine ,
+        however I did check it on the sample application on your phone*/
+
+
+
+
+
+
+
+
         //for testing new screens
         /*Intent myIntent = new Intent(LandingActivity.this, HomeScreen.class);
         startActivity(myIntent);*/
@@ -124,6 +153,41 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
 //        Log.d(TAG, User.getPastBmis().toString());
 
+    }
+
+    private void buildFitnessClient() {
+        // Create the Google API Client1
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(Fitness.HISTORY_API)
+                .addScope(new Scope(Scopes.FITNESS_ACTIVITY_READ_WRITE))
+                .addConnectionCallbacks(
+                        new GoogleApiClient.ConnectionCallbacks() {
+                            @Override
+                            public void onConnected(Bundle bundle) {
+                                Log.d(TAG, "Connected!!!");
+                            }
+
+                            @Override
+                            public void onConnectionSuspended(int i) {
+                                // If your connection to the sensor gets lost at some point,
+                                // you'll be able to determine the reason and react to it here.
+                                if (i == GoogleApiClient.ConnectionCallbacks.CAUSE_NETWORK_LOST) {
+                                    Log.d(TAG, "Connection lost.  Cause: Network Lost.");
+                                } else if (i == GoogleApiClient.ConnectionCallbacks.CAUSE_SERVICE_DISCONNECTED) {
+                                    Log.d(TAG, "Connection lost.  Reason: Service Disconnected");
+                                }
+                            }
+                        }
+                )
+                .enableAutoManage(this, 0, new GoogleApiClient.OnConnectionFailedListener() {
+                    @Override
+                    public void onConnectionFailed(ConnectionResult result) {
+                        Log.i(TAG, "Google Play services connection failed. Cause: " +
+                                result.toString());
+                    }
+                })
+                .build();
+        Log.d("ac", "dd");
     }
 
     @Override
