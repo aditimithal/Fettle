@@ -89,12 +89,14 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/md_black_1000" />
+            android:background="@color/md_black_1000"
+            android:visibility="gone" />
 
         <ListView
             android:id="@+id/lv"
             android:layout_width="match_parent"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:visibility="gone" />
 
 
         <RelativeLayout

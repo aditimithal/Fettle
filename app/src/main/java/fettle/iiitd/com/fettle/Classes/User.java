@@ -55,7 +55,8 @@ public class User {
         }
         for (ParseObject po : lPo) {
             try {
-                bmis.add(new Utils.BmiDate(po.getCreatedAt(), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
+//                bmis.add(new Utils.BmiDate(po.getCreatedAt(), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
+                bmis.add(new Utils.BmiDate(po.getDate("CreatedAt"), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage(), e);
             }
@@ -78,7 +79,8 @@ public class User {
         }
         for (ParseObject po : lPo) {
             try {
-                bmis.add(new Utils.BmiDate(po.getCreatedAt(), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
+//                bmis.add(new Utils.BmiDate(po.getCreatedAt(), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
+                bmis.add(new Utils.BmiDate(po.getDate("CreatedAt"), Utils.getBmi(po.getInt("height"), po.getInt("weight"))));
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage(), e);
             }

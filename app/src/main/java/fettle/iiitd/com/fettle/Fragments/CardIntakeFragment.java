@@ -67,9 +67,10 @@ public class CardIntakeFragment extends Fragment {
                     for (ParseObject each : objects) {
                         Calendar calendar = Calendar.getInstance();
                         calendar.set(Calendar.HOUR_OF_DAY, 0);
-                        calendar.add(Calendar.DATE, -(prevNumDaysData-1));
+                        calendar.add(Calendar.DATE, -(prevNumDaysData - 1));
                         Date datePrevPlus1 = calendar.getTime();
-                        if (each.getCreatedAt().compareTo(datePrevPlus1) < 0)
+//                        if (each.getCreatedAt().compareTo(datePrevPlus1) < 0)
+                        if (each.getDate("CreatedAt").compareTo(datePrevPlus1) < 0)
                             foundPrev = true;
                     }
                     if (!foundPrev)

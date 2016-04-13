@@ -39,7 +39,6 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         if (ParseUser.getCurrentUser() != null) {
             startActivity(new Intent(this, LandingActivity.class));
             finish();
@@ -173,26 +172,26 @@ public class SignUp extends AppCompatActivity implements GoogleApiClient.OnConne
 
 
         String emailId = email;
-            ParseUser user;
-            try {
-                user = ParseUser.logIn(emailId, "password");
-            } catch (ParseException e) {
-                user = new ParseUser();
-                user.setUsername(emailId);
-                user.setPassword("password");
-                user.put("name", "");
+        ParseUser user;
+        try {
+            user = ParseUser.logIn(emailId, "password");
+        } catch (ParseException e) {
+            user = new ParseUser();
+            user.setUsername(emailId);
+            user.setPassword("password");
+            user.put("name", "");
 //                if (acct.getPhotoUrl() != null)
 //                    user.put("pic", acct.getPhotoUrl().toString());
-                try {
-                    user.signUp();
-                } catch (ParseException e1) {
-                    e1.printStackTrace();
-                }
+            try {
+                user.signUp();
+            } catch (ParseException e1) {
+                e1.printStackTrace();
             }
-            if (user != null) {
-                startActivity(new Intent(this, ProfileInput.class).putExtra("landing", true));
-                finish();
-            }
+        }
+        if (user != null) {
+            startActivity(new Intent(this, ProfileInput.class).putExtra("landing", true));
+            finish();
+        }
 //            mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
 //            updateUI(true);
 

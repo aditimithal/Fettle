@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.Calendar;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Activities.LandingActivity;
@@ -87,6 +88,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
                     parseObject.put("name", menu.getName() + "");
                     parseObject.put("protein", menu.getProtein() + "");
                     parseObject.put("meal", LandingActivity.meal);
+                    parseObject.put("CreatedAt", Calendar.getInstance().getTime());
                     try {
                         parseObject.saveEventually();
                         parseObject.pin("today");

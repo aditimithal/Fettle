@@ -8,9 +8,19 @@ import com.parse.ParseObject;
 public class Dish {
 
     ParseObject po;
+    boolean selected;
 
     public Dish(ParseObject po) {
         this.po = po;
+        this.selected = false;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
     public String getCalories() {

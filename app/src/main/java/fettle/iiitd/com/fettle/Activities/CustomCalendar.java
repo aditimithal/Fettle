@@ -317,7 +317,8 @@ public class CustomCalendar extends AppCompatActivity {
                 }
                 int calsAdd = (int) (Float.parseFloat(each.getString("cal")) * multiplier);
                 int progressAdd = (calsAdd * 100) / Utils.getPref(activity, Utils.DAILY_CALORIE_KEY);
-                DateTime dateTime = CalendarHelper.convertDateToDateTime(each.getCreatedAt());
+//                DateTime dateTime = CalendarHelper.convertDateToDateTime(each.getCreatedAt());
+                DateTime dateTime = CalendarHelper.convertDateToDateTime(each.getDate("CreatedAt"));
                 if (map.containsKey(dateTime)) {
                     int percentage = map.get(dateTime);
                     percentage += progressAdd;

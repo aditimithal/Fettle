@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -27,6 +29,7 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
@@ -149,6 +152,7 @@ public class AddFoodActivity extends AppCompatActivity {
                 parseObject.put("name", dish.getName());
                 parseObject.put("protein", dish.getProtein());
                 parseObject.put("meal", ((TextView) findViewById(R.id.tvMeal)).getText().toString());
+                parseObject.put("CreatedAt", Calendar.getInstance().getTime());
                 try {
                     parseObject.saveEventually();
                     parseObject.pin("today");
@@ -300,6 +304,88 @@ public class AddFoodActivity extends AppCompatActivity {
         }
 
     }
+
+    private class MyCustomAdapter extends ArrayAdapter<Dish> {
+
+        private ArrayList<Dish> dishes;
+
+        public MyCustomAdapter(Context context, int textViewResourceId,
+                               ArrayList<Dish> dishList) {
+            super(context, textViewResourceId, dishList);
+            this.dishes = dishList;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            ViewHolder holder = null;
+            Log.v("ConvertView", String.valueOf(position));
+
+            if (convertView == null) {
+                LayoutInflater vi = (LayoutInflater) getSystemService(
+                        Context.LAYOUT_INFLATER_SERVICE);
+                convertView = vi.inflate(R.layout.dish_info, null);
+
+                holder = new ViewHolder();
+                holder.name = (CheckBox) convertView.findViewById(R.id.cb);
+                convertView.setTag(holder);
+
+                holder.name.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        CheckBox cb = (CheckBox) v;
+                        Dish dish = (Dish) cb.getTag();
+                        Toast.makeText(getApplicationContext(),
+                                "Clicked on Checkbox: " + cb.getText() +
+                                        " is " + cb.isChecked(),
+                                Toast.LENGTH_LONG).show();
+                        dish.setSelected(cb.isChecked());
+                    }
+                });
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+            Dish dish = dishes.get(position);
+            holder.name.setText(dish.getName());
+            holder.name.setChecked(dish.isSelected());
+            holder.name.setTag(dish);
+
+            return convertView;
+
+        }
+
+        private class ViewHolder {
+            CheckBox name;
+        }
+
+    }
+
+//    private void checkButtonClick() {
+//
+//
+//        Button myButton = (Button) findViewById(R.id.findSelected);
+//        myButton.setOnClickListener(new OnClickListener() {
+//
+//            @Override
+//            public void onClick(View v) {
+//                StringBuffer responseText = new StringBuffer();
+//                responseText.append("The following were selected...\n");
+//
+//                ArrayList<country> countryList = dataAdapter.countryList;
+//                use for loop i=0 to < countryList.size(){
+//                    Country country = countryList.get(i);
+//                    if(country.isSelected()){
+//                        responseText.append("\n" + country.getName());
+//                    }
+//                }
+//
+//                Toast.makeText(getApplicationContext(),
+//                        responseText, Toast.LENGTH_LONG).show();
+//
+//            }
+//        });
+//
+//    }
 
 
 }

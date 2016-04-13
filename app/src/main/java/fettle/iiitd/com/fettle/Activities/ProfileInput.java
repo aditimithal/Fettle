@@ -22,6 +22,7 @@ import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -94,6 +95,7 @@ public class ProfileInput extends AppCompatActivity {
             parseObject.put("user", user);
             parseObject.put("height", height);
             parseObject.put("weight", weight);
+            parseObject.put("CreatedAt", Calendar.getInstance().getTime());
             parseObject.saveEventually();
         }
 
