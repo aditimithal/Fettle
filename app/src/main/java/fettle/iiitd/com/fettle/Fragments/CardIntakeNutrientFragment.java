@@ -14,8 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import fettle.iiitd.com.fettle.Activities.DayOverview;
 import fettle.iiitd.com.fettle.Activities.LandingActivity;
+import fettle.iiitd.com.fettle.Activities.RecommendationActivity;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -116,7 +116,9 @@ public class CardIntakeNutrientFragment extends Fragment implements View.OnClick
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.nutrient_more_btn) {
-            Intent myIntent = new Intent(getActivity(), DayOverview.class);
+//            Intent myIntent = new Intent(getActivity(), DayOverview.class);
+            Intent myIntent = new Intent(getActivity(), RecommendationActivity.class);
+            myIntent.putExtra("nutrient", "protein");
             startActivity(myIntent);
         }
     }

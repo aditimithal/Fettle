@@ -52,6 +52,7 @@
         <activity android:name=".Activities.FoodTypeSelection"></activity>
         <activity android:name=".Activities.NewItem"></activity>
         <activity android:name=".Activities.FoodOrderCategory"></activity>
+        <activity android:name=".Activities.RecommendationActivity"></activity>
 
 
     </application>
