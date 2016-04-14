@@ -2,6 +2,7 @@ package fettle.iiitd.com.fettle.Fragments;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Activities.LandingActivity;
+import fettle.iiitd.com.fettle.Activities.RecommendationActivity;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -32,6 +34,7 @@ public class CardIntakeFragment extends Fragment {
     String[] nutrients = {"fibers", "fats", "carbohydrates", "proteins"};
     int[] nutrientDrawables = {R.drawable.fiber_g, R.drawable.fats_g, R.drawable.carbs_g, R.drawable.protein_g};
     private LandingActivity.AddedListener mAddedListener;
+    private String deficientNutrient = "";
 
     public CardIntakeFragment() {
         // Required empty public constructor
@@ -81,10 +84,10 @@ public class CardIntakeFragment extends Fragment {
                     int carbs = 0;
                     int proteins = 0;
                     for (ParseObject each : objects) {
-                        fiber += Integer.parseInt(each.getString("fiber"));
-                        fats += Integer.parseInt(each.getString("fat"));
-                        carbs += Integer.parseInt(each.getString("carb"));
-                        proteins += Integer.parseInt(each.getString("protein"));
+                        fiber += Float.parseFloat(each.getString("fiber"));
+                        fats += Float.parseFloat(each.getString("fat"));
+                        carbs += Float.parseFloat(each.getString("carb"));
+                        proteins += Float.parseFloat(each.getString("protein"));
                     }
                     int deficiency = -1;
                     if (fiber < 3 * CardIntakeNutrientFragment.limitFiber) {
@@ -102,6 +105,7 @@ public class CardIntakeFragment extends Fragment {
                             ((TextView) getActivity().findViewById(R.id.tvRequirement)).setText("Your intake is perfectly alright.");
                             ((ImageView) getActivity().findViewById(R.id.imRequirement)).setImageResource(android.R.color.transparent);
                         } else {
+                            deficientNutrient = nutrients[deficiency];
                             ((TextView) getActivity().findViewById(R.id.tvRequirement)).setText("You are running low on " + nutrients[deficiency]);
                             ((ImageView) getActivity().findViewById(R.id.imRequirement)).setImageResource(nutrientDrawables[deficiency]);
                         }
@@ -139,6 +143,14 @@ public class CardIntakeFragment extends Fragment {
         LandingActivity.added4 = true;
         mAddedListener.isAdded(true);
         setDeficiencyData();
+        getActivity().findViewById(R.id.llRecommendation).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getActivity(), RecommendationActivity.class);
+                myIntent.putExtra("nutrient", deficientNutrient);
+                startActivity(myIntent);
+            }
+        });
     }
 
     @Override
