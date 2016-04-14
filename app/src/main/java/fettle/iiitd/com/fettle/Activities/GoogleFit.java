@@ -55,7 +55,8 @@ public class GoogleFit extends AppCompatActivity {
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.DAY_OF_WEEK, -1);
+//        cal.add(Calendar.DAY_OF_WEEK, -1);
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
         long startTime = cal.getTimeInMillis();
 
         java.text.DateFormat dateFormat = getDateInstance();
@@ -87,7 +88,7 @@ public class GoogleFit extends AppCompatActivity {
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.DAY_OF_WEEK, -1);
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
         long startTime = cal.getTimeInMillis();
 
         java.text.DateFormat dateFormat = getDateInstance();
@@ -120,7 +121,8 @@ public class GoogleFit extends AppCompatActivity {
         Date now = new Date();
         cal.setTime(now);
         long endTime = cal.getTimeInMillis();
-        cal.add(Calendar.DAY_OF_WEEK, -1);
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
+//        cal.add(Calendar.DAY_OF_WEEK, -1);
         long startTime = cal.getTimeInMillis();
 
         java.text.DateFormat dateFormat = getDateInstance();
