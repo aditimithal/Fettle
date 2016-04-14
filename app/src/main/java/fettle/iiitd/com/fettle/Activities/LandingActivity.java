@@ -83,7 +83,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
-//        FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab);
+//        FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab1);
+//        order.setLabelText("home");
+//        order.setLabelTextColor(ContextCompat.getColor(this,R.color.blue));
 //        order.setOnClickListener(this);
 
         mPager1 = (ViewPager) findViewById(R.id.pager1);
