@@ -48,6 +48,40 @@ public class GoogleFit extends AppCompatActivity {
         this.mClient = mClient;
     }
 
+    public static DataReadRequest queryFitnessData(Date date) {
+        // [START build_read_data_request]
+        // Setting a start and end date using a range of 1 week before this moment.
+        Calendar cal = Calendar.getInstance();
+//        Date now = new Date();
+        cal.setTime(date);
+        long endTime = cal.getTimeInMillis();
+//        cal.add(Calendar.DAY_OF_WEEK, -1);
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
+        long startTime = cal.getTimeInMillis();
+
+        java.text.DateFormat dateFormat = getDateInstance();
+        Log.i(TAG, "Range Start: " + dateFormat.format(startTime));
+        Log.i(TAG, "Range End: " + dateFormat.format(endTime));
+
+        DataReadRequest readRequest = new DataReadRequest.Builder()
+                // The data request can specify multiple data types to return, effectively
+                // combining multiple data queries into one call.
+                // In this example, it's very unlikely that the request is for several hundred
+                // datapoints each consisting of a few steps and a timestamp.  The more likely
+                // scenario is wanting to see how many steps were walked per day, for 7 days.
+                .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
+                // Analogous to a "Group By" in SQL, defines how data should be aggregated.
+                // bucketByTime allows for a time span, whereas bucketBySession would allow
+                // bucketing by "sessions", which would need to be defined in code.
+                .bucketByTime(1, TimeUnit.DAYS)
+                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
+                .build();
+        // [END build_read_data_request]
+
+        return readRequest;
+    }
+
+
     public static DataReadRequest queryFitnessData() {
         // [START build_read_data_request]
         // Setting a start and end date using a range of 1 week before this moment.
@@ -70,6 +104,38 @@ public class GoogleFit extends AppCompatActivity {
                 // datapoints each consisting of a few steps and a timestamp.  The more likely
                 // scenario is wanting to see how many steps were walked per day, for 7 days.
                 .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
+                // Analogous to a "Group By" in SQL, defines how data should be aggregated.
+                // bucketByTime allows for a time span, whereas bucketBySession would allow
+                // bucketing by "sessions", which would need to be defined in code.
+                .bucketByTime(1, TimeUnit.DAYS)
+                .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
+                .build();
+        // [END build_read_data_request]
+
+        return readRequest;
+    }
+
+    public static DataReadRequest queryFitnessDataExercise(Date date) {
+        // [START build_read_data_request]
+        // Setting a start and end date using a range of 1 week before this moment.
+        Calendar cal = Calendar.getInstance();
+//        Date now = new Date();
+        cal.setTime(date);
+        long endTime = cal.getTimeInMillis();
+        cal.add(Calendar.WEEK_OF_YEAR, -1);
+        long startTime = cal.getTimeInMillis();
+
+        java.text.DateFormat dateFormat = getDateInstance();
+        Log.i(TAG, "Range Start: " + dateFormat.format(startTime));
+        Log.i(TAG, "Range End: " + dateFormat.format(endTime));
+
+        DataReadRequest readRequest = new DataReadRequest.Builder()
+                // The data request can specify multiple data types to return, effectively
+                // combining multiple data queries into one call.
+                // In this example, it's very unlikely that the request is for several hundred
+                // datapoints each consisting of a few steps and a timestamp.  The more likely
+                // scenario is wanting to see how many steps were walked per day, for 7 days.
+                .aggregate(DataType.TYPE_ACTIVITY_SEGMENT, DataType.AGGREGATE_ACTIVITY_SUMMARY)
                         // Analogous to a "Group By" in SQL, defines how data should be aggregated.
                         // bucketByTime allows for a time span, whereas bucketBySession would allow
                         // bucketing by "sessions", which would need to be defined in code.
@@ -79,6 +145,7 @@ public class GoogleFit extends AppCompatActivity {
         // [END build_read_data_request]
 
         return readRequest;
+
     }
 
     public static DataReadRequest queryFitnessDataExercise() {
@@ -102,9 +169,9 @@ public class GoogleFit extends AppCompatActivity {
                 // datapoints each consisting of a few steps and a timestamp.  The more likely
                 // scenario is wanting to see how many steps were walked per day, for 7 days.
                 .aggregate(DataType.TYPE_ACTIVITY_SEGMENT, DataType.AGGREGATE_ACTIVITY_SUMMARY)
-                        // Analogous to a "Group By" in SQL, defines how data should be aggregated.
-                        // bucketByTime allows for a time span, whereas bucketBySession would allow
-                        // bucketing by "sessions", which would need to be defined in code.
+                // Analogous to a "Group By" in SQL, defines how data should be aggregated.
+                // bucketByTime allows for a time span, whereas bucketBySession would allow
+                // bucketing by "sessions", which would need to be defined in code.
                 .bucketByTime(1, TimeUnit.DAYS)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
@@ -218,8 +285,15 @@ public class GoogleFit extends AppCompatActivity {
         } else {
             return null;
         }
+    }
 
-
+    public List<Object> getFitnessData(Date date) {
+        if (this.mClient != null) {
+            new InsertAndVerifyDataTask(date).execute();
+            return fitData;
+        } else {
+            return null;
+        }
     }
 
     private void buildFitnessClient() {
@@ -295,6 +369,16 @@ public class GoogleFit extends AppCompatActivity {
     }
 
     private class InsertAndVerifyDataTask extends AsyncTask<Void, Void, Void> {
+
+        Date date;
+
+        public InsertAndVerifyDataTask(Date date) {
+            this.date = date;
+        }
+
+        public InsertAndVerifyDataTask() {
+        }
+
         protected Void doInBackground(Void... params) {
             // Create a new dataset and insertion request.
 
