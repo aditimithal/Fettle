@@ -11,6 +11,9 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
+
+import fettle.iiitd.com.fettle.R;
 
 /**
  * Created by Manan on 31-03-2016.
@@ -31,6 +34,36 @@ public class Utils {
             return 0;
         bmi = (weight * 1f) / (height * height * 1f);
         return bmi;
+    }
+
+    public static int getExerciseImageId(String exercise, boolean first) {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Walk", R.drawable.walking_o);
+        map.put("Jog", R.drawable.running_o);
+        map.put("Stairs", R.drawable.stairs_o);
+        map.put("Bicycle", R.drawable.cycling_o);
+        Map<String, Integer> map2 = new HashMap<>();
+        map2.put("Walk", R.drawable.walking);
+        map2.put("Jog", R.drawable.running);
+        map2.put("Stairs", R.drawable.stairs);
+        map2.put("Bicycle", R.drawable.cycling);
+
+        if (first)
+            return map.get(exercise);
+        else
+            return map2.get(exercise);
+    }
+
+    public static int getTimeForExercise(Context context, String exercise, int calories) {
+        Map<String, String> map = new HashMap<>();
+        map.put("Walk", Utils.WALK_10_CALORIES_KEY);
+        map.put("Jog", Utils.RUN_10_CALORIES_KEY);
+        map.put("Stairs", Utils.STAIRS_10_CALORIES_KEY);
+        map.put("Bicycle", Utils.BICYCLE_10_CALORIES_KEY);
+
+        int exercise10 = Utils.getPref(context, map.get(exercise));
+
+        return ((calories * exercise10) / 10) / 60;
     }
 
     /**

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 import fettle.iiitd.com.fettle.Activities.DayOverview;
+import fettle.iiitd.com.fettle.Classes.User;
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -40,6 +43,13 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
         ll.setWeightSum(7);
         for (int i = 0; i < 7; i++) {
             View v = inflater.inflate(R.layout.landing_daily_fitness_tracker_subpart, null, false);
+
+            ImageView im = (ImageView) v.findViewById(R.id.imExercise1);
+            im.setImageResource(Utils.getExerciseImageId(User.getExercise1(), true));
+
+            im = (ImageView) v.findViewById(R.id.imExercise2);
+            im.setImageResource(Utils.getExerciseImageId(User.getExercise2(), false));
+
             lls[i] = (LinearLayout) v;
             v.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1f));
             TextView tv = (TextView) v.findViewById(R.id.tvDay);

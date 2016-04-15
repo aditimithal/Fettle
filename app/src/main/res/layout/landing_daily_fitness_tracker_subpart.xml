@@ -34,6 +34,7 @@
             android:secondaryProgress="44" />
 
         <ImageView
+            android:id="@+id/imExercise1"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
@@ -61,6 +62,7 @@
             android:secondaryProgress="44" />
 
         <ImageView
+            android:id="@+id/imExercise2"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="center"

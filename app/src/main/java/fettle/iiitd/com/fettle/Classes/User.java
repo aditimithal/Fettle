@@ -37,6 +37,14 @@ public class User {
         return ParseUser.getCurrentUser().getUsername();
     }
 
+    public static String getExercise1() {
+        return ParseUser.getCurrentUser().getString("exercise1");
+    }
+
+    public static String getExercise2() {
+        return ParseUser.getCurrentUser().getString("exercise2");
+    }
+
     public static List<Utils.BmiDate> getPastBmis() {
         List<Utils.BmiDate> bmis = new ArrayList<>();
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Track");

@@ -33,6 +33,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
+import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
@@ -94,11 +95,6 @@ public class AddFoodActivity extends AppCompatActivity {
         });
 
         dialog.show();
-
-//        int walk10 = Utils.getPref(this, Utils.WALK_10_CALORIES_KEY);
-//        int run10 = Utils.getPref(this, Utils.RUN_10_CALORIES_KEY);
-//        walkcal = ((Integer.parseInt(dish.getCalories()) * walk10) / 10 / 60);
-//        runcal = ((Integer.parseInt(dish.getCalories()) * run10) / 10 / 60);
 
         setCalorieData(dialog, dish);
 
@@ -170,6 +166,12 @@ public class AddFoodActivity extends AppCompatActivity {
 
     private void setCalorieData(Dialog dialog, Dish dish) {
 
+        ImageView im = (ImageView) dialog.findViewById(R.id.imExercise1);
+        im.setImageResource(Utils.getExerciseImageId(User.getExercise1(), true));
+
+        im = (ImageView) dialog.findViewById(R.id.imExercise2);
+        im.setImageResource(Utils.getExerciseImageId(User.getExercise2(), false));
+
         NumberPicker numberPickerQuantity = (NumberPicker) dialog.findViewById(R.id.numberPicker);
         NumberPicker numberPickerUnits = (NumberPicker) dialog.findViewById(R.id.numberPicker1);
         int description = numberPickerUnits.getValue();
@@ -190,15 +192,10 @@ public class AddFoodActivity extends AppCompatActivity {
 
         int calories = (int) (Float.parseFloat(dish.getCalories()) * multiplier);
 
-        int walk10 = Utils.getPref(this, Utils.WALK_10_CALORIES_KEY);
-        int run10 = Utils.getPref(this, Utils.RUN_10_CALORIES_KEY);
-        int walkcal = ((calories * walk10) / 10 / 60);
-        int runcal = ((calories * run10) / 10 / 60);
-
         TextView WalkCal = (TextView) dialog.findViewById(R.id.time1);
         TextView RunCal = (TextView) dialog.findViewById(R.id.time2);
-        WalkCal.setText(walkcal + "Min");
-        RunCal.setText(runcal + "Min");
+        WalkCal.setText(Utils.getTimeForExercise(this, User.getExercise1(), calories) + "Min");
+        RunCal.setText(Utils.getTimeForExercise(this, User.getExercise2(), calories) + "Min");
     }
 
     public void onLeftClick(View view) {

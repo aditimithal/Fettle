@@ -68,7 +68,7 @@ public class CaloriesOverview extends Fragment {
                 } catch (Exception e) {
                 }
             }
-            item.setQuantity((int) multiplier);
+            item.setQuantity((int) each.getQuantity());
             item.setCalories((int) (multiplier * Float.parseFloat(each.getCalories())));
 
             if (each.getMeal().equals("Breakfast")) {

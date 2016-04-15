@@ -90,7 +90,7 @@
                 android:paddingRight="8dp">
 
                 <ImageView
-                    android:id="@+id/workout_image"
+                    android:id="@+id/imExercise2"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/running" />
@@ -100,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="8dp"
-                    android:layout_toRightOf="@id/workout_image"
+                    android:layout_toRightOf="@id/imExercise2"
                     android:text="20Min" />
             </RelativeLayout>
 
@@ -111,7 +111,7 @@
                 android:layout_toLeftOf="@+id/workout">
 
                 <ImageView
-                    android:id="@+id/standing"
+                    android:id="@+id/imExercise1"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:src="@drawable/walking_o" />
@@ -120,7 +120,7 @@
                     android:id="@+id/walking_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/standing"
+                    android:layout_toRightOf="@+id/imExercise1"
                     android:text="20Min" />
             </RelativeLayout>
 

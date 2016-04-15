@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/standing"
+                android:id="@+id/imExercise1"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/walking_o" />
@@ -39,7 +39,7 @@
             android:layout_toRightOf="@+id/firstElement">
 
             <ImageView
-                android:id="@+id/workout_image"
+                android:id="@+id/imExercise2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="40dp"

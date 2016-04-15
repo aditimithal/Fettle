@@ -8,8 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import fettle.iiitd.com.fettle.Classes.User;
+import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -70,6 +73,12 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_card_tracker, container, false);
 
+        ImageView im = (ImageView) view.findViewById(R.id.imExercise1);
+        im.setImageResource(Utils.getExerciseImageId(User.getExercise1(), true));
+
+        im = (ImageView) view.findViewById(R.id.imExercise2);
+        im.setImageResource(Utils.getExerciseImageId(User.getExercise2(), false));
+
         initProgress(view);
 
         return view;
@@ -79,7 +88,7 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Button add_btn=(Button)getActivity().findViewById(R.id.add_activity_btn);
+        Button add_btn = (Button) getActivity().findViewById(R.id.add_activity_btn);
         add_btn.setOnClickListener(this);
 
     }
@@ -93,8 +102,7 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
 //        mProgress.setProgressDrawable(drawable);
     }
 
-    public void setProgress(View view, int first, int second)
-    {
+    public void setProgress(View view, int first, int second) {
         ProgressBar mProgress = (ProgressBar) view.findViewById(R.id.circularProgressbar);
         mProgress.setProgress(first);   // Main Progress
         mProgress.setSecondaryProgress(second); // Secondary Progress

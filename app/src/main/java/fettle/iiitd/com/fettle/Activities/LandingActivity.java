@@ -483,6 +483,4 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
     }
-
-
 }

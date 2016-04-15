@@ -19,6 +19,7 @@ import java.util.List;
 
 import fettle.iiitd.com.fettle.Activities.LandingActivity;
 import fettle.iiitd.com.fettle.Classes.Menu;
+import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
@@ -63,13 +64,18 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
         if (getItemViewType(position) == VIEW_CARD) {
             final Menu menu = messages.get(position);
-            int walk10 = Utils.getPref(context, Utils.WALK_10_CALORIES_KEY);
-            int run10 = Utils.getPref(context, Utils.RUN_10_CALORIES_KEY);
+
+            ImageView im = (ImageView) ((MenuItemViewHolder) holder).view.findViewById(R.id.imExercise1);
+            im.setImageResource(Utils.getExerciseImageId(User.getExercise1(), true));
+
+            im = (ImageView) ((MenuItemViewHolder) holder).view.findViewById(R.id.imExercise2);
+            im.setImageResource(Utils.getExerciseImageId(User.getExercise2(), false));
+
             ((MenuItemViewHolder) holder).tvDishName.setText(menu.getName());
             ((MenuItemViewHolder) holder).tvCalories.setText(menu.getCalories() + " calories");
             ((MenuItemViewHolder) holder).tvPrice.setText("");
-            ((MenuItemViewHolder) holder).tvWalkingTime.setText(((menu.getCalories() * walk10) / 10 / 60) + "Min");
-            ((MenuItemViewHolder) holder).tvRunningTime.setText(((menu.getCalories() * run10) / 10 / 60) + "Min");
+            ((MenuItemViewHolder) holder).tvWalkingTime.setText(Utils.getTimeForExercise(context, User.getExercise1(), menu.getCalories()) + "Min");
+            ((MenuItemViewHolder) holder).tvRunningTime.setText(Utils.getTimeForExercise(context, User.getExercise2(), menu.getCalories()) + "Min");
             boolean recommend = true;
             if (recommend) {
                 ((MenuItemViewHolder) holder).tvRecommended.setVisibility(View.VISIBLE);
