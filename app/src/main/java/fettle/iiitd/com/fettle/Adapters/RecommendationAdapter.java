@@ -2,6 +2,7 @@ package fettle.iiitd.com.fettle.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,11 +47,12 @@ public class RecommendationAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         Menu menu = messages.get(position);
+        Log.d("bindview", messages.toString() + position);
         int walk10 = Utils.getPref(context, Utils.WALK_10_CALORIES_KEY);
         int run10 = Utils.getPref(context, Utils.RUN_10_CALORIES_KEY);
         ((MenuItemViewHolder) holder).tvDishName.setText(menu.getName());
         ((MenuItemViewHolder) holder).tvCalories.setText(menu.getCalories() + " calories");
-        ((MenuItemViewHolder) holder).tvPrice.setText("");
+        ((MenuItemViewHolder) holder).tvPrice.setText("200");
         ((MenuItemViewHolder) holder).tvNutrientName.setText(nutrient);
         ((MenuItemViewHolder) holder).tvWalkingTime.setText(((menu.getCalories() * walk10) / 10 / 60) + "Min");
         ((MenuItemViewHolder) holder).tvRunningTime.setText(((menu.getCalories() * run10) / 10 / 60) + "Min");
@@ -90,7 +92,12 @@ public class RecommendationAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     @Override
     public int getItemCount() {
-        return messages.size();
+
+        if (messages == null) {
+            return 0;
+        } else {
+            return messages.size();
+        }
     }
 
     private static class MenuHeaderViewHolder extends RecyclerView.ViewHolder {

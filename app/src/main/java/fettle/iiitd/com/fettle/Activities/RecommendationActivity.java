@@ -32,22 +32,17 @@ public class RecommendationActivity extends AppCompatActivity {
 
         String nutrient = getIntent().getStringExtra("nutrient");
 
-        List<Menu> menu = new ArrayList<>();
-        Menu r1 = new Menu();
-        menu.add(r1);
-        menu.add(r1);
 
         //TODO Danish: make it async
         List<Menu> list = getList(nutrient);
 
-        menu = list;
 
         int imageid = imageID(nutrient);
         mRecyclerView = (RecyclerView) findViewById(R.id.recommendation_menu_recyclerview);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        cList = new RecommendationAdapter(this, nutrient, imageid, menu);
+        cList = new RecommendationAdapter(this, nutrient, imageid, list);
         mRecyclerView.setAdapter(cList);
     }
 

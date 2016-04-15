@@ -70,6 +70,10 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
             ((MenuItemViewHolder) holder).tvPrice.setText("");
             ((MenuItemViewHolder) holder).tvWalkingTime.setText(((menu.getCalories() * walk10) / 10 / 60) + "Min");
             ((MenuItemViewHolder) holder).tvRunningTime.setText(((menu.getCalories() * run10) / 10 / 60) + "Min");
+            boolean recommend = true;
+            if (recommend) {
+                ((MenuItemViewHolder) holder).tvRecommended.setVisibility(View.VISIBLE);
+            }
             ((MenuItemViewHolder) holder).view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -142,6 +146,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         public TextView tvCalories;
         public TextView tvWalkingTime;
         public TextView tvRunningTime;
+        public TextView tvRecommended;
         public ImageView ivAskerPicture;
         public View view;
 
@@ -153,6 +158,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
             tvCalories = (TextView) itemView.findViewById(R.id.calories);
             tvWalkingTime = (TextView) itemView.findViewById(R.id.walking_time);
             tvRunningTime = (TextView) itemView.findViewById(R.id.running_time);
+            tvRecommended = (TextView) itemView.findViewById(R.id.recommended);
 //            ivAskerPicture = (ImageView) itemView.findViewById(R.id.askerPicture);
         }
     }
