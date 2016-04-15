@@ -37,10 +37,8 @@ public class ProfileInput extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_input);
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        mClient=buildFitnessClient();
-
 
         ParseUser user = ParseUser.getCurrentUser();
         if (user != null) {
@@ -55,13 +53,11 @@ public class ProfileInput extends AppCompatActivity {
                 List<String> array = Arrays.asList(getResources().getStringArray(R.array.itemsActive));
                 ((Spinner) findViewById(R.id.spinnerActive)).setSelection(array.indexOf(user.getString("active")));
                 array = Arrays.asList(getResources().getStringArray(R.array.itemsExercise));
-                ((Spinner) findViewById(R.id.spinnerExercise)).setSelection(array.indexOf(user.getString("exercise")));
+                ((Spinner) findViewById(R.id.spinnerExercise1)).setSelection(array.indexOf(user.getString("exercise1")));
+                ((Spinner) findViewById(R.id.spinnerExercise2)).setSelection(array.indexOf(user.getString("exercise2")));
             } catch (Exception e) {
             }
-
         }
-
-
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -83,7 +79,8 @@ public class ProfileInput extends AppCompatActivity {
         int weight_target = Integer.parseInt(((EditText) findViewById(R.id.input_weight_target)).getText().toString());
         boolean isMale = ((CheckBox) findViewById(R.id.checkboxMale)).isChecked();
         String active = (String) ((Spinner) findViewById(R.id.spinnerActive)).getSelectedItem();
-        String exercise = (String) ((Spinner) findViewById(R.id.spinnerExercise)).getSelectedItem();
+        String exercise1 = (String) ((Spinner) findViewById(R.id.spinnerExercise1)).getSelectedItem();
+        String exercise2 = (String) ((Spinner) findViewById(R.id.spinnerExercise2)).getSelectedItem();
 
         ParseUser user = ParseUser.getCurrentUser();
 
@@ -106,7 +103,8 @@ public class ProfileInput extends AppCompatActivity {
         user.put("weight_target", weight_target);
         user.put("male", isMale);
         user.put("active", active);
-        user.put("exercise", exercise);
+        user.put("exercise1", exercise1);
+        user.put("exercise2", exercise2);
         user.saveEventually();
 
         new GetTargetWeightTask(this).execute();
@@ -186,26 +184,57 @@ public class ProfileInput extends AppCompatActivity {
             pd.dismiss();
             ParseUser user = ParseUser.getCurrentUser();
 
-            if (user.getInt("weight") > user.getInt("weight_target"))
-                Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("lose_0.5kg").replace(",", "")));
-            else if (user.getInt("weight") < user.getInt("weight_target"))
-                Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("gain_0.5kg").replace(",", "")));
-            else
-                Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("maintain_weight").replace(",", "")));
+            if (user.getInt("weight") > user.getInt("weight_target")) {
+                try {
+                    Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("lose_0.5kg").replace(",", "")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (user.getInt("weight") < user.getInt("weight_target")) {
+                try {
+                    Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("gain_0.5kg").replace(",", "")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                try {
+                    Utils.storePref(activity, Utils.DAILY_CALORIE_KEY, Integer.parseInt(mapCalTarget.get("maintain_weight").replace(",", "")));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
 
-            String walk10 = mapCalAct.get("Walk");
-            String[] str = walk10.split(":");
-            int m = Integer.parseInt(str[0]);
-            int s = Integer.parseInt(str[1]);
+            try {
+                String walk10 = mapCalAct.get("Walk");
+                String[] str = walk10.split(":");
+                int m = Integer.parseInt(str[0]);
+                int s = Integer.parseInt(str[1]);
 
-            Utils.storePref(activity, Utils.WALK_10_CALORIES_KEY, m * 60 + s);
+                Utils.storePref(activity, Utils.WALK_10_CALORIES_KEY, m * 60 + s);
 
-            String run10 = mapCalAct.get("Run");
-            str = run10.split(":");
-            m = Integer.parseInt(str[0]);
-            s = Integer.parseInt(str[1]);
+                String run10 = mapCalAct.get("Run");
+                str = run10.split(":");
+                m = Integer.parseInt(str[0]);
+                s = Integer.parseInt(str[1]);
 
-            Utils.storePref(activity, Utils.RUN_10_CALORIES_KEY, m * 60 + s);
+                Utils.storePref(activity, Utils.RUN_10_CALORIES_KEY, m * 60 + s);
+
+                String stairs10 = mapCalAct.get("Stairs");
+                str = stairs10.split(":");
+                m = Integer.parseInt(str[0]);
+                s = Integer.parseInt(str[1]);
+
+                Utils.storePref(activity, Utils.STAIRS_10_CALORIES_KEY, m * 60 + s);
+
+                String bicycle10 = mapCalAct.get("Bicycle");
+                str = bicycle10.split(":");
+                m = Integer.parseInt(str[0]);
+                s = Integer.parseInt(str[1]);
+
+                Utils.storePref(activity, Utils.BICYCLE_10_CALORIES_KEY, m * 60 + s);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             super.onPostExecute(aVoid);
 

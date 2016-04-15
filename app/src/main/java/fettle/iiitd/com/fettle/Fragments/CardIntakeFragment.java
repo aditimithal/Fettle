@@ -146,6 +146,8 @@ public class CardIntakeFragment extends Fragment {
         getActivity().findViewById(R.id.llRecommendation).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (deficientNutrient.equals(""))
+                    return;
                 Intent myIntent = new Intent(getActivity(), RecommendationActivity.class);
                 myIntent.putExtra("nutrient", deficientNutrient);
                 startActivity(myIntent);

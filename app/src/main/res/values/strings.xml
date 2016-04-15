@@ -11,6 +11,8 @@
     <string-array name="itemsExercise">
         <item>Walk</item>
         <item>Jog</item>
+        <item>Stairs</item>
+        <item>Bicycle</item>
     </string-array>
 
     <string name="large_text">
