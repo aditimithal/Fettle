@@ -60,7 +60,6 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
 
             ((MenuHeaderViewHolder) holder).tvRestrauntName.setText(restaurant);
             ((MenuHeaderViewHolder) holder).tvLocation.setText("");
-            ((MenuHeaderViewHolder) holder).ratingBar.setRating(3);
         }
         if (getItemViewType(position) == VIEW_CARD) {
             final Menu menu = messages.get(position);

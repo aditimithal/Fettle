@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical">
-    
+
     <RelativeLayout
+        android:id="@+id/open_restraunt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_green_light">
 
         <TextView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal"
             android:text="20 open restraunts"
             android:textColor="@android:color/white"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
+
 
     </RelativeLayout>
+
+    <EditText
+        android:id="@+id/filter_restraunt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/open_restraunt" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/restraunt_recyclerview"
         android:layout_width="match_parent"

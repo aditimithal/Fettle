@@ -10,6 +10,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -33,6 +34,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
+import fettle.iiitd.com.fettle.Classes.Menu;
 import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
@@ -238,6 +240,21 @@ public class AddFoodActivity extends AppCompatActivity {
 
     public void addNewItem(View view) {
         startActivity(new Intent(this, NewItem.class));
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return true;
     }
 
     public class CardArrayRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> //adapter for recyclerview to load all listvenue

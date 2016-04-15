@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -17,6 +20,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import fettle.iiitd.com.fettle.Adapters.RestrauntListAdapter;
@@ -30,6 +34,8 @@ public class RestrauntList extends AppCompatActivity {
 
     private static final String TAG = "RestaurantList";
     RestrauntListAdapter cList;
+    String category;
+    List<Restraunt> menu = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -39,14 +45,8 @@ public class RestrauntList extends AppCompatActivity {
         setContentView(R.layout.restraunt_list);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        List<Restraunt> menu = new ArrayList<>();
-        Restraunt r1 = new Restraunt();
-        menu.add(r1);
-        menu.add(r1);
-        menu.add(r1);
-        menu.add(r1);
 
-        String category = getIntent().getStringExtra("category");
+        category = getIntent().getStringExtra("category");
         Log.d(TAG, initList(category).toString());
         menu = initList(category);
 
@@ -57,10 +57,54 @@ public class RestrauntList extends AppCompatActivity {
         cList = new RestrauntListAdapter(this, category, menu);
         mRecyclerView.setAdapter(cList);
 
-//        cList.getFilter().filter("p");
+
+        final EditText filterrestraunt = (EditText) findViewById(R.id.filter_restraunt);
+        filterrestraunt.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+                String text = filterrestraunt.getText().toString().toLowerCase(Locale.getDefault());
+                if (text.equals("")) {
+                    cList = new RestrauntListAdapter(RestrauntList.this, category, menu);
+                    mRecyclerView.setAdapter(cList);
+                } else {
+                    List<Restraunt> filtered_menu = new ArrayList<Restraunt>();
+                    filtered_menu.addAll(returnfilteredList(text, menu));
+                    cList = new RestrauntListAdapter(RestrauntList.this, category, filtered_menu);
+                    mRecyclerView.setAdapter(cList);
+                }
+//                cList.getFilter().filter(text);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+                // TODO Auto-generated method stub
+            }
+        });
+
+
 
     }
 
+
+    public List<Restraunt> returnfilteredList(String text, List<Restraunt> menu) {
+        List<Restraunt> filtered_menu = new ArrayList<>();
+        for (Restraunt me : menu) {
+            if (me.getName().toLowerCase().contains(text.toLowerCase())) {
+                filtered_menu.add(me);
+            }
+        }
+        return filtered_menu;
+
+    }
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:

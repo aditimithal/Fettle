@@ -4,8 +4,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -13,6 +16,7 @@ import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import fettle.iiitd.com.fettle.Adapters.RestrauntMenuAdapter;
 import fettle.iiitd.com.fettle.Classes.Menu;
@@ -24,6 +28,8 @@ import fettle.iiitd.com.fettle.R;
 public class RestrauntMenuList extends AppCompatActivity {
     private static final String TAG = "RestaurnatMenuList";
     RestrauntMenuAdapter cList;
+    List<Menu> menu = new ArrayList<>();
+    String restaurant;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -35,15 +41,11 @@ public class RestrauntMenuList extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        List<Menu> menu = new ArrayList<>();
-        Menu r1 = new Menu();
-        menu.add(r1);
-        menu.add(r1);
-
-        String restaurant = getIntent().getStringExtra("restaurant");
+        restaurant = getIntent().getStringExtra("restaurant");
         String category = getIntent().getStringExtra("category");
         Log.d(TAG, initList(restaurant, category).toString());
         menu = initList(restaurant, category);
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.menu_recyclerview);
         // use a linear layout manager
@@ -51,6 +53,38 @@ public class RestrauntMenuList extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         cList = new RestrauntMenuAdapter(this, restaurant, menu);
         mRecyclerView.setAdapter(cList);
+
+        final EditText filterrestraunt = (EditText) findViewById(R.id.filter_menu);
+        filterrestraunt.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+                // TODO Auto-generated method stub
+                String text = filterrestraunt.getText().toString().toLowerCase(Locale.getDefault());
+                if (text.equals("")) {
+                    cList = new RestrauntMenuAdapter(RestrauntMenuList.this, restaurant, menu);
+                    mRecyclerView.setAdapter(cList);
+                } else {
+                    List<Menu> filtered_menu = new ArrayList<Menu>();
+                    filtered_menu.addAll(returnfilteredList(text, menu));
+                    cList = new RestrauntMenuAdapter(RestrauntMenuList.this, restaurant, filtered_menu);
+                    mRecyclerView.setAdapter(cList);
+                }
+//                cList.getFilter().filter(text);
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1,
+                                          int arg2, int arg3) {
+                // TODO Auto-generated method stub
+            }
+
+            @Override
+            public void onTextChanged(CharSequence arg0, int arg1, int arg2,
+                                      int arg3) {
+                // TODO Auto-generated method stub
+            }
+        });
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -61,6 +95,19 @@ public class RestrauntMenuList extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public List<Menu> returnfilteredList(String text, List<Menu> menu) {
+        List<Menu> filtered_menu = new ArrayList<>();
+        for (Menu me : menu) {
+            if (me.getName() != null) {
+                if (me.getName().toLowerCase().contains(text.toLowerCase())) {
+                    filtered_menu.add(me);
+                }
+            }
+        }
+        return filtered_menu;
+
     }
 
     private List<Menu> initList(String restaurant, String category) {
