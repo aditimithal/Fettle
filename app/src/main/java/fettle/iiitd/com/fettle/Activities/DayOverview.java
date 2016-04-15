@@ -7,6 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+
+import com.viewpagerindicator.CirclePageIndicator;
 
 import fettle.iiitd.com.fettle.Fragments.CaloriesOverview;
 import fettle.iiitd.com.fettle.Fragments.ExerciesOverview;
@@ -37,14 +41,28 @@ public class DayOverview extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_overview);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
-//        getsetSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+        toolbar.setTitle("Overview");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        toolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+//        setSupportActionBar(toolbar);
 
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
+
+        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
+        indicator.setViewPager(mPager);
+        indicator.setFillColor(R.color.colorPrimaryDark);
         if (getIntent().getBooleanExtra("exercise", false))
             mPager.setCurrentItem(1);
     }

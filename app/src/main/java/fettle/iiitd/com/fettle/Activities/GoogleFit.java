@@ -70,9 +70,9 @@ public class GoogleFit extends AppCompatActivity {
                 // datapoints each consisting of a few steps and a timestamp.  The more likely
                 // scenario is wanting to see how many steps were walked per day, for 7 days.
                 .aggregate(DataType.TYPE_STEP_COUNT_DELTA, DataType.AGGREGATE_STEP_COUNT_DELTA)
-                // Analogous to a "Group By" in SQL, defines how data should be aggregated.
-                // bucketByTime allows for a time span, whereas bucketBySession would allow
-                // bucketing by "sessions", which would need to be defined in code.
+                        // Analogous to a "Group By" in SQL, defines how data should be aggregated.
+                        // bucketByTime allows for a time span, whereas bucketBySession would allow
+                        // bucketing by "sessions", which would need to be defined in code.
                 .bucketByTime(1, TimeUnit.DAYS)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
@@ -102,9 +102,9 @@ public class GoogleFit extends AppCompatActivity {
                 // datapoints each consisting of a few steps and a timestamp.  The more likely
                 // scenario is wanting to see how many steps were walked per day, for 7 days.
                 .aggregate(DataType.TYPE_ACTIVITY_SEGMENT, DataType.AGGREGATE_ACTIVITY_SUMMARY)
-                // Analogous to a "Group By" in SQL, defines how data should be aggregated.
-                // bucketByTime allows for a time span, whereas bucketBySession would allow
-                // bucketing by "sessions", which would need to be defined in code.
+                        // Analogous to a "Group By" in SQL, defines how data should be aggregated.
+                        // bucketByTime allows for a time span, whereas bucketBySession would allow
+                        // bucketing by "sessions", which would need to be defined in code.
                 .bucketByTime(1, TimeUnit.DAYS)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();
@@ -136,9 +136,9 @@ public class GoogleFit extends AppCompatActivity {
                 // datapoints each consisting of a few steps and a timestamp.  The more likely
                 // scenario is wanting to see how many steps were walked per day, for 7 days.
                 .aggregate(DataType.TYPE_CALORIES_EXPENDED, DataType.AGGREGATE_CALORIES_EXPENDED)
-                // Analogous to a "Group By" in SQL, defines how data should be aggregated.
-                // bucketByTime allows for a time span, whereas bucketBySession would allow
-                // bucketing by "sessions", which would need to be defined in code.
+                        // Analogous to a "Group By" in SQL, defines how data should be aggregated.
+                        // bucketByTime allows for a time span, whereas bucketBySession would allow
+                        // bucketing by "sessions", which would need to be defined in code.
                 .bucketByTime(1, TimeUnit.DAYS)
                 .setTimeRange(startTime, endTime, TimeUnit.MILLISECONDS)
                 .build();

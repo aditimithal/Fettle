@@ -18,6 +18,7 @@
 
     <item name="green" type="color">#99C51E</item>
     <item name="blue" type="color">#1E94C5</item>
+    <item name="white" type="color">#FFFFFF</item>
 
 
 </resources>
