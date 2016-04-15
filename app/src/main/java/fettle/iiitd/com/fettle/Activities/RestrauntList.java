@@ -57,6 +57,8 @@ public class RestrauntList extends AppCompatActivity {
         cList = new RestrauntListAdapter(this, category, menu);
         mRecyclerView.setAdapter(cList);
 
+//        cList.getFilter().filter("p");
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

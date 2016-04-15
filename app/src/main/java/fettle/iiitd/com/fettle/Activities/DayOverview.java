@@ -37,6 +37,9 @@ public class DayOverview extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day_overview);
 
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
+//        getsetSupportActionBar(toolbar);
+
 
         // Instantiate a ViewPager and a PagerAdapter.
         mPager = (ViewPager) findViewById(R.id.pager);

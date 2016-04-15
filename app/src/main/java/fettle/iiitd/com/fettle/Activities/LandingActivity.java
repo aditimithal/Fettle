@@ -83,6 +83,19 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
 
+        buildFitnessClient();
+
+
+        List<Object> fitlog = new ArrayList<>();
+        GoogleFit googlefit = new GoogleFit(mGoogleApiClient);
+        if (googlefit.getFitnessData() != null) {
+            fitlog.addAll(googlefit.getFitnessData());
+            Log.d("mclient", fitlog.toString());
+        } else {
+            Log.d("mclient", "null");
+        }
+
+
 //        FloatingActionButton order = (FloatingActionButton) findViewById(R.id.fab1);
 //        order.setLabelText("home");
 //        order.setLabelTextColor(ContextCompat.getColor(this,R.color.blue));
@@ -119,17 +132,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-        buildFitnessClient();
 
-
-        List<Object> fitlog = new ArrayList<>();
-        GoogleFit googlefit = new GoogleFit(mGoogleApiClient);
-        if (googlefit.getFitnessData() != null) {
-            fitlog.addAll(googlefit.getFitnessData());
-            Log.d("mclient", fitlog.toString());
-        } else {
-            Log.d("mclient", "null");
-        }
 
         /*TODO you get stepdata class object and exercisedata class object in fitlog arraylist.
         Check if it shows correctly,I would have checked but there is no data on mine ,
@@ -167,6 +170,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                             @Override
                             public void onConnected(Bundle bundle) {
                                 Log.d(TAG, "Connected!!!");
+                                GoogleFit gf = new GoogleFit(mGoogleApiClient);
+                                Log.d(TAG, gf.getFitnessData().toString());
+                                Log.d(TAG, "hi");
+
                             }
 
                             @Override
@@ -200,6 +207,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(myIntent);
         }
         if (v.getId() == R.id.fab1) {
+            GoogleFit gf = new GoogleFit(mGoogleApiClient);
+            Log.d(TAG, gf.getFitnessData().toString());
+            Log.d(TAG, "hi");
             ((FloatingActionMenu) (findViewById(R.id.fab))).close(true);
             final String[] items = {"Breakfast", "Lunch", "Dinner"};
 
