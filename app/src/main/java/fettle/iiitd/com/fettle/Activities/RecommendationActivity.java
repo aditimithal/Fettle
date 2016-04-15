@@ -71,11 +71,11 @@ public class RecommendationActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         for (ParseObject each : parseObjectList) {
-            Menu menu = new Menu(each.getString("name"), each.getInt("cal"));
-            menu.setCarb(each.getInt("carb"));
-            menu.setFat(each.getInt("fat"));
-            menu.setFiber(each.getInt("fiber"));
-            menu.setProtein(each.getInt("protein"));
+            Menu menu = new Menu(each.getString("name"), (int) Float.parseFloat(each.getString("cal")));
+            menu.setCarb((int) each.getDouble("carbFloat"));
+            menu.setFat((int) each.getDouble("fatFloat"));
+            menu.setFiber((int) each.getDouble("fiberFloat"));
+            menu.setProtein((int) each.getDouble("proteinFloat"));
             list.add(menu);
         }
         return list;
