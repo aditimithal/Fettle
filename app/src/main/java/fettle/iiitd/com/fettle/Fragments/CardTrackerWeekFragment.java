@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.util.Calendar;
 
 import fettle.iiitd.com.fettle.Activities.DayOverview;
+import fettle.iiitd.com.fettle.Activities.LandingActivity;
 import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
@@ -29,9 +30,15 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
     private int value2 = 7;
     private String[] days = {"M", "T", "W", "T", "F", "Sa", "Su"};
     private LinearLayout[] lls = new LinearLayout[7];
+    private LandingActivity.AddedListener mAddedListener;
 
     public CardTrackerWeekFragment() {
         // Required empty public constructor
+    }
+
+    public CardTrackerWeekFragment(LandingActivity.AddedListener addedListener) {
+        // Required empty public constructor
+        this.mAddedListener = addedListener;
     }
 
     @Override
@@ -79,6 +86,8 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
 
         getActivity().findViewById(R.id.more_tracker_week).setOnClickListener(this);
 
+        LandingActivity.added2 = true;
+        mAddedListener.isAdded(true);
 
     }
 
@@ -91,7 +100,7 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
      * @param progressesExercise1
      * @param progressesExercise2
      */
-    public void setProgresses(int[] progressesExercise1, int[] progressesExercise2) {
+    public void setProgress(int[] progressesExercise1, int[] progressesExercise2) {
         for (int i = 0; i < 7; i++) {
             setProgress(i, progressesExercise1[i], progressesExercise2[i]);
         }
@@ -110,4 +119,12 @@ public class CardTrackerWeekFragment extends Fragment implements View.OnClickLis
             startActivity(intent);
         }
     }
+
+    @Override
+    public void onStop() {
+        LandingActivity.added2 = false;
+        mAddedListener.isAdded(false);
+        super.onStop();
+    }
+
 }

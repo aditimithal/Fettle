@@ -57,6 +57,8 @@ public class AddFoodActivity extends AppCompatActivity {
 
         dishes = new ArrayList<>();
 
+        initlist();
+
         GridLayoutManager lLayout = new GridLayoutManager(AddFoodActivity.this, 2);
 
         RecyclerView rView = (RecyclerView) findViewById(R.id.myList);
@@ -65,6 +67,21 @@ public class AddFoodActivity extends AppCompatActivity {
 
         rcAdapter = new CardArrayRecyclerViewAdapter(AddFoodActivity.this, dishes);
         rView.setAdapter(rcAdapter);
+    }
+
+    private void initlist() {
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("IndianDishes");
+        query.whereContainedIn("objectId",Arrays.asList(new String[]{"PY5Bfv6NUC","PY5Bfv6NUC","PY5Bfv6NUC","sHDyJwZWMX","XxmHK62ZpD","Q21Hks2xra","PYatpWxzCA","IZPFNkrVG0","ubVKXxk5bq","Hrn6GK5TT2"}));
+        List<ParseObject> lPo = new ArrayList<>();
+        try {
+            lPo = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        for (ParseObject each : lPo) {
+            dishes.add(new Dish(each));
+        }
     }
 
     private void createDialog(int position, int runcal, int walkcal, Bitmap standing, Bitmap workout) {
@@ -221,8 +238,8 @@ public class AddFoodActivity extends AppCompatActivity {
 
     public void onSearchClick(View view) {
         ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("IndianDishes");
-        String subString = ((EditText) findViewById(R.id.etSearch)).getText().toString();
-        query.whereContains("name", subString);
+        String subString = ((EditText) findViewById(R.id.etSearch)).getText().toString().trim();
+        query.whereContains("name", subString.toLowerCase());
         query.setLimit(30);
         List<ParseObject> lPo = new ArrayList<>();
         try {
@@ -268,20 +285,18 @@ public class AddFoodActivity extends AppCompatActivity {
             inflater = LayoutInflater.from(context);
         }
 
-
         @Override
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             return new CardListViewHolder(inflater.inflate(R.layout.addfood_item_cell, parent, false));
-
         }
 
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
             if (foods.get(position).getName().startsWith("Calories"))
-                ((CardListViewHolder) holder).tvName.setText(foods.get(position).getName().substring(12));
+                ((CardListViewHolder) holder).tvName.setText(Utils.toTitleCase(foods.get(position).getName().substring(12)));
             else
-                ((CardListViewHolder) holder).tvName.setText(foods.get(position).getName());
+                ((CardListViewHolder) holder).tvName.setText(Utils.toTitleCase(foods.get(position).getName()));
 
 
             ((CardListViewHolder) holder).linearLayout.setOnClickListener(new View.OnClickListener() //open venuepage of particular foods

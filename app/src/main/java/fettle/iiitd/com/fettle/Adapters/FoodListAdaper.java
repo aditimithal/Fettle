@@ -30,14 +30,12 @@ public class FoodListAdaper extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new UserListViewHolder(inflater.inflate(R.layout.food_item_row, parent, false));
-
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
         ((UserListViewHolder) holder).tvName.setText(messages.get(position).getFoodName());
-        ((UserListViewHolder) holder).tvQuantity.setText(messages.get(position).getQuantity() + " units");
+        ((UserListViewHolder) holder).tvQuantity.setText(messages.get(position).getQuantity() + " " + messages.get(position).getUnit());
         ((UserListViewHolder) holder).tvCalories.setText(messages.get(position).getCalories() + " calories");
     }
 

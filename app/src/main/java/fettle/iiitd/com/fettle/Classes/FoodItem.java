@@ -8,9 +8,18 @@ public class FoodItem {
     String foodName;
     int quantity;
     int calories;
+    String unit;
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 
     public String getFoodName() {
-        return foodName;
+        return Utils.toTitleCase(foodName);
     }
 
     public void setFoodName(String foodName) {

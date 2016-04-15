@@ -69,7 +69,7 @@ public class Menu {
     }
 
     public String getName() {
-        return name;
+        return Utils.toTitleCase(name);
     }
 
     public void setName(String name) {

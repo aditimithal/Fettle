@@ -52,6 +52,7 @@ public class CaloriesOverview extends Fragment {
         ArrayList<FoodItem> menuDinner = new ArrayList<>();
         for (Dish each : dishes) {
             FoodItem item = new FoodItem();
+            item.setUnit(each.getDescription());
             if (each.getName().startsWith("Calories"))
                 item.setFoodName(each.getName().substring(12));
             else
@@ -68,7 +69,7 @@ public class CaloriesOverview extends Fragment {
                 } catch (Exception e) {
                 }
             }
-            item.setQuantity((int) each.getQuantity());
+            item.setQuantity(each.getQuantity());
             item.setCalories((int) (multiplier * Float.parseFloat(each.getCalories())));
 
             if (each.getMeal().equals("Breakfast")) {

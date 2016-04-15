@@ -26,6 +26,7 @@ public class Utils {
     public static final String STAIRS_10_CALORIES_KEY = "stairsTen";
     public static final String BICYCLE_10_CALORIES_KEY = "bicycleTen";
     public static final String PREF_NAME = "Pref";
+    public static final String EXERCISE_PIN = "exerciseToday";
 
     public static float getBmi(int heightInCm, int weight) {
         float height = heightInCm / 100f;
@@ -152,6 +153,38 @@ public class Utils {
     public static int getPref(Context context, String key) {
         SharedPreferences sharedPref = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
         return sharedPref.getInt(key, 0);
+    }
+
+    public static String toTitleCase(String input) {
+        try {
+            StringBuilder titleCase = new StringBuilder();
+            boolean nextTitleCase = true;
+            for (char c : input.toCharArray()) {
+                if (Character.isSpaceChar(c)) {
+                    nextTitleCase = true;
+                } else if (nextTitleCase) {
+                    c = Character.toTitleCase(c);
+                    nextTitleCase = false;
+                }
+                titleCase.append(c);
+            }
+            return titleCase.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return input;
+        }
+    }
+
+    public static int convertDurationToCalories(Context context, String exercise, int durationMin) {
+        Map<String, String> map = new HashMap<>();
+        map.put("Walk", Utils.WALK_10_CALORIES_KEY);
+        map.put("Jog", Utils.RUN_10_CALORIES_KEY);
+        map.put("Stairs", Utils.STAIRS_10_CALORIES_KEY);
+        map.put("Bicycle", Utils.BICYCLE_10_CALORIES_KEY);
+
+        float exercise10 = Utils.getPref(context, map.get(exercise));
+
+        return (int) ((10f / exercise10) * (float) durationMin * 60f);
     }
 
     public static class BmiDate {

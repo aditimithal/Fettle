@@ -46,6 +46,7 @@ import java.util.Date;
 import java.util.List;
 
 import fettle.iiitd.com.fettle.Classes.Dish;
+import fettle.iiitd.com.fettle.Classes.Exercise;
 import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.Fragments.CardIntakeFragment;
@@ -61,6 +62,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     private static final String TAG = "LandingActivity";
     public static boolean updateData = false;
     public static List<Dish> moreDishes = new ArrayList<>();
+    public static List<Exercise> allExercises = new ArrayList<>();
     public static boolean added1 = false;
     public static boolean added2 = false;
     public static boolean added3 = false;
@@ -71,7 +73,8 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     private PagerAdapter mPagerAdapter1;
     private ViewPager mPager2;
     private PagerAdapter mPagerAdapter2;
-    private Fragment fragment1, fragment2;
+    private CardTrackerFragment fragment1;
+    private CardTrackerWeekFragment fragment2;
     private CardIntakeFragment fragment3;
     private CardIntakeNutrientFragment fragment4;
 
@@ -81,6 +84,23 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_landing);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("IndianDishes");
+        query.setLimit(1000);
+        List<ParseObject> lPo = new ArrayList<>();
+        try {
+            lPo = query.find();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        for (ParseObject each : lPo) {
+            each.put("name", each.getString("name").toLowerCase());
+        }
+        try {
+            ParseObject.saveAll(lPo);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
 
         buildFitnessClient();
@@ -107,6 +127,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         CirclePageIndicator indicator1 = (CirclePageIndicator) findViewById(R.id.indicator1);
         indicator1.setViewPager(mPager1);
+        indicator1.setFillColor(R.color.primary);
 
         mPager2 = (ViewPager) findViewById(R.id.pager2);
         mPagerAdapter2 = new ScreenSlidePagerAdapter2(getSupportFragmentManager());
@@ -114,6 +135,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
         CirclePageIndicator indicator2 = (CirclePageIndicator) findViewById(R.id.indicator2);
         indicator2.setViewPager(mPager2);
+        indicator2.setFillColor(R.color.primary);
 
         setNavigationDrawer(toolbar);
 
@@ -132,17 +154,9 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
 
-
-
         /*TODO you get stepdata class object and exercisedata class object in fitlog arraylist.
         Check if it shows correctly,I would have checked but there is no data on mine ,
         however I did check it on the sample application on your phone*/
-
-
-
-
-
-
 
 
         //for testing new screens
@@ -173,7 +187,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                                 GoogleFit gf = new GoogleFit(mGoogleApiClient);
                                 Log.d(TAG, gf.getFitnessData().toString());
                                 Log.d(TAG, "hi");
-
                             }
 
                             @Override
@@ -222,7 +235,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                     Intent myIntent = new Intent(LandingActivity.this, FoodOrderCategory.class);
                     startActivity(myIntent);
                     dialog.dismiss();
-                    ;
                 }
             });
             builder.create().show();
@@ -232,7 +244,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
             ((FloatingActionMenu) (findViewById(R.id.fab))).close(true);
             Intent myIntent = new Intent(LandingActivity.this, AddFoodActivity.class);
             startActivity(myIntent);
-
         }
 
     }
@@ -285,6 +296,36 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                 .build();
 
         result.addStickyFooterItem(new PrimaryDrawerItem().withIcon(GoogleMaterial.Icon.gmd_settings).withName("Settings"));
+    }
+
+    public void updateExercise(List<Exercise> exercises) {
+        int progressToday = 0;
+        int exercise1Duration = 0;
+        int exercise2Duration = 0;
+        int progresses1[] = {0, 0, 0, 0, 0, 0, 0};
+        int progresses2[] = {0, 0, 0, 0, 0, 0, 0};
+        for (Exercise exercise : exercises) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(exercise.getDate());
+            int day = (calendar.get(Calendar.DAY_OF_WEEK) + 5) % 7;
+            if (exercise.getExercise().equals(User.getExercise1())) {
+                int progress = (Utils.convertDurationToCalories(this, exercise.getExercise(), exercise.getDuration()) * 100) / (Utils.getPref(this, Utils.DAILY_CALORIE_KEY) / 3);
+                progresses1[day] += progress;
+                if (Calendar.getInstance().get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR)) {
+                    progressToday += progress;
+                    exercise1Duration += exercise.getDuration();
+                }
+            } else if (exercise.getExercise().equals(User.getExercise2())) {
+                int progress = (Utils.convertDurationToCalories(this, exercise.getExercise(), exercise.getDuration()) * 100) / (Utils.getPref(this, Utils.DAILY_CALORIE_KEY) / 3);
+                progresses2[day] += progress;
+                if (Calendar.getInstance().get(Calendar.DAY_OF_YEAR) == calendar.get(Calendar.DAY_OF_YEAR)) {
+                    progressToday += progress;
+                    exercise2Duration += exercise.getDuration();
+                }
+            }
+        }
+        fragment1.updateData(progressToday, exercise1Duration, exercise2Duration);
+        fragment2.setProgress(progresses1, progresses2);
     }
 
     public void updateMeals(List<Dish> lDish) {
@@ -357,9 +398,45 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         Date startDate = calendar.getTime();
         ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("FoodIntake");
         parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
-        parseQuery.whereGreaterThan("createdAt", startDate);
+        parseQuery.whereGreaterThan("CreatedAt", startDate);
 
         return parseQuery;
+    }
+
+    private ParseQuery<ParseObject> getParseQueryForActivityDownload() {
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.add(Calendar.DATE, -6);
+        Date startDate = calendar.getTime();
+        ParseQuery<ParseObject> parseQuery = new ParseQuery<ParseObject>("Activity");
+        parseQuery.whereEqualTo("user", ParseUser.getCurrentUser());
+        parseQuery.whereGreaterThan("CreatedAt", startDate);
+
+        return parseQuery;
+    }
+
+    public void getCachedDataExercise(final boolean update) {
+        List<ParseObject> lPo = new ArrayList<>();
+        final List<Exercise> lExercise = new ArrayList<>();
+        ParseQuery<ParseObject> parseQuery = getParseQueryForActivityDownload();
+        parseQuery.fromLocalDatastore();
+        parseQuery.fromPin();
+        parseQuery.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    for (ParseObject each : objects) {
+                        lExercise.add(new Exercise(each));
+                    }
+                    if (update)
+                        updateExercise(lExercise);
+                    allExercises.clear();
+                    allExercises.addAll(lExercise);
+                    Log.d(TAG, "cached exercise data done");
+                    downloadDataExercise(true);
+                }
+            }
+        });
     }
 
     public void getCachedData(final boolean update) {
@@ -388,7 +465,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     public void downloadData(final boolean update) {
 
-        List<ParseObject> lPo = new ArrayList<>();
         final List<Dish> lDish = new ArrayList<>();
         ParseQuery<ParseObject> parseQuery = getParseQueryForFoodDownload();
         parseQuery.findInBackground(new FindCallback<ParseObject>() {
@@ -414,11 +490,39 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         });
     }
 
+    public void downloadDataExercise(final boolean update) {
+
+        final List<Exercise> lExercises = new ArrayList<>();
+        ParseQuery<ParseObject> parseQuery = getParseQueryForActivityDownload();
+        parseQuery.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if (e == null) {
+                    try {
+                        ParseObject.unpinAll(Utils.EXERCISE_PIN);
+                    } catch (ParseException e1) {
+                        e1.printStackTrace();
+                    }
+                    ParseObject.pinAllInBackground(Utils.EXERCISE_PIN, objects);
+                    for (ParseObject each : objects) {
+                        lExercises.add(new Exercise(each));
+                    }
+                    if (update)
+                        updateExercise(lExercises);
+                    allExercises.clear();
+                    allExercises.addAll(lExercises);
+                    Log.d(TAG, "download data done");
+                }
+            }
+        });
+    }
+
     @Override
     protected void onResume() {
         if (updateData) {
             updateData = false;
             downloadData(true);
+            downloadDataExercise(true); // TODO Manan
         }
         ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
         ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");
@@ -429,7 +533,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         public void isAdded(boolean added);
     }
 
-    private class ScreenSlidePagerAdapter1 extends FragmentStatePagerAdapter {
+    private class ScreenSlidePagerAdapter1 extends FragmentStatePagerAdapter implements AddedListener {
         public ScreenSlidePagerAdapter1(FragmentManager fm) {
             super(fm);
         }
@@ -437,10 +541,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         public Fragment getItem(int position) {
             if (position == 0) {
-                fragment1 = new CardTrackerFragment();
+                fragment1 = new CardTrackerFragment(this);
                 return fragment1;
             } else {
-                fragment2 = new CardTrackerWeekFragment();
+                fragment2 = new CardTrackerWeekFragment(this);
                 return fragment2;
             }
         }
@@ -448,6 +552,17 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         @Override
         public int getCount() {
             return NUM_PAGES1;
+        }
+
+        @Override
+        public void isAdded(boolean added) {
+            if (!added)
+                return;
+            if (added1 && added2) {
+                added1 = false;
+                added2 = false;
+                getCachedDataExercise(true);
+            }
         }
     }
 

@@ -3,7 +3,6 @@ package fettle.iiitd.com.fettle.Fragments;
 import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,10 @@ import android.widget.NumberPicker;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import org.jetbrains.annotations.Nullable;
+
+import fettle.iiitd.com.fettle.Activities.LandingActivity;
+import fettle.iiitd.com.fettle.Classes.Exercise;
 import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
@@ -31,15 +34,22 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    ProgressBar mProgress;
+    TextView exercise1;
+    TextView exercise2;
+    TextView tvPercentageAchieved;
+    private LandingActivity.AddedListener mAddedListener;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
 
     public CardTrackerFragment() {
         // Required empty public constructor
+    }
+
+    public CardTrackerFragment(LandingActivity.AddedListener mAddedListener) {
+        this.mAddedListener = mAddedListener;
     }
 
     /**
@@ -82,6 +92,10 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         im = (ImageView) view.findViewById(R.id.imExercise2);
         im.setImageResource(Utils.getExerciseImageId(User.getExercise2(), false));
 
+        exercise1 = (TextView) view.findViewById(R.id.tvExercise1);
+        exercise2 = (TextView) view.findViewById(R.id.tvExercise2);
+        tvPercentageAchieved = (TextView) view.findViewById(R.id.tvPerc);
+
         initProgress(view);
 
         return view;
@@ -94,14 +108,17 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         Button add_btn = (Button) getActivity().findViewById(R.id.add_activity_btn);
         add_btn.setOnClickListener(this);
 
+        LandingActivity.added1 = true;
+        mAddedListener.isAdded(true);
+
     }
 
     private void initProgress(View view) {
 //        Resources res = getResources();
 //        Drawable drawable = res.getDrawable(R.drawable.background);
-        ProgressBar mProgress = (ProgressBar) view.findViewById(R.id.circularProgressbar);
+        mProgress = (ProgressBar) view.findViewById(R.id.circularProgressbar);
         mProgress.setMax(100); // Maximum Progress
-        setProgress(view, 44, 39);
+        setProgress(view, 10, 0);
 //        mProgress.setProgressDrawable(drawable);
     }
 
@@ -149,7 +166,6 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         dialog.setContentView(R.layout.add_activity_dialog);
         dialog.setTitle("Add Activity");
 
-
         final NumberPicker numberPicker1 = (NumberPicker) dialog.findViewById(R.id.numberPicker1);
         numberPicker1.setMinValue(0);
         numberPicker1.setMaxValue(100);
@@ -196,10 +212,24 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
+                Exercise.uploadActivity(numberPicker.getValue() == 0 ? User.getExercise1() : User.getExercise2(), numberPicker1.getValue());
+                dialog.dismiss();
             }
         });
+    }
+
+    @Override
+    public void onStop() {
+        LandingActivity.added1 = false;
+        mAddedListener.isAdded(false);
+        super.onStop();
+    }
+
+    public void updateData(int progress, int exercise1Duration, int exercise2Duration) {
+        mProgress.setProgress(progress);
+        exercise1.setText(exercise1Duration + " Min");
+        exercise2.setText(exercise2Duration + " Min");
+        tvPercentageAchieved.setText(progress + "%\nachieved");
     }
 
     /**
@@ -216,4 +246,5 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }

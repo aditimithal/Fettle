@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@+id/standing"
+                android:layout_toRightOf="@+id/imExercise1"
                 android:text="50 Mins"
                 android:textSize="22sp" />
         </RelativeLayout>
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:layout_toRightOf="@+id/workout_image"
+                android:layout_toRightOf="@+id/imExercise2"
                 android:text="30 Mins"
                 android:textSize="22sp" />
 

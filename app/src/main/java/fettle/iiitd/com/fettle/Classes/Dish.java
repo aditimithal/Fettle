@@ -125,7 +125,7 @@ public class Dish {
 
             if (po == null)
                 return "";
-            return po.getString("name");
+            return Utils.toTitleCase(po.getString("name"));
         } catch (Exception e) {
             return "";
         }
