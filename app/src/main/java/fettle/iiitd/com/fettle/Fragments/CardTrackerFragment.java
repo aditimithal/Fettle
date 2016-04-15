@@ -1,5 +1,6 @@
 package fettle.iiitd.com.fettle.Fragments;
 
+import android.app.Dialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,7 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.NumberPicker;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
@@ -136,8 +139,67 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         if (v.getId() == R.id.add_activity_btn) {
 
-
+            createDialog();
         }
+    }
+
+    private void createDialog() {
+        // custom dialog
+        final Dialog dialog = new Dialog(getActivity());
+        dialog.setContentView(R.layout.add_activity_dialog);
+        dialog.setTitle("Add Activity");
+
+
+        final NumberPicker numberPicker1 = (NumberPicker) dialog.findViewById(R.id.numberPicker1);
+        numberPicker1.setMinValue(0);
+        numberPicker1.setMaxValue(100);
+        numberPicker1.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+
+            }
+        });
+
+        final NumberPicker numberPicker = (NumberPicker) dialog.findViewById(R.id.numberPicker);
+        numberPicker.setMinValue(0);
+        numberPicker.setMaxValue(1);
+        numberPicker.setDisplayedValues(new String[]{User.getExercise1(), User.getExercise2()});
+        numberPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+
+            }
+        });
+
+        dialog.show();
+
+
+        Button discard, add;
+        TextView tvDish;
+        TextView tvUnits;
+        /*tvDish = (TextView) dialog.findViewById(R.id.tvDish);
+        tvUnits = (TextView) dialog.findViewById(R.id.tvUnits);*/
+//        if(dish.getName().startsWith("Calories"))
+//            tvDish.setText(dish.getName().substring(12));
+//        else
+//            tvDish.setText(dish.getName());
+//        tvUnits.setText(dish.getMeasure()+" "+dish.getDescription()+" = "+dish.getGram()+" grams");
+
+        discard = (Button) dialog.findViewById(R.id.discard);
+        discard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        add = (Button) dialog.findViewById(R.id.add);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
     }
 
     /**

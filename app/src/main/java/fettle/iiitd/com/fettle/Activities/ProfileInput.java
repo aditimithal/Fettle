@@ -29,13 +29,18 @@ import java.util.Map;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
-public class ProfileInput extends AppCompatActivity {
+public class ProfileInput extends AppCompatActivity implements View.OnClickListener {
 //    public static GoogleApiClient mClient = null;
-
+CheckBox male, female;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile_input);
+
+        male = (CheckBox) findViewById(R.id.checkboxMale);
+        female = (CheckBox) findViewById(R.id.checkboxFemale);
+        male.setOnClickListener(this);
+        female.setOnClickListener(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        mClient=buildFitnessClient();
@@ -148,6 +153,15 @@ public class ProfileInput extends AppCompatActivity {
                 .build();
         Log.d("ac", "dd");
         return mClient;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.checkboxMale) {
+            female.setChecked(false);
+        } else if (v.getId() == R.id.checkboxFemale) {
+            male.setChecked(false);
+        }
     }
 
     public class GetTargetWeightTask extends AsyncTask<Void, Void, Void> {
