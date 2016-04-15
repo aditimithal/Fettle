@@ -13,6 +13,7 @@ import com.parse.ParseObject;
 
 import java.util.List;
 
+import fettle.iiitd.com.fettle.Activities.RestrauntMenuList;
 import fettle.iiitd.com.fettle.R;
 
 /**
@@ -41,11 +42,24 @@ public class AddedFoodOrderAdapter extends RecyclerView.Adapter<RecyclerView.Vie
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
 
         ((MenuItemViewHolder) holder).tvDishName.setText(messages.get(position).getString("name"));
         ((MenuItemViewHolder) holder).check.setChecked(true);
+        ((MenuItemViewHolder) holder).check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                CheckBox c = (CheckBox) v;
+                if (c.isChecked()) {
+                    RestrauntMenuList.addedFood.add(messages.get(position));
+                } else {
+                    RestrauntMenuList.addedFood.remove(messages.get(position));
+                }
+
+            }
+        });
 
 
     }

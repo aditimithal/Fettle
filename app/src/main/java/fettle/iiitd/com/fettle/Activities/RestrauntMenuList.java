@@ -40,6 +40,13 @@ public class RestrauntMenuList extends AppCompatActivity implements View.OnClick
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
 
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+//        fab.setText(addedFood.size());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
