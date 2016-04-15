@@ -1,5 +1,6 @@
 package fettle.iiitd.com.fettle.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +9,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 
 import com.parse.ParseException;
@@ -25,11 +30,13 @@ import fettle.iiitd.com.fettle.R;
 /**
  * Created by danishgoel on 21/03/16.
  */
-public class RestrauntMenuList extends AppCompatActivity {
+public class RestrauntMenuList extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "RestaurnatMenuList";
+    public static List<ParseObject> addedFood = new ArrayList<>();
     RestrauntMenuAdapter cList;
     List<Menu> menu = new ArrayList<>();
     String restaurant;
+    Button fab;
     private RecyclerView mRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
 
@@ -41,6 +48,9 @@ public class RestrauntMenuList extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
+        fab = (Button) findViewById(R.id.fab);
+        fab.setOnClickListener(this);
+
         restaurant = getIntent().getStringExtra("restaurant");
         String category = getIntent().getStringExtra("category");
         Log.d(TAG, initList(restaurant, category).toString());
@@ -51,7 +61,7 @@ public class RestrauntMenuList extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        cList = new RestrauntMenuAdapter(this, restaurant, menu);
+        cList = new RestrauntMenuAdapter(this, restaurant, menu, fab);
         mRecyclerView.setAdapter(cList);
 
         final EditText filterrestraunt = (EditText) findViewById(R.id.filter_menu);
@@ -62,12 +72,12 @@ public class RestrauntMenuList extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 String text = filterrestraunt.getText().toString().toLowerCase(Locale.getDefault());
                 if (text.equals("")) {
-                    cList = new RestrauntMenuAdapter(RestrauntMenuList.this, restaurant, menu);
+                    cList = new RestrauntMenuAdapter(RestrauntMenuList.this, restaurant, menu, fab);
                     mRecyclerView.setAdapter(cList);
                 } else {
                     List<Menu> filtered_menu = new ArrayList<Menu>();
                     filtered_menu.addAll(returnfilteredList(text, menu));
-                    cList = new RestrauntMenuAdapter(RestrauntMenuList.this, restaurant, filtered_menu);
+                    cList = new RestrauntMenuAdapter(RestrauntMenuList.this, restaurant, filtered_menu, fab);
                     mRecyclerView.setAdapter(cList);
                 }
 //                cList.getFilter().filter(text);
@@ -134,5 +144,16 @@ public class RestrauntMenuList extends AppCompatActivity {
             lMenu.add(menu);
         }
         return lMenu;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab) {
+            Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+            v.startAnimation(shake);
+            addedFood.addAll(cList.getAddedFood());
+            startActivity(new Intent(RestrauntMenuList.this, AddedFoodOrderItems.class));
+
+        }
     }
 }

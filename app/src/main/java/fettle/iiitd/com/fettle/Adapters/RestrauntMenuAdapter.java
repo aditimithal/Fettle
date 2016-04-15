@@ -2,18 +2,18 @@ package fettle.iiitd.com.fettle.Adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -30,17 +30,24 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     private final int VIEW_HEADER = 0;
     private final int VIEW_CARD = 1;
+    Button fab;
+    List<ParseObject> addedFood = new ArrayList<>();
     private List<Menu> messages;
     private LayoutInflater inflater = null;
     private String restaurant;
     private Context context;
 
-    public RestrauntMenuAdapter(Context context, String restaurant, List<Menu> messages) {
+    public RestrauntMenuAdapter(Context context, String restaurant, List<Menu> messages, Button fab) {
         messages.add(0, new Menu());
         this.messages = messages;
         this.restaurant = restaurant;
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.fab = fab;
+    }
+
+    public List<ParseObject> getAddedFood() {
+        return addedFood;
     }
 
     @Override
@@ -98,15 +105,18 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
                     parseObject.put("protein", menu.getProtein() + "");
                     parseObject.put("meal", LandingActivity.meal);
                     parseObject.put("CreatedAt", Calendar.getInstance().getTime());
-                    try {
-                        parseObject.saveEventually();
-                        parseObject.pin("today");
-                    } catch (Exception e) {
-                        Log.e("MenuItemClick", e.getMessage(), e);
-                        e.printStackTrace();
-                    } finally {
-                        Toast.makeText(context, "Food item added", Toast.LENGTH_SHORT).show();
-                    }
+                    int itemsAdded = Integer.parseInt(fab.getText().toString()) + 1;
+                    fab.setText(itemsAdded + "");
+                    addedFood.add(parseObject);
+//                    try {
+//                        parseObject.saveEventually();
+//                        parseObject.pin("today");
+//                    } catch (Exception e) {
+//                        Log.e("MenuItemClick", e.getMessage(), e);
+//                        e.printStackTrace();
+//                    } finally {
+//                        Toast.makeText(context, "Food item added", Toast.LENGTH_SHORT).show();
+//                    }
                 }
             });
 
