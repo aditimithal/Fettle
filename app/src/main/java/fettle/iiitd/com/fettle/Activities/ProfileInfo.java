@@ -27,6 +27,7 @@ import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.parse.ParseUser;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +67,7 @@ public class ProfileInfo extends AppCompatActivity implements
             ParseUser user = ParseUser.getCurrentUser();
             ((TextView) findViewById(R.id.weight)).setText(User.getWeight() + "kg");
             ((TextView) findViewById(R.id.height)).setText(User.getHeight() + "cm");
-            ((TextView) findViewById(R.id.exercise)).setText(user.getString("exercise"));
+            ((TextView) findViewById(R.id.bmi)).setText((new DecimalFormat("#.##")).format(User.getBmi()) + "");
             ((TextView) findViewById(R.id.name)).setText(User.getName());
         } catch (Exception e) {
 
@@ -189,10 +190,9 @@ public class ProfileInfo extends AppCompatActivity implements
     @Override
     protected void onResume() {
         try {
-            ParseUser user = ParseUser.getCurrentUser();
-            ((TextView) findViewById(R.id.weight)).setText(user.getInt("weight") + "kg");
-            ((TextView) findViewById(R.id.height)).setText(user.getInt("height") + "cm");
-            ((TextView) findViewById(R.id.exercise)).setText(user.getString("exercise"));
+            ((TextView) findViewById(R.id.weight)).setText(User.getWeight() + "kg");
+            ((TextView) findViewById(R.id.height)).setText(User.getHeight() + "cm");
+            ((TextView) findViewById(R.id.bmi)).setText((new DecimalFormat("#.##")).format(User.getBmi()) + "");
         } catch (Exception e) {
 
         }

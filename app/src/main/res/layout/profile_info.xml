@@ -106,15 +106,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="Weight"
+                    android:text="BMI"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/exercise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Exercise"
+                    android:text="Weight"
                     android:textSize="16sp" />
             </RelativeLayout>
 
@@ -135,19 +134,20 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/weight"
+                    android:id="@+id/bmi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
-                    android:text="62kg"
+                    android:text="18"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/weight"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="Gym"
+                    android:text="60kg"
                     android:textSize="16sp"
                     android:textStyle="bold" />
             </RelativeLayout>

@@ -297,14 +297,6 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
-                            ParseQuery query = new ParseQuery("FoodIntake");
-                            query.fromLocalDatastore();
-                            query.fromPin("today");
-                            try {
-                                Log.d(TAG, query.find().size() + "clear size");
-                            } catch (ParseException e) {
-                                e.printStackTrace();
-                            }
                             ParseUser.logOut();
                             finish();
                         }
