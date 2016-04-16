@@ -62,6 +62,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     private static final String TAG = "LandingActivity";
     public static boolean updateData = false;
     public static boolean updateDataExercise = false;
+    public static boolean updateExerciseImages = false;
     public static List<Dish> moreDishes = new ArrayList<>();
     public static List<Exercise> allExercises = new ArrayList<>();
     public static boolean added1 = false;
@@ -84,28 +85,11 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
+        updateExerciseImages = false;
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("IndianDishes");
-        query.setLimit(1000);
-        List<ParseObject> lPo = new ArrayList<>();
-        try {
-            lPo = query.find();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        for (ParseObject each : lPo) {
-            each.put("name", each.getString("name").toLowerCase());
-        }
-        try {
-            ParseObject.saveAll(lPo);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-
         buildFitnessClient();
-
 
         List<Object> fitlog = new ArrayList<>();
         GoogleFit googlefit = new GoogleFit(mGoogleApiClient);
@@ -543,6 +527,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         if (updateData) {
             updateData = false;
             getCachedData(true);
+        }
+        if (updateExerciseImages) {
+            updateExerciseImages = false;
+            mPager1.setAdapter(mPagerAdapter1);
         }
         ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
         ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");

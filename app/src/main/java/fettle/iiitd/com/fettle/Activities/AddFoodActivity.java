@@ -43,8 +43,13 @@ public class AddFoodActivity extends AppCompatActivity {
 
     private static final String TAG = "AddFoodActivity";
     CardArrayRecyclerViewAdapter rcAdapter;
-    ArrayList<String> stringlist;
     List<Dish> dishes;
+    List<Dish> dishesBreakfast = new ArrayList<>();
+    List<Dish> dishesLunch = new ArrayList<>();
+    List<Dish> dishesDinner = new ArrayList<>();
+    List<String> breakfastDishIds = Arrays.asList("PY5Bfv6NUC", "PY5Bfv6NUC", "PY5Bfv6NUC", "sHDyJwZWMX", "XxmHK62ZpD", "Q21Hks2xra", "PYatpWxzCA", "IZPFNkrVG0", "ubVKXxk5bq", "Hrn6GK5TT2");
+    List<String> lunchDishIds = Arrays.asList("PY5Bfv6NUC", "PY5Bfv6NUC", "PY5Bfv6NUC", "sHDyJwZWMX", "XxmHK62ZpD", "Q21Hks2xra", "PYatpWxzCA", "IZPFNkrVG0", "ubVKXxk5bq", "Hrn6GK5TT2");
+    List<String> dinnerDishIds = Arrays.asList("pmKwIxRw69", "PY5Bfv6NUC", "PY5Bfv6NUC", "sHDyJwZWMX", "XxmHK62ZpD", "Q21Hks2xra", "PYatpWxzCA", "IZPFNkrVG0", "ubVKXxk5bq", "Hrn6GK5TT2");
     private List<String> meals = Arrays.asList(new String[]{"Breakfast", "Lunch", "Dinner"});
     private int[] drawables = new int[]{R.drawable.breakfast, R.drawable.lunch, R.drawable.dinner};
 
@@ -70,9 +75,17 @@ public class AddFoodActivity extends AppCompatActivity {
     }
 
     private void initlist() {
-        ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("IndianDishes");
-        query.whereContainedIn("objectId",Arrays.asList(new String[]{"PY5Bfv6NUC","PY5Bfv6NUC","PY5Bfv6NUC","sHDyJwZWMX","XxmHK62ZpD","Q21Hks2xra","PYatpWxzCA","IZPFNkrVG0","ubVKXxk5bq","Hrn6GK5TT2"}));
-        List<ParseObject> lPo = new ArrayList<>();
+        ParseQuery<ParseObject> query;
+        List<ParseObject> lPo;
+
+        //breakfast
+        query = new ParseQuery<ParseObject>("IndianDishes");
+        List<String> ids = new ArrayList<>();
+        ids.addAll(breakfastDishIds);
+        ids.addAll(lunchDishIds);
+        ids.addAll(dinnerDishIds);
+        query.whereContainedIn("objectId", ids);
+        lPo = new ArrayList<>();
         try {
             lPo = query.find();
         } catch (ParseException e) {
@@ -81,7 +94,14 @@ public class AddFoodActivity extends AppCompatActivity {
 
         for (ParseObject each : lPo) {
             dishes.add(new Dish(each));
+            if (breakfastDishIds.contains(each.getObjectId()))
+                dishesBreakfast.add(new Dish(each));
+            if (lunchDishIds.contains(each.getObjectId()))
+                dishesLunch.add(new Dish(each));
+            if (dinnerDishIds.contains(each.getObjectId()))
+                dishesDinner.add(new Dish(each));
         }
+
     }
 
     private void createDialog(int position, int runcal, int walkcal, Bitmap standing, Bitmap workout) {
@@ -234,6 +254,21 @@ public class AddFoodActivity extends AppCompatActivity {
         tv.setText(meals.get(requiredIndex));
         ImageView im = (ImageView) findViewById(R.id.imMeal);
         im.setImageResource(drawables[requiredIndex]);
+
+        //change dishes
+        dishes.clear();
+        switch (requiredIndex) {
+            case 0:
+                dishes.addAll(dishesBreakfast);
+                break;
+            case 1:
+                dishes.addAll(dishesLunch);
+                break;
+            case 2:
+                dishes.addAll(dishesDinner);
+                break;
+        }
+        rcAdapter.notifyDataSetChanged();
     }
 
     public void onSearchClick(View view) {

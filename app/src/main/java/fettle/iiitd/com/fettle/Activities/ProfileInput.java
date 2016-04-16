@@ -26,12 +26,14 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import fettle.iiitd.com.fettle.Classes.User;
 import fettle.iiitd.com.fettle.Classes.Utils;
 import fettle.iiitd.com.fettle.R;
 
 public class ProfileInput extends AppCompatActivity implements View.OnClickListener {
-//    public static GoogleApiClient mClient = null;
-CheckBox male, female;
+    //    public static GoogleApiClient mClient = null;
+    CheckBox male, female;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +77,6 @@ CheckBox male, female;
         }
     }
 
-
     public void onUpdate(View view) {
         String name = ((EditText) findViewById(R.id.input_name)).getText().toString();
         int age = Integer.parseInt(((EditText) findViewById(R.id.input_age)).getText().toString());
@@ -100,6 +101,9 @@ CheckBox male, female;
             parseObject.put("CreatedAt", Calendar.getInstance().getTime());
             parseObject.saveEventually();
         }
+
+        if (!exercise1.equals(User.getExercise1()) || !exercise2.equals(User.getExercise2()))
+            LandingActivity.updateExerciseImages = true;
 
         user.put("name", name);
         user.put("age", age);
