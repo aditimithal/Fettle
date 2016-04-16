@@ -276,8 +276,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                                 new SecondaryDrawerItem().withName("My Profile").withLevel(2).withIcon(GoogleMaterial.Icon.gmd_chart).withIdentifier(2001)
                         ),
                         new DividerDrawerItem(),
+                        //TODO if report or rate us is removed, then change logout position in on click listener
                         new PrimaryDrawerItem().withName("Rate Us").withIcon(GoogleMaterial.Icon.gmd_star).withIdentifier(1).withSelectable(false),
-                        new PrimaryDrawerItem().withName("Report").withIcon(GoogleMaterial.Icon.gmd_block).withIdentifier(1).withSelectable(false)
+                        new PrimaryDrawerItem().withName("Report").withIcon(GoogleMaterial.Icon.gmd_block).withIdentifier(1).withSelectable(false),
+                        new PrimaryDrawerItem().withName("Log out").withIcon(GoogleMaterial.Icon.gmd_power_off).withIdentifier(7).withSelectable(false)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -289,8 +291,23 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
                         } else if (position == 5) {
                             Intent myIntent = new Intent(LandingActivity.this, ProfileInfo.class);
                             startActivity(myIntent);
+                        } else if (position == 7) {
+                            try {
+                                ParseObject.unpinAll();
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            ParseQuery query = new ParseQuery("FoodIntake");
+                            query.fromLocalDatastore();
+                            query.fromPin("today");
+                            try {
+                                Log.d(TAG, query.find().size() + "clear size");
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+                            ParseUser.logOut();
+                            finish();
                         }
-//                        Toast.makeText(LandingActivity.this, "" + position, Toast.LENGTH_SHORT).show();
                         return true;
                     }
                 })
