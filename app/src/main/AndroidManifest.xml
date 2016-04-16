@@ -52,7 +52,7 @@
         <activity android:name=".Activities.NewItem"></activity>
         <activity android:name=".Activities.FoodOrderCategory"></activity>
         <activity android:name=".Activities.RecommendationActivity"></activity>
-        <activity android:name=".Activities.AddedFoodOrderItems"></activity>
+        <activity android:name=".Activities.AddedFoodOrderItemsActivity"></activity>
 
 
     </application>

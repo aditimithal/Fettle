@@ -28,10 +28,10 @@ import fettle.iiitd.com.fettle.R;
  */
 public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
+    public static List<ParseObject> addedFood = new ArrayList<>();
     private final int VIEW_HEADER = 0;
     private final int VIEW_CARD = 1;
     Button fab;
-    List<ParseObject> addedFood = new ArrayList<>();
     private List<Menu> messages;
     private LayoutInflater inflater = null;
     private String restaurant;
@@ -44,6 +44,7 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
         inflater = LayoutInflater.from(context);
         this.context = context;
         this.fab = fab;
+        this.addedFood = new ArrayList<>();
     }
 
     public List<ParseObject> getAddedFood() {
@@ -105,9 +106,10 @@ public class RestrauntMenuAdapter extends RecyclerView.Adapter<RecyclerView.View
                     parseObject.put("protein", menu.getProtein() + "");
                     parseObject.put("meal", LandingActivity.meal);
                     parseObject.put("CreatedAt", Calendar.getInstance().getTime());
-                    int itemsAdded = Integer.parseInt(fab.getText().toString()) + 1;
-                    fab.setText(itemsAdded + "");
+//                    int itemsAdded = Integer.parseInt(fab.getText().toString()) + 1;
+//                    fab.setText(itemsAdded + "");
                     addedFood.add(parseObject);
+                    fab.setText(addedFood.size() + "");
 //                    try {
 //                        parseObject.saveEventually();
 //                        parseObject.pin("today");

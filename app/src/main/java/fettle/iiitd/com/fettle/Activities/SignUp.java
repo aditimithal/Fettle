@@ -109,8 +109,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == ACCOUNT_PICKER_REQUEST_CODE) {
-            String mEmail = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
-            handleSignInResult(mEmail);
+            try {
+                String mEmail = data.getStringExtra(AccountManager.KEY_ACCOUNT_NAME);
+                handleSignInResult(mEmail);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         }
 

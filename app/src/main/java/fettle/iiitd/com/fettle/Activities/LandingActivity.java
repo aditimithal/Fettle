@@ -450,11 +450,10 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void getCachedData(final boolean update) {
-        List<ParseObject> lPo = new ArrayList<>();
         final List<Dish> lDish = new ArrayList<>();
         ParseQuery<ParseObject> parseQuery = getParseQueryForFoodDownload();
-        parseQuery.fromLocalDatastore();
-        parseQuery.fromPin();
+//        parseQuery.fromLocalDatastore();
+        parseQuery.fromPin("today");
         parseQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
@@ -528,6 +527,14 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     @Override
+    public void onBackPressed() {
+        if (((FloatingActionMenu) (findViewById(R.id.fab))).isOpened())
+            ((FloatingActionMenu) (findViewById(R.id.fab))).close(true);
+        else
+            super.onBackPressed();
+    }
+
+    @Override
     protected void onResume() {
         /*if (updateDataExercise) {
             updateDataExercise = false;
@@ -535,7 +542,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         }*/
         if (updateData) {
             updateData = false;
-            downloadData(true);
+            getCachedData(true);
         }
         ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
         ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");

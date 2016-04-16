@@ -48,6 +48,12 @@ public class RestrauntMenuList extends AppCompatActivity implements View.OnClick
     }
 
     @Override
+    protected void onResume() {
+        fab.setText(addedFood.size() + "");
+        super.onResume();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.restraunt_menu);
@@ -62,7 +68,6 @@ public class RestrauntMenuList extends AppCompatActivity implements View.OnClick
         String category = getIntent().getStringExtra("category");
         Log.d(TAG, initList(restaurant, category).toString());
         menu = initList(restaurant, category);
-
 
         mRecyclerView = (RecyclerView) findViewById(R.id.menu_recyclerview);
         // use a linear layout manager
@@ -158,9 +163,16 @@ public class RestrauntMenuList extends AppCompatActivity implements View.OnClick
         if (v.getId() == R.id.fab) {
             Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
             v.startAnimation(shake);
+            addedFood.clear();
             addedFood.addAll(cList.getAddedFood());
-            startActivity(new Intent(RestrauntMenuList.this, AddedFoodOrderItems.class));
-
+            startActivity(new Intent(RestrauntMenuList.this, AddedFoodOrderItemsActivity.class));
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (cList.getAddedFood().size() > 0)
+            onClick(fab);
+        super.onBackPressed();
     }
 }
