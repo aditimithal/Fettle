@@ -61,6 +61,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
     private static final int NUM_PAGES2 = 2;
     private static final String TAG = "LandingActivity";
     public static boolean updateData = false;
+    public static boolean updateDataExercise = false;
     public static List<Dish> moreDishes = new ArrayList<>();
     public static List<Exercise> allExercises = new ArrayList<>();
     public static boolean added1 = false;
@@ -420,7 +421,7 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
         final List<Exercise> lExercise = new ArrayList<>();
         ParseQuery<ParseObject> parseQuery = getParseQueryForActivityDownload();
         parseQuery.fromLocalDatastore();
-        parseQuery.fromPin();
+        parseQuery.fromPin(Utils.EXERCISE_PIN);
         parseQuery.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
@@ -519,10 +520,13 @@ public class LandingActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     protected void onResume() {
+        /*if (updateDataExercise) {
+            updateDataExercise = false;
+            getCachedDataExercise(true);
+        }*/
         if (updateData) {
             updateData = false;
             downloadData(true);
-            downloadDataExercise(true); // TODO Manan
         }
         ((TextView) findViewById(R.id.tvHeight)).setText(ParseUser.getCurrentUser().getInt("height") + "cm");
         ((TextView) findViewById(R.id.tvWeight)).setText(ParseUser.getCurrentUser().getInt("weight") + "kg");

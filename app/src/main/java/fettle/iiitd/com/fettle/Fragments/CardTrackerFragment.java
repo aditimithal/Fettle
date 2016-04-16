@@ -189,7 +189,6 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
 
         dialog.show();
 
-
         Button discard, add;
         TextView tvDish;
         TextView tvUnits;
@@ -213,6 +212,12 @@ public class CardTrackerFragment extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 Exercise.uploadActivity(numberPicker.getValue() == 0 ? User.getExercise1() : User.getExercise2(), numberPicker1.getValue());
+                LandingActivity.updateDataExercise = true;
+                try {
+                    ((LandingActivity) getActivity()).getCachedDataExercise(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 dialog.dismiss();
             }
         });

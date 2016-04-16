@@ -70,7 +70,8 @@
                 android:background="@drawable/border"
                 android:padding="8dp"
                 android:text="My Account"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
